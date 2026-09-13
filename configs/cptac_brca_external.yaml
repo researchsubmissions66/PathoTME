@@ -1,0 +1,24 @@
+cohort: CPTAC_BRCA
+status: ready
+cohort_policy: PDC-annotated primary tumors only; exact TCIA sample mapping; mixed, conflicting, normal and unidentified specimens excluded
+patients: 98
+slides: 98
+patient_class_counts: {IDC: 88, ILC: 10}
+label_dict: {IDC: 0, ILC: 1}
+backbone: conch
+feature_space_id: hf:MahmoodLab/conch
+feature_dim: 512
+representation: shared_embedding
+magnifications: {low: 5x, high: 10x}
+patch_sizes: {low: 512, high: 256}
+fit_on_target: false
+manifest: ${PATHOTME_DATA_ROOT}/external/cptac_brca/v1/manifest.csv
+manifest_sha256: ce5fca5d7b9712562f0e6e1b1476d484ecb3bedad74cf59bf84e977810bb14c8
+label_source: ${PATHOTME_DATA_ROOT}/external/cptac_brca/v1/pdc_clinical.json
+label_source_sha256: 470d7d3a3b9530ae625a774e27c168026b79bf1d73c8f08f98dc27c3cda93dae
+label_metadata: ${PATHOTME_DATA_ROOT}/external/cptac_brca/v1/metadata.json
+feature_audit: ${PATHOTME_DATA_ROOT}/external/cptac_brca/v1/feature_audit.json
+feature_audit_sha256: 79adf415d4abd0e3b40db5bbf25bfa1951c3d2e2160ea4472233a3e063b3afaa
+runtime_encoder_checkpoint_sha256: 40a9644b9ba0e83a74576e0a5e5f7313599fa9c9cdaf3c20f8a3e271b0e9ae7c
+historical_extraction_checkpoint_sha256: null
+feature_provenance_boundary: CONCH-v1 names and geometry verified in HDF5; historical extraction checkpoint digests were not recorded. Runtime digest does not attest historical extraction.

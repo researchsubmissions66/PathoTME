@@ -1,0 +1,52 @@
+experiment: vila_mil_tme_guided_nsclc_16shot
+description: >-
+  PathoTME extension in which slide-specific quantitative OpenTME tokens
+  condition the learned image-center queries of a frozen, validation-selected
+  native ViLa-MIL checkpoint before its existing low/high patch attention.
+  This is not an upstream ViLa-MIL reproduction.
+
+pgvl_root: ${PGVL_REPO_ROOT}
+base_config: ${PGVL_REPO_ROOT}/benchmarks/tcga_nsclc/configs/vila_mil/nsclc_16shot.yaml
+base_checkpoint_dir: ${PGVL_REPO_ROOT}/results/tcga_benchmark/vila_mil/nsclc/16shot
+selected_features_csv: ${PATHOTME_DATA_ROOT}/processed/opentme_nsclc_core62.csv
+results_root: ${PATHOTME_RESULTS_ROOT}/vila_mil_tme_guided/nsclc/16shot
+
+# Folds 1 and 4 contain one of the two PGVL slides unavailable in OpenTME.
+# They are not silently reduced; a later five-fold run must use a regenerated
+# common slide universe for both native and extended methods.
+exact_coverage_folds: [0, 2, 3]
+seed: 1
+
+model:
+  raw_feature_count: 62
+  tokenization: semantic_5_low_11_high_v1
+  hidden_dim: 128
+  attention_heads: 4
+  dropout: 0.10
+  initial_gate: 0.10
+  base_model_policy: frozen_validation_selected_native_vila
+  prompt_policy: unchanged_upstream_vila_nsclc_bank
+
+training:
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.00001
+  epochs: 200
+  checkpoint_monitor: val_error
+  early_stopping_patience: 20
+  early_stopping_min_epoch: 80
+  allowed_tme_modes: [actual, zero]
+
+comparison_contract:
+  fixed_across_conditions:
+    - native ViLa-MIL fold checkpoint
+    - CLIP-RN50 5x and 10x feature bags
+    - upstream ViLa-MIL NSCLC low/high prompt bank
+    - train, validation, and diagnostic holdout membership
+    - label and class order
+    - optimizer, learning rate, epoch cap, and validation monitor
+  changed_in_actual_condition:
+    - slide-specific quantitative TME tokens condition image-center queries
+  zero_control: >-
+    Uses the identical adapter and parameter count, but replaces standardized
+    slide-specific TME values with zeros before tokenization.

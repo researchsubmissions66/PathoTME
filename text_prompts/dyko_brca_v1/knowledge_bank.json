@@ -1,0 +1,718 @@
+{
+  "version": "pathotme_dyko_brca_morphology64_v1",
+  "cohort": "TCGA-BRCA",
+  "created_date": "2026-09-12",
+  "author": "Codex assistant; exact endpoint/revision not independently attested",
+  "authorship": "64 individually authored descriptions; not template combinations or endpoint samples",
+  "selection_basis": "Cover visual architecture, discohesion, cytology, stroma and background visible in breast H&E; fixed before any DyKo BRCA fitting. Include variable appearances without declaring them exclusive to IDC or ILC.",
+  "limitations": [
+    "Exploratory PathoTME BRCA extension; not a released DyKo BRCA asset.",
+    "64 concepts rather than the released NSCLC bank of 1000; no duplicated padding.",
+    "Concept groups are catalog metadata, not class labels or manual TME-to-text mappings.",
+    "Morphology phrases are observations, not subtype rules or diagnoses.",
+    "No IHC, receptor, mutation, outcome or clinical-history concepts.",
+    "No patient records, images, split membership, TME values or performance scores used to author/select concepts.",
+    "Independent pathology review not performed; source-informed does not mean expert-validated."
+  ],
+  "sources": {
+    "local_hive_brca": {
+      "path": "/path/to/PGVL-Gym/text_prompts/hive_mil/tcga_brca.json",
+      "sha256": "ea7b617475723982c45a45ee552fa0ebe049bf24b963b927711489d0498d9d3a"
+    },
+    "local_maple_brca": {
+      "path": "/path/to/PGVL-Gym/text_prompts/maple/BRCA_attributes.json",
+      "sha256": "2edf3587a5e7e96f6cd06a06863ae66d82f0b40aeb969183a2901eb6415683d6"
+    },
+    "local_slip_brca": {
+      "path": "/path/to/PGVL-Gym/text_prompts/slip/tcga_brca_tissues.json",
+      "sha256": "5e99ea6c6adbf82f81317a079ad9aa0155b77f1637a5c3a4c9a1181e58c60c4b"
+    },
+    "class_prompt_source": {
+      "path": "/path/to/PGVL-Gym/text_prompts/focus/TCGA_BRCA_two_scale_text_prompt.csv",
+      "sha256": "a8bf0709cd4ef0fd7630c6b60bc38743ec079a1097fcb104f779a0a5ff17ded5"
+    },
+    "rcpath_2024": {
+      "url": "https://www.rcpath.org/asset/D255F34C-176A-490D-9B5A7D58AC85F3A6/",
+      "title": "RCPath breast surgical excision dataset, November 2024",
+      "sections": "7.1, 7.2.1, 7.2.2; architecture only; no verbatim excerpts"
+    },
+    "seer_grade": {
+      "url": "https://training.seer.cancer.gov/breast/evaluation/grade.html",
+      "title": "NCI SEER Training: Grade",
+      "use": "Nuclear variability, tubule formation and mitotic activity as morphology axes; no verbatim excerpts"
+    }
+  },
+  "encoder": {
+    "name": "TITAN",
+    "revision": "dac6773d9961cfc75503440676ff157a2c6e8d2e",
+    "checkpoint": "/path/to/huggingface-cache/hub/models--MahmoodLab--TITAN/snapshots/dac6773d9961cfc75503440676ff157a2c6e8d2e",
+    "normalize": true,
+    "width": 768
+  },
+  "concepts": [
+    {
+      "id": "architecture_01",
+      "group": "architecture",
+      "text": "Cohesive tumor nests surrounded by stroma.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "architecture_02",
+      "group": "architecture",
+      "text": "Irregular malignant glands with visible lumina.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "architecture_03",
+      "group": "architecture",
+      "text": "Angular tubules infiltrating connective tissue.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "architecture_04",
+      "group": "architecture",
+      "text": "Solid sheets of epithelial tumor cells.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "architecture_05",
+      "group": "architecture",
+      "text": "Trabecular cords separated by collagen.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "architecture_06",
+      "group": "architecture",
+      "text": "Uneven tumor islands at an invasive border.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "architecture_07",
+      "group": "architecture",
+      "text": "Cribriform epithelial groups containing multiple spaces.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "architecture_08",
+      "group": "architecture",
+      "text": "Mixed glandular and solid tumor areas.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "discohesive_growth_01",
+      "group": "discohesive_growth",
+      "text": "Individual tumor cells dispersed through stroma.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "discohesive_growth_02",
+      "group": "discohesive_growth",
+      "text": "Linear single-file infiltration between collagen fibers.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "discohesive_growth_03",
+      "group": "discohesive_growth",
+      "text": "Concentric tumor cells around preserved ducts.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "discohesive_growth_04",
+      "group": "discohesive_growth",
+      "text": "Small loose aggregates of discohesive cells.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "discohesive_growth_05",
+      "group": "discohesive_growth",
+      "text": "Diffuse infiltration with preserved tissue landmarks.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "discohesive_growth_06",
+      "group": "discohesive_growth",
+      "text": "Dissociated cells arranged in solid areas.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "discohesive_growth_07",
+      "group": "discohesive_growth",
+      "text": "Rounded groups of loosely associated tumor cells.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "discohesive_growth_08",
+      "group": "discohesive_growth",
+      "text": "Tumor cells spreading between adipocytes.",
+      "source_basis": [
+        "rcpath_2024"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "nuclear_appearance_01",
+      "group": "nuclear_appearance",
+      "text": "Small uniform nuclei with smooth outlines.",
+      "source_basis": [
+        "seer_grade",
+        "local_maple_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "nuclear_appearance_02",
+      "group": "nuclear_appearance",
+      "text": "Marked variation in nuclear size and shape.",
+      "source_basis": [
+        "seer_grade",
+        "local_maple_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "nuclear_appearance_03",
+      "group": "nuclear_appearance",
+      "text": "Enlarged nuclei with irregular contours.",
+      "source_basis": [
+        "seer_grade",
+        "local_maple_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "nuclear_appearance_04",
+      "group": "nuclear_appearance",
+      "text": "Finely distributed nuclear chromatin.",
+      "source_basis": [
+        "seer_grade",
+        "local_maple_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "nuclear_appearance_05",
+      "group": "nuclear_appearance",
+      "text": "Coarsely clumped nuclear chromatin.",
+      "source_basis": [
+        "seer_grade",
+        "local_maple_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "nuclear_appearance_06",
+      "group": "nuclear_appearance",
+      "text": "Conspicuous nucleoli within tumor nuclei.",
+      "source_basis": [
+        "seer_grade",
+        "local_maple_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "nuclear_appearance_07",
+      "group": "nuclear_appearance",
+      "text": "Scant visible nucleoli in small nuclei.",
+      "source_basis": [
+        "seer_grade",
+        "local_maple_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "nuclear_appearance_08",
+      "group": "nuclear_appearance",
+      "text": "Dark mitotic figures among tumor cells.",
+      "source_basis": [
+        "seer_grade",
+        "local_maple_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "cytoplasm_and_cohesion_01",
+      "group": "cytoplasm_and_cohesion",
+      "text": "Abundant pink cytoplasm in epithelial cells.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "cytoplasm_and_cohesion_02",
+      "group": "cytoplasm_and_cohesion",
+      "text": "Scant cytoplasm surrounding enlarged nuclei.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "cytoplasm_and_cohesion_03",
+      "group": "cytoplasm_and_cohesion",
+      "text": "Pale cytoplasm with intracellular vacuoles.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "cytoplasm_and_cohesion_04",
+      "group": "cytoplasm_and_cohesion",
+      "text": "A cytoplasmic vacuole displacing the nucleus.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "cytoplasm_and_cohesion_05",
+      "group": "cytoplasm_and_cohesion",
+      "text": "Clearly apposed borders within cohesive groups.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "cytoplasm_and_cohesion_06",
+      "group": "cytoplasm_and_cohesion",
+      "text": "Separated cells lacking compact group formation.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "cytoplasm_and_cohesion_07",
+      "group": "cytoplasm_and_cohesion",
+      "text": "Granular eosinophilic cytoplasm and prominent nuclei.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "cytoplasm_and_cohesion_08",
+      "group": "cytoplasm_and_cohesion",
+      "text": "Cellular debris with fragmented nuclear material.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "stromal_context_01",
+      "group": "stromal_context",
+      "text": "Dense collagen surrounding infiltrating tumor nests.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "stromal_context_02",
+      "group": "stromal_context",
+      "text": "Thin collagen strands between tumor cells.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "stromal_context_03",
+      "group": "stromal_context",
+      "text": "Loose pale connective tissue around epithelium.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "stromal_context_04",
+      "group": "stromal_context",
+      "text": "Fibroblast-rich stroma with elongated nuclei.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "stromal_context_05",
+      "group": "stromal_context",
+      "text": "Broad fibrous bands dividing tissue compartments.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "stromal_context_06",
+      "group": "stromal_context",
+      "text": "Tumor-rich tissue with little intervening stroma.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "stromal_context_07",
+      "group": "stromal_context",
+      "text": "Stroma-rich tissue containing sparse tumor cells.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "stromal_context_08",
+      "group": "stromal_context",
+      "text": "Irregular tumor-stroma interfaces.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "inflammation_and_vessels_01",
+      "group": "inflammation_and_vessels",
+      "text": "Small dark lymphocytes scattered within stroma.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "inflammation_and_vessels_02",
+      "group": "inflammation_and_vessels",
+      "text": "Lymphocyte aggregates adjacent to tumor groups.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "inflammation_and_vessels_03",
+      "group": "inflammation_and_vessels",
+      "text": "Inflammatory cells interspersed among tumor cells.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "inflammation_and_vessels_04",
+      "group": "inflammation_and_vessels",
+      "text": "Mixed inflammatory cells around cellular debris.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "inflammation_and_vessels_05",
+      "group": "inflammation_and_vessels",
+      "text": "Foamy macrophages in damaged tissue.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "inflammation_and_vessels_06",
+      "group": "inflammation_and_vessels",
+      "text": "Small blood vessels containing red cells.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "inflammation_and_vessels_07",
+      "group": "inflammation_and_vessels",
+      "text": "Congested vessels within connective tissue.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "inflammation_and_vessels_08",
+      "group": "inflammation_and_vessels",
+      "text": "Extravasated red cells in tissue.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "background_breast_01",
+      "group": "background_breast",
+      "text": "Benign mammary ducts with orderly epithelial lining.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "background_breast_02",
+      "group": "background_breast",
+      "text": "Clustered acini forming a breast lobule.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "background_breast_03",
+      "group": "background_breast",
+      "text": "Mature adipocytes with large clear vacuoles.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "background_breast_04",
+      "group": "background_breast",
+      "text": "Collagenous breast tissue containing benign ducts.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "background_breast_05",
+      "group": "background_breast",
+      "text": "Dilated ducts containing luminal material.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "background_breast_06",
+      "group": "background_breast",
+      "text": "Epithelial proliferation within a duct profile.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "background_breast_07",
+      "group": "background_breast",
+      "text": "Expanded acini containing loosely arranged cells.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "background_breast_08",
+      "group": "background_breast",
+      "text": "Preserved benign structures adjacent to tumor.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "necrosis_and_other_context_01",
+      "group": "necrosis_and_other_context",
+      "text": "Confluent necrosis with loss of nuclear detail.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "necrosis_and_other_context_02",
+      "group": "necrosis_and_other_context",
+      "text": "Necrotic material within an epithelial space.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "necrosis_and_other_context_03",
+      "group": "necrosis_and_other_context",
+      "text": "Viable cells bordering a necrotic area.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "necrosis_and_other_context_04",
+      "group": "necrosis_and_other_context",
+      "text": "Individual shrunken cells with condensed nuclei.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "necrosis_and_other_context_05",
+      "group": "necrosis_and_other_context",
+      "text": "Coarse basophilic calcific deposits.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "necrosis_and_other_context_06",
+      "group": "necrosis_and_other_context",
+      "text": "Extracellular pale mucinous material.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "necrosis_and_other_context_07",
+      "group": "necrosis_and_other_context",
+      "text": "Empty clefts around epithelial groups.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    },
+    {
+      "id": "necrosis_and_other_context_08",
+      "group": "necrosis_and_other_context",
+      "text": "Compressed or disrupted tissue with staining distortion.",
+      "source_basis": [
+        "local_hive_brca",
+        "local_maple_brca",
+        "local_slip_brca"
+      ],
+      "role": "unlabeled_morphology_concept"
+    }
+  ]
+}

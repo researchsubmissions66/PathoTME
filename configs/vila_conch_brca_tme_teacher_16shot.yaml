@@ -1,0 +1,23 @@
+experiment: pathotme_standalone_tme_teacher_conch_brca_16shot_v1
+implementation_status: standalone_TME_teacher_extension_not_upstream_ViLa
+matched_contract: ${PATHOTME_ROOT}/configs/vila_conch_brca_controlled_16shot.yaml
+results_root: ${PATHOTME_RESULTS_ROOT}/vila_standalone_tme_teacher/brca/16shot/brca_morph64_v1/v1
+folds: [0, 1, 2, 3, 4]
+conditions: [student_ce, kd_visual, kd_tme_only, kd_tme_only_shuffled]
+reuse_conditions: [student_ce, kd_visual]
+teacher:
+  real: reuse_completed_TME_only_logistic_regression
+  shuffled: fit_same_pipeline_on_split_local_shuffled_rows
+  logits: symmetric_binary_decision_function
+  training_targets: exact_few_shot_training_slides_only
+  selection: source_validation_error_first_C_tie
+  complementarity: source_validation_only_diagnostic_not_selection_gate
+student:
+  recipe: inherit_exact_matched_contract
+  auxiliary_head: retained_unused_to_match_existing_controls
+  inference: WSI_only_native_CONCH_ViLa
+evaluation:
+  primary: patient_balanced_accuracy
+  comparisons: [student_ce, kd_visual, kd_tme_only_shuffled]
+  external: reuse_frozen_CPTAC_contract_without_target_tuning
+  test_history: TCGA_and_CPTAC_results_previously_inspected_not_fresh_confirmation

@@ -1,0 +1,45 @@
+experiment: pathotme_conch_brca_controlled_16shot_v1
+implementation_status: extended_paired_CONCH_ViLa_not_upstream_RN50_reproduction
+reference_contract: ${PATHOTME_ROOT}/configs/vila_mil_brca_morph64_v1_16shot.yaml
+base_config: ${PGVL_REPO_ROOT}/benchmarks/tcga_brca/configs/vila_mil_conch/brca_16shot.yaml
+base_checkpoint_dir: ${PGVL_REPO_ROOT}/results/tcga_benchmark/vila_mil_conch/brca/16shot
+results_root: ${PATHOTME_RESULTS_ROOT}/vila_conch_controlled/brca/16shot/brca_morph64_v1/v1
+panel: brca_morph64_v1
+shots: 16
+seed: 1
+folds: [0, 1, 2, 3, 4]
+conditions: [actual, zero, shuffled, fusion, student_ce, aux_real, aux_shuffled, kd_visual, kd_real, kd_shuffled]
+shuffle_policy: split_local_patient_excluding_slide_bijection_v1
+training:
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.00001
+  epochs: 200
+  checkpoint_monitor: val_error
+  early_stopping_patience: 20
+  early_stopping_min_epoch: 80
+model:
+  hidden_dim: 128
+  attention_heads: 4
+  dropout: 0.10
+  initial_gate: 0.10
+student:
+  initialization: same_frozen_source_selected_checkpoint_then_native_trainable_parameters
+  auxiliary_hidden_dim: 128
+  auxiliary_weight: 0.1
+  auxiliary_loss: observed_only_train_standardized_huber
+  distillation_weight: 1.0
+  temperature: 2.0
+  teachers: {kd_visual: visual, kd_real: actual, kd_shuffled: shuffled}
+  supervision_patients: exact_few_shot_training_split_only
+  deployment: WSI_features_and_fixed_prompts_only
+fusion:
+  alpha_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  selection: validation_error_ties_smallest_alpha
+external:
+  cohort: CPTAC_BRCA
+  status: ready_with_disclosed_historical_feature_checkpoint_attestation_limit
+  contract: ${PATHOTME_ROOT}/configs/cptac_brca_external.yaml
+  labels: {IDC: 0, ILC: 1}
+  fit_on_target: false
+  target_tme_required_for_students: false

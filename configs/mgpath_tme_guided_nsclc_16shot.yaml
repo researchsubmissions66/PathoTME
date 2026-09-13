@@ -1,0 +1,40 @@
+experiment: mgpath_tme_guided_nsclc_16shot_v1
+pgvl_root: ${PGVL_REPO_ROOT}
+base_config: ${PGVL_REPO_ROOT}/benchmarks/tcga_nsclc/configs/mgpath/nsclc_16shot.yaml
+base_checkpoint_dir: ${PGVL_REPO_ROOT}/results/tcga_benchmark/mgpath/nsclc/16shot
+selected_features_csv: ${PATHOTME_DATA_ROOT}/processed/opentme_nsclc_core62.csv
+results_root: ${PATHOTME_RESULTS_ROOT}/mgpath_tme_guided/nsclc/16shot_v1
+exact_coverage_folds: [0, 2, 3]
+seed: 1
+model:
+  raw_feature_count: 62
+  tokenization: semantic_5_low_11_high_v1
+  hidden_dim: 128
+  attention_heads: 4
+  dropout: 0.1
+  initial_gate: 0.1
+  base_model_policy: frozen_validation_selected_native_plip_mgpath
+  prompt_policy: unchanged_mgpath_four_row_bank
+training:
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.00001
+  epochs: 200
+  checkpoint_monitor: val_macro_f1
+  early_stopping_patience: 100
+  early_stopping_min_epoch: 160
+  allowed_tme_modes: [actual, zero]
+comparison_contract:
+  scope: diagnostic_exact_coverage_folds_not_final_five_fold
+  changed: slide_specific_center_queries_and_center_residual_only
+  fixed: native_PLIP_projection_graph_prompts_Sinkhorn_and_frozen_weights
+  inference_requires_tme: true
+  optimizer_note: >-
+    Adapter learning rate is fixed at 1e-4, as in the PathoTME ViLa experiment;
+    this is not the native MGPATH 9e-6 training recipe. Actual and zero use the
+    same adapter recipe, seed, initialization, splits, and checkpoint monitor.
+  controls: [native_checkpoint, zero_TME_adapter, actual_TME_adapter]
+  additional_baselines: >-
+    Previously computed TME-only results are reusable only on verified identical
+    splits. MGPATH-specific late fusion must be fit separately; ViLa fusion is
+    not a substitute and is not launched by this contract.

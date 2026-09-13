@@ -1,0 +1,89 @@
+{
+  "study": "pathotme_hive_tcga_16shot_20260912_v1",
+  "parent_launch": "/path/to/shared/PathoTME-results/tcga_locked_16shot_20260909_v1/launch.sealed.json",
+  "parent_launch_identity": "851be39986900b7619b93a0bc1725cac98a6d5d33e0dd818cd6a3f9c917d6004",
+  "cohorts": [
+    "nsclc",
+    "brca"
+  ],
+  "encoders": [
+    "plip",
+    "clip-rn50"
+  ],
+  "methods": [
+    "hive_mil"
+  ],
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "shots": 16,
+  "seed": 1,
+  "panels": {
+    "nsclc": "core62",
+    "brca": "brca_morph64_v1"
+  },
+  "arms": [
+    "native",
+    "zero",
+    "actual",
+    "shuffled"
+  ],
+  "prompt_strategy": "paired_frozen_native_token16_prefix_eot_v1",
+  "conditioner": "shared_gated_residual_on_32_hierarchical_text_nodes_before_filtering_and_graph_v1",
+  "adapter": {
+    "hidden_dim": 128,
+    "attention_heads": 4,
+    "dropout": 0.1,
+    "initial_gate": 0.1,
+    "optimizer": "adam",
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "epochs": 50
+  },
+  "selection": {
+    "hive_mil": {
+      "monitor": "val_error",
+      "ties_improve": false,
+      "patience": 10,
+      "min_epoch": 0
+    }
+  },
+  "analysis": {
+    "status": "exploratory_addition_after_previous_PathotME_results_were_inspected",
+    "primary_metric": "patient_level_AUROC_mean_of_five_folds",
+    "contrasts": [
+      "actual_minus_native",
+      "actual_minus_zero",
+      "actual_minus_shuffled"
+    ],
+    "reporting": "all_four_HiVE_cohort_encoder_groups_and_all_folds_including_null_or_negative_results",
+    "combined_family": "60 contrasts when combined with ViLa/MGPATH/FOCUS/MUSE; report all outcomes and multiplicity-aware uncertainty",
+    "other_metrics": "retain accuracy, macro F1, NLL and all native metric outputs; no AUROC-only claim of overall superiority",
+    "inference_requires_TME": true,
+    "external_evaluation": false,
+    "shuffle": "reuse_parent_phase_local_label_blind_whole_row_bijections_excluding_same_patient"
+  },
+  "resources": {
+    "partition": "gpuA100x4",
+    "account": "YOUR_SLURM_ACCOUNT",
+    "gpus": 1,
+    "cpus": 8,
+    "mem": "48G",
+    "smoke_time": "01:00:00",
+    "fold_time": {
+      "hive_mil": "03:00:00"
+    }
+  },
+  "resource_note": "Historical native CONCH HiVE five-fold 16-shot runs completed in 25m10s NSCLC and 37m11s BRCA. Three hours per paired fold including native plus three adapters is provisional; token-port and RN50-width costs need measured smoke/epoch wall times.",
+  "launch_policy": "user_authorized_HiVE_implementation_and_standing_launch_instruction_after_focused_validation_and_matching_smokes",
+  "native_training": "native_graph_and_token_prompt_learning_CE_plus_0.5_HTCL",
+  "adapter_training": "frozen_native_label_free_inference_branch_single_CE_update_per_training_slide",
+  "visual_scales": [
+    "5x",
+    "20x"
+  ]
+}

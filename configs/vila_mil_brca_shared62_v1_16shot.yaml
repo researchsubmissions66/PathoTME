@@ -1,0 +1,39 @@
+experiment: vila_mil_tme_brca_brca_shared62_v1_16shot_v1
+implementation_status: pathotme_extension_not_upstream_vila
+panel: brca_shared62_v1
+shots: 16
+pgvl_root: ${PGVL_REPO_ROOT}
+base_config: ${PGVL_REPO_ROOT}/benchmarks/tcga_brca/configs/vila_mil/brca_16shot.yaml
+base_checkpoint_dir: ${PGVL_REPO_ROOT}/results/tcga_benchmark/vila_mil/brca/16shot
+selected_features_csv: ${PATHOTME_DATA_ROOT}/processed/opentme_brca_shared62_v1.csv
+results_root: ${PATHOTME_RESULTS_ROOT}/vila_mil_tme_guided/brca/16shot/brca_shared62_v1
+exact_coverage_folds: [0, 1, 2, 3, 4]
+seed: 1
+model:
+  raw_feature_count: 62
+  tokenization: brca_shared62_v1
+  hidden_dim: 128
+  attention_heads: 4
+  dropout: 0.10
+  initial_gate: 0.10
+  base_model_policy: frozen_validation_selected_native_vila
+  prompt_policy: unchanged_generated_vila_brca_two_scale_bank
+training:
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.00001
+  epochs: 200
+  checkpoint_monitor: val_error
+  early_stopping_patience: 20
+  early_stopping_min_epoch: 80
+  allowed_tme_modes: [actual, zero]
+tme_only:
+  model: logistic_regression
+  c_grid: [0.01, 0.1, 1.0, 10.0]
+  checkpoint_monitor: val_error
+comparison_contract:
+  fixed: [baseline_checkpoint, BRCA_prompt_bank, native_5x_10x_features, patient_splits, class_order, seed, adapter_training_recipe]
+  real_vs_zero: identical panel-specific adapter and parameter count; only standardized slide values differ
+  between_panels: token routing and input widths differ; not a parameter-matched feature-only ablation
+  normalization: per-fold training-only median and z-score; no NSCLC statistics reused
+  evaluation: benchmark holdouts with previously inspected native scores; not untouched external evaluation

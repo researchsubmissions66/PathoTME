@@ -1,0 +1,39 @@
+{
+  "study": "pathotme_tcga_cross_encoders_16shot_20260909_v1",
+  "parent_launch": "/path/to/shared/PathoTME-results/tcga_locked_16shot_20260909_v1/launch.sealed.json",
+  "parent_launch_identity": "851be39986900b7619b93a0bc1725cac98a6d5d33e0dd818cd6a3f9c917d6004",
+  "cohorts": [
+    "nsclc",
+    "brca"
+  ],
+  "methods": [
+    "vila_mil",
+    "mgpath"
+  ],
+  "encoders": [
+    "clip-rn50",
+    "plip"
+  ],
+  "additional_pairings": {
+    "vila_mil": "plip",
+    "mgpath": "clip-rn50"
+  },
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "shots": 16,
+  "seed": 1,
+  "common_splits": "reuse_exact_parent_common_cohort_splits",
+  "additional_jobs": 24,
+  "combined_jobs": 48,
+  "combined_primary_contrasts": 24,
+  "combined_simultaneous_interval_percent": 99.7916666667,
+  "analysis_amendment": "Evaluate all 8 cohort/model/encoder groups; 24 prespecified actual-minus-native/zero/shuffled contrasts. This expands the parent 12-contrast family for combined reporting without changing its runtime. Exploratory follow-up; report all results.",
+  "mgpath_clip_port": "pathotme_mgpath_clip_rn50_feature_context_v1",
+  "clip_text_policy": "native_clip_prefix_77_with_eot_v1",
+  "prompt_note": "Full existing banks are byte-preserved. The RN50 port explicitly consumes up to 75 BPE content tokens plus SOT/EOT, analogous to the native PLIP 77-position prefix policy; consumed token IDs and original counts are recorded. Four feature contexts replace PLIP token contexts, as in other paired-feature MGPATH ports."
+}

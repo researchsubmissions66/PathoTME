@@ -1,0 +1,44 @@
+# Licensed/gated datasets and local storage links
+/data/
+
+# Python and notebook artifacts
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+
+# Local environment and editor state
+.env
+.DS_Store
+
+# Generated experiment artifacts (kept on /path/to/shared)
+results/
+artifacts/
+*.joblib
+
+# Local authentication (never publish)
+.github-token
+.github-token.*
+.env.*
+.netrc
+*credentials*
+*.pem
+*.key
+
+# Local caches, launch evidence, and generated artifacts
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+*.lock
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.parquet
+*.log
+/*_launch_*.json
+/*_plan_*.json

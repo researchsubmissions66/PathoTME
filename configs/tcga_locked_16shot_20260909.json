@@ -1,0 +1,31 @@
+{
+  "study": "pathotme_tcga_locked_16shot_20260909_v1",
+  "cohorts": ["nsclc", "brca"],
+  "methods": ["vila_mil", "mgpath"],
+  "folds": [0, 1, 2, 3, 4],
+  "shots": 16,
+  "seed": 1,
+  "split_sampling_reference_shots": [4, 8, 16, 32, 64],
+  "arms": ["native", "zero", "actual", "shuffled"],
+  "panels": {"nsclc": "nsclc_core62", "brca": "brca_morph64_v1"},
+  "coverage_policy": "intersect_original_cohort_with_TME_coverage_then_regenerate_all_folds",
+  "native_reuse_policy": "validated_native_config_and_exact_ordered_train_val_test_membership",
+  "adapter": {"hidden_dim": 128, "attention_heads": 4, "dropout": 0.1, "initial_gate": 0.1, "optimizer": "adam", "lr": 0.0001, "weight_decay": 0.00001, "epochs": 200},
+  "selection": {"vila_mil": {"monitor": "val_error", "ties_improve": false, "patience": 20, "min_epoch": 80}, "mgpath": {"monitor": "val_macro_f1", "ties_improve": true, "patience": 100, "min_epoch": 160}},
+  "analysis": {
+    "status": "exploratory_followup_after_prior_TCGA_and_CPTAC_outcome_inspection",
+    "primary": "patient_AUROC_mean_over_all_five_folds",
+    "patient_aggregation": "mean_slide_probabilities",
+    "secondary": ["patient_balanced_accuracy", "patient_macro_f1", "patient_NLL", "patient_ECE_10_equal_width_bins"],
+    "contrasts": ["actual_minus_native", "actual_minus_zero", "actual_minus_shuffled"],
+    "uncertainty": "paired_stratified_patient_bootstrap_within_fold_10000_seed_20260909",
+    "multiplicity": "report_95pct_intervals_and_Bonferroni_simultaneous_99.583333pct_intervals_for_12_primary_contrasts",
+    "reporting": "all_four_model_cohort_groups_and_all_folds_including_null_or_negative_results; no architecture_selection_from_test",
+    "external_evaluation": false,
+    "inference_requires_TME": true,
+    "MGPATH_scope": "PLIP_only_partial_implementation_not_primary_PLIP_G",
+    "shuffle": "split_local_label_blind_whole_slide_row_bijection_excluding_same_patient; not_patient_block_permutation"
+  },
+  "resources": {"partition": "gpuA100x4", "account": "YOUR_SLURM_ACCOUNT", "gpus": 1, "cpus": 8, "mem": "48G", "smoke_time": "01:00:00", "fold_time": {"vila_mil": "04:00:00", "mgpath": "06:00:00"}},
+  "job_packaging": "four_smokes_then_twenty_fold_jobs_each_native_if_needed_plus_three_adapters"
+}
