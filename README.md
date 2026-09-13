@@ -1,54 +1,174 @@
-# PathoTME
+<p align="center">
+  <img src="docs/assets/PathoTME_logo.png" alt="PathoTME logo" width="220">
+</p>
 
-**Anonymous research submission**
+<h1 align="center">PathoTME</h1>
 
-PathoTME studies quantitative tumor-microenvironment (TME) conditioning for
-whole-slide pathology models. A trainable cross-attention conditioner encodes
-biological measurements into 16 semantic tokens and adds a gated residual to
-an architecture's visual centers or encoded semantic queries. Native model
-parameters remain frozen during adaptation. Guided models use TME at inference.
+<p align="center">
+  <strong>Whole-slide learning, grounded in tumor biology.</strong><br>
+  <em>Anonymous research submission</em>
+</p>
 
-## Study design
+<p align="center">
+  <a href="#overview">Overview</a> ·
+  <a href="#method">Method</a> ·
+  <a href="#study-design">Study design</a> ·
+  <a href="#getting-started">Getting started</a> ·
+  <a href="#project-website">Project website</a>
+</p>
 
-The primary study uses 16 shots per class, five patient-disjoint folds, and
-PLIP and CLIP-RN50 features for TCGA-NSCLC (LUAD/LUSC) and TCGA-BRCA (IDC/ILC).
-ViLa-MIL, MGPATH, FOCUS, MUSE, HiVE-MIL, and DyKo share matched native, zero-TME,
-actual-TME, and shuffled-TME conditions. The NSCLC core62 and BRCA morph64 panels
-are fixed biological hypotheses; imputation and normalization use training
-slides only. The paired encoder ports include architecture-specific extensions.
+---
 
-This repository presents the method and study design. Experimental results
-are not included on the project website.
+<a name="overview"></a>
 
-## Code and data
+## 🔬 Overview
 
-- `pathotme/`: biological panels, conditioners, and architecture integration.
-- `configs/`: study configurations.
-- `scripts/`: data preparation and research entry points.
-- `text_prompts/`: separate text assets and their provenance.
-- `tests/`: focused research checks.
-- `docs/`: static project website and study protocol.
+**PathoTME** studies how quantitative **tumor microenvironment (TME)** measurements
+can condition whole-slide pathology models. Tissue organization, cell composition,
+and spatial relationships provide a biological vocabulary that complements visual
+patch features.
 
-The models use the PGVL-Gym implementations and paired visual/text encoders.
-Quantitative phenotypes are available through
-[Aignostics / OpenTME](https://huggingface.co/datasets/Aignostics/OpenTME).
-Datasets, model weights, patient measurements, and local experiment outputs
-are not distributed here.
+The central question is: **does slide-specific biological context improve a model's
+aggregation beyond its native representation and the capacity of an added conditioner?**
 
-Local installation paths and scheduler accounts have been replaced with
-`/path/to/...` and `YOUR_SLURM_ACCOUNT` for anonymous review. Configure these
-for your environment before running the research scripts. Archived launch
-bindings refer to the original local experiment setup; they are not executable
-submission records for this anonymized copy.
+A shared biological interface connects to six architectures, with matched controls
+across two TCGA cohorts and two visual encoders.
 
-## Project website
+<a name="method"></a>
 
-Serve the standalone website with:
+## 🧠 Method
+
+PathoTME groups quantitative measurements into **16 biological tokens**. A trainable
+cross-attention conditioner reads these tokens and adds a gated residual to a
+model's existing visual centers or encoded semantic queries. The native model's
+parameters remain frozen during adaptation.
+
+```mermaid
+flowchart LR
+    W["Whole-slide features"] --> A["Native aggregation"]
+    T["TME measurements"] --> B["16 biological tokens"]
+    B --> C["Trainable gated conditioner"]
+    Q["Native visual centers<br/>or semantic queries"] --> C
+    C --> A
+    A --> P["Slide prediction"]
+    classDef biological fill:#f3e8ff,stroke:#9333ea,color:#1e1b4b
+    classDef frozen fill:#f8fafc,stroke:#94a3b8,color:#1e1b4b
+    class T,B,C biological
+    class W,Q,A,P frozen
+```
+
+**The actual-TME model requires biological measurements at inference.** The
+conditioner changes representations consumed by the model; original prompt
+strings remain separate from the quantitative measurements.
+
+<a name="supported-architectures"></a>
+
+## 🧩 Supported architectures
+
+The interface follows each architecture's existing computation.
+
+| Architecture | Visual scales | TME-conditioned representation |
+|---|---|---|
+| [ViLa-MIL](pathotme/guided_vila_adapter.py) | 5× + 10× | Image-center queries before patch aggregation |
+| [MGPATH](pathotme/guided_mgpath_adapter.py) | 5× + 10× | Image-center queries before graph aggregation |
+| [FOCUS](pathotme/focus_tme.py) | 20× | Encoded semantic queries before patch selection and final attention |
+| [MUSE](pathotme/muse_tme.py) | 10× | Inference class semantics before sparse expert routing |
+| [HiVE-MIL](pathotme/hive_tme.py) | 5× + 20× | Encoded hierarchical text nodes before filtering and graph construction |
+| [DyKo](pathotme/dyko_tme.py) | 20× | Class queries after concept retrieval and before dual cross-attention |
+
+The paired PLIP/CLIP-RN50 implementations include explicit PathoTME encoder
+extensions. Discrete retrieval and selection operations remain non-differentiable;
+continuous attention and graph computations provide the conditioner’s training signal.
+
+<a name="study-design"></a>
+
+## 🧪 Study design
+
+The primary design uses **16 shots per class**, **five patient-disjoint folds**, and
+**PLIP / CLIP-RN50**, with common cohort manifests and matched splits.
+
+| Cohort | Classification task | Slides | Patients | Biological panel |
+|---|---|---:|---:|---|
+| TCGA-NSCLC | LUAD vs. LUSC | 1,041 | 944 | core62 |
+| TCGA-BRCA | IDC vs. ILC | 960 | 900 | morph64 |
+
+Every architecture/cohort/encoder/fold comparison includes four conditions:
+
+| Condition | Biological input | Comparison purpose |
+|---|---|---|
+| **Native** | No TME conditioner | Establish the matched starting point |
+| **Zero TME** | Standardized measurements set to zero | Account for added conditioner capacity |
+| **Shuffled TME** | A different patient's TME row within the same split | Test whether the slide–TME match matters |
+| **Actual TME** | The slide's own measurements | Test the contribution of matched biological context |
+
+Actual, zero, and shuffled arms share capacity, initialization, and selection rules.
+Imputation and normalization are fitted on training slides only. A separate 4- and
+8-shot extension covers ViLa-MIL and MGPATH.
+
+This is an exploratory study. The README and project website present the method
+and experimental design; performance results are not shown here.
+
+<a name="biological-panels"></a>
+
+## 🌿 Biological panels
+
+The panels are hand-defined by biological role and available quantitative
+measurements from [Aignostics / OpenTME](https://huggingface.co/datasets/Aignostics/OpenTME).
+
+- **NSCLC · core62:** 14 tissue, 28 cell-composition, 16 spatial-interaction, and
+  4 lymphoid-organization measurements, arranged into 16 groups.
+- **BRCA · morph64:** 24 tissue-structure/morphology, 28 cell-composition, and
+  12 spatial-interaction measurements, arranged into 16 groups.
+
+These fixed panels express biological hypotheses; the study does not establish
+that they are optimal or exhaustive. See the [exact panel definitions](docs/data/panels.json)
+for ordered features, semantic groups, source columns, and the pinned data revision.
+
+<a name="getting-started"></a>
+
+## 🚀 Getting started
+
+The research package supports **Python 3.10–3.11**. Install the base package with:
+
+```bash
+git clone https://github.com/researchsubmissions66/PathoTME.git
+cd PathoTME
+python -m pip install -e .
+```
+
+Architecture runners also require the corresponding PGVL-Gym environment, paired
+encoder weights, slide features, and TME measurements. These assets are obtained
+separately; the base package installation does not download them.
+
+Configure the anonymous `/path/to/...` placeholders and `YOUR_SLURM_ACCOUNT` for
+your environment, then use the [study configurations](configs/) and
+[research scripts](scripts/) to prepare the relevant experiment. Data, weights,
+patient measurements, and local run artifacts are excluded from this repository.
+
+<a name="project-website"></a>
+
+## 🌐 Project website
+
+The [project website source](docs/) includes an interactive architecture explorer,
+both biological panels, and the matched study protocol. Preview it locally:
 
 ```bash
 python3 -m http.server 8000 --directory docs --bind 127.0.0.1
 ```
 
-Open `http://localhost:8000`. The site includes an interactive architecture
-explorer, both biological panels, and the matched study design. No build step
-or training dependencies are needed to view it.
+Open **http://localhost:8000**. The site needs no build step or training dependencies
+and supports desktop, mobile, and keyboard navigation.
+
+<a name="repository-layout"></a>
+
+## 🗂️ Repository layout
+
+```text
+PathoTME/
+├── pathotme/       # Biological panels, conditioners, and model integration
+├── configs/        # Study configurations
+├── scripts/        # Data preparation and research entry points
+├── text_prompts/   # Separate text assets and provenance
+├── tests/          # Focused research checks
+└── docs/           # Project website, logo, and panel definitions
+```
