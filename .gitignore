@@ -42,3 +42,29 @@ dist/
 *.log
 /*_launch_*.json
 /*_plan_*.json
+
+# Raw feature stores and dataset copies must remain outside the repository
+OpenTME/
+PathoTME-data/
+features/
+slide_features/
+raw_features/
+raw_data/
+datasets/
+feature_cache/
+*.hdf
+*.h5ad
+*.feather
+*.arrow
+*.pkl
+*.pickle
+*.zarr/
+*.csv
+*.tsv
+*.csv.gz
+*.tsv.gz
+*.jsonl
+*.jsonl.gz
+
+# Native text prompt banks are source assets, not raw feature measurements
+!text_prompts/**/*.csv

@@ -14,7 +14,8 @@
   <a href="#method">Method</a> ·
   <a href="#study-design">Study design</a> ·
   <a href="#getting-started">Getting started</a> ·
-  <a href="#project-website">Project website</a>
+  <a href="#project-website">Project website</a> ·
+  <a href="#acknowledgements">Acknowledgements</a>
 </p>
 
 ---
@@ -172,3 +173,20 @@ PathoTME/
 ├── tests/          # Focused research checks
 └── docs/           # Project website, logo, and panel definitions
 ```
+
+<a name="acknowledgements"></a>
+
+## 🙏 Acknowledgements
+
+We thank **Aignostics and the OpenTME contributors** for providing the quantitative
+tumor microenvironment profiles used in this study and the tools for exploring them.
+
+- **GitHub:** [TME Studio — the official OpenTME exploration toolkit](https://github.com/aignostics/tme-studio).
+- **Hugging Face:** [Aignostics / OpenTME dataset](https://huggingface.co/datasets/Aignostics/OpenTME).
+- **Reference:** [Galama et al., *OpenTME: An Open Dataset of AI-powered H&E Tumor Microenvironment Profiles from TCGA* (2026)](https://arxiv.org/abs/2604.12075).
+
+**Raw OpenTME measurements and extracted WSI feature arrays are not distributed
+in this repository.** Request dataset access through the official Hugging Face
+page and follow its access and use terms. The published
+[panel definitions](docs/data/panels.json) contain feature names, semantic groups,
+and source-column metadata, not patient- or slide-level measurement rows.
