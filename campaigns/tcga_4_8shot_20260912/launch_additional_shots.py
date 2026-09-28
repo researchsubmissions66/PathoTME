@@ -1,4 +1,5 @@
 """Plan by default; submit exactly eight 4/8-shot smokes and eighty folds."""
+
 import getpass
 import argparse
 import fcntl
