@@ -136,7 +136,7 @@ def prepare(spec_path,output,audit_root):
     for directory in [ROOT/'pathotme',PGVL/'common',PGVL/'methods',PGVL/'clip']:
         for path in directory.rglob('*.py'):bind(path)
     for path in [PGVL/'train.py',ROOT/'scripts/run_vila_guided.py',ROOT/'scripts/prepare_cross_encoder_tcga.py',
-                 ROOT/'TME_GUIDED_HIVE.md',ROOT/'tests/test_mscpt_tme.py',
+                 ROOT/'tests/test_mscpt_tme.py',
                  *sorted((ROOT/'scripts').glob('*mscpt_tcga.py'))]:bind(path)
     for path in output.rglob('*'):
         if path.is_file():bind(path)

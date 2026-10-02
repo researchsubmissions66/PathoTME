@@ -134,7 +134,7 @@ def prepare(spec_path,output):
     for directory in [ROOT/'pathotme',PGVL/'common',PGVL/'methods',PGVL/'clip']:
         for path in directory.rglob('*.py'):bind(path)
     for path in [PGVL/'train.py',ROOT/'scripts/run_vila_guided.py',ROOT/'scripts/prepare_cross_encoder_tcga.py',
-                 ROOT/'TME_GUIDED_DYKO.md',ROOT/'tests/test_dyko_tme.py',
+                 ROOT/'tests/test_dyko_tme.py',
                  ROOT/'scripts/build_dyko_brca_knowledge.py',*sorted((ROOT/'scripts').glob('*dyko_tcga.py'))]:bind(path)
     for path in output.rglob('*'):
         if path.is_file():bind(path)

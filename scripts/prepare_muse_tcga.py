@@ -177,7 +177,7 @@ def prepare(spec_path, output):
         for path in directory.rglob('*.py'):
             bind(path)
     for path in [PGVL/'train.py', ROOT/'scripts/run_vila_guided.py', ROOT/'scripts/prepare_locked_tcga.py',
-                 ROOT/'scripts/prepare_cross_encoder_tcga.py', ROOT/'TME_GUIDED_MUSE.md', ROOT/'tests/test_muse_tme.py',
+                 ROOT/'scripts/prepare_cross_encoder_tcga.py', ROOT/'tests/test_muse_tme.py',
                  *sorted((ROOT/'scripts').glob('*muse_tcga.py'))]:
         bind(path)
     for path in output.rglob('*'):

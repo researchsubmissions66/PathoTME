@@ -191,13 +191,11 @@ page and follow its access and use terms. The published
 [panel definitions](docs/data/panels.json) contain feature names, semantic groups,
 and source-column metadata, not patient- or slide-level measurement rows.
 
-## Extended experiments
+## Additional research tools
 
-The [research overview](RESEARCH_OVERVIEW.md) documents the MSCPT extension,
-matched logistic-regression and fusion baselines, attribution, and additional
-cohort and shot-count campaigns. Source files, configurations, prompt banks,
-and tests are included; local credentials and raw datasets are excluded.
+The repository also includes an [MSCPT conditioner](pathotme/mscpt_tme.py),
+[matched logistic-regression and probability-fusion baselines](campaigns/baselines_20260914/),
+[TME attribution](pathotme/attribution.py), and [additional experiment runners](campaigns/).
 
-Machine-specific paths in this anonymous release use `/path/to` placeholders.
-Configure these paths for your environment. Stored local-run hashes are historical
-provenance; regenerate contracts before launching from this sanitized checkout.
+Machine-specific paths use `/path/to` placeholders. Configure these paths and
+regenerate experiment contracts before launching in your environment.

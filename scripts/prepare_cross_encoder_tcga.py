@@ -109,7 +109,7 @@ def prepare(spec_path,output):
         print(f'prepared {cohort}/{method}/{cfg["backbone"]}/fold{fold} reused={reusable}',flush=True)
     for p in [ROOT/'pathotme/cross_encoder_contract.py',ROOT/'pathotme/cross_encoder_models.py',ROOT/'pathotme/brca_mgpath_index_repair.py',
               ROOT/'scripts/prepare_cross_encoder_tcga.py',ROOT/'scripts/run_cross_encoder_tcga.py',
-              ROOT/'scripts/launch_cross_encoder_tcga.py',ROOT/'TCGA_CROSS_ENCODERS.md',ROOT/'tests/test_cross_encoder_tcga.py']:
+              ROOT/'scripts/launch_cross_encoder_tcga.py',ROOT/'tests/test_cross_encoder_tcga.py']:
         bound[str(p)]=sha(p)
     for p in output.rglob('*'):
         if p.is_file():bound[str(p)]=sha(p)

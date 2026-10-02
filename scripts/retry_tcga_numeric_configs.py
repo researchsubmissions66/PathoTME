@@ -66,8 +66,7 @@ def prepare():
             'progress':'All selected attempts have no checkpoint, metrics or completed fold; completed conditions excluded.',
             'authorization':'User: Fix and launch again. Preserve completed folds.'}
         sources = [parent_path, parent_root/'submission.json', Path(__file__).resolve(),
-                   ROOT/'pathotme/yaml_runtime_config.py', ROOT/'scripts/check_tcga_numeric_retry.py',
-                   ROOT/'TCGA_NUMERIC_RETRY.md']
+                   ROOT/'pathotme/yaml_runtime_config.py', ROOT/'scripts/check_tcga_numeric_retry.py']
         for path in sources: launch['file_sha256'][str(path)] = sha(path)
         n = len(launch['plans']); nsmokes = sum(p['fold'] == 0 for p in launch['plans'])
         launch['counts'] = {'fold_jobs':n, 'smoke_jobs':nsmokes, 'native_new':n,

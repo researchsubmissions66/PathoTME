@@ -68,3 +68,12 @@ feature_cache/
 
 # Native text prompt banks are source assets, not raw feature measurements
 !text_prompts/**/*.csv
+
+# Internal research notes and planning artifacts are not publication assets
+*.md
+!/README.md
+source_history/
+walltimes.json
+/*_STATUS.*
+/*_PLAN.*
+/*_OVERVIEW.*
