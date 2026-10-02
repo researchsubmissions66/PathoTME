@@ -1,0 +1,38 @@
+{
+  "NON_PAPILLARY": {
+    "Solid architecture": "non-papillary urothelial carcinoma may show solid or irregular infiltrative tumor architecture.",
+    "Tumor cellularity": "non-papillary urothelial carcinoma may show unevenly distributed cellular tumor nests.",
+    "Tumor interface": "non-papillary urothelial carcinoma may show irregular tumor groups embedded in bladder stroma.",
+    "Stromal background": "non-papillary urothelial carcinoma may show fibrous tissue separating tumor islands.",
+    "Solid architecture / Epithelial nests": "non-papillary urothelial carcinoma may show cohesive nests of atypical urothelial cells.",
+    "Solid architecture / Epithelial cords": "non-papillary urothelial carcinoma may show irregular epithelial cords.",
+    "Solid architecture / Disordered sheets": "non-papillary urothelial carcinoma may show solid sheets with disordered cell arrangement.",
+    "Tumor cellularity / Nuclear variation": "non-papillary urothelial carcinoma may show variation in tumor nuclear size.",
+    "Tumor cellularity / Nuclear irregularity": "non-papillary urothelial carcinoma may show hyperchromatic irregular nuclei.",
+    "Tumor cellularity / Nucleolar variation": "non-papillary urothelial carcinoma may show variable nucleolar prominence.",
+    "Tumor interface / Peripheral clusters": "non-papillary urothelial carcinoma may show small tumor groups between collagen fibers.",
+    "Tumor interface / Angulated nests": "non-papillary urothelial carcinoma may show angulated epithelial nests at a stromal interface.",
+    "Tumor interface / Stromal fibroblasts": "non-papillary urothelial carcinoma may show fibroblasts surrounding tumor islands.",
+    "Stromal background / Collagen bundles": "non-papillary urothelial carcinoma may show collagen bundles between epithelial clusters.",
+    "Stromal background / Focal debris": "non-papillary urothelial carcinoma may show necrotic debris in some tumor areas.",
+    "Stromal background / Stromal inflammation": "non-papillary urothelial carcinoma may show variable inflammatory cells in adjacent stroma."
+  },
+  "PAPILLARY": {
+    "Papillary architecture": "papillary urothelial carcinoma may show branching papillary fronds with stromal cores.",
+    "Tumor cellularity": "papillary urothelial carcinoma may show cellular urothelial layers covering papillary projections.",
+    "Core interface": "papillary urothelial carcinoma may show epithelial fronds organized around fibrovascular tissue.",
+    "Papillary background": "papillary urothelial carcinoma may show spaces separating branching tumor fronds.",
+    "Papillary architecture / Fibrovascular lining": "papillary urothelial carcinoma may show atypical urothelium lining fibrovascular cores.",
+    "Papillary architecture / Branching projections": "papillary urothelial carcinoma may show branching epithelial projections.",
+    "Papillary architecture / Fused papillae": "papillary urothelial carcinoma may show fused papillae with disordered lining cells.",
+    "Tumor cellularity / Nuclear variation": "papillary urothelial carcinoma may show variation in urothelial nuclear size.",
+    "Tumor cellularity / Nuclear irregularity": "papillary urothelial carcinoma may show irregular nuclear contours in papillary epithelium.",
+    "Tumor cellularity / Nucleolar variation": "papillary urothelial carcinoma may show variable nucleolar prominence.",
+    "Core interface / Epithelial interface": "papillary urothelial carcinoma may show epithelial layers adjacent to vascular stromal cores.",
+    "Core interface / Core vessels": "papillary urothelial carcinoma may show small vessels within connective tissue cores.",
+    "Core interface / Core fibroblasts": "papillary urothelial carcinoma may show fibroblasts beneath papillary epithelial layers.",
+    "Papillary background / Central stroma": "papillary urothelial carcinoma may show stromal tissue at the center of papillary fronds.",
+    "Papillary background / Surface debris": "papillary urothelial carcinoma may show focal surface debris on tumor fronds.",
+    "Papillary background / Core inflammation": "papillary urothelial carcinoma may show variable inflammatory cells within papillary stroma."
+  }
+}

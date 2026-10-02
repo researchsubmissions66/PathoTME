@@ -27,7 +27,7 @@
     "external_evaluation": false,
     "shuffle": "reuse_parent_phase_local_label_blind_whole_row_bijections_excluding_same_patient"
   },
-  "resources": {"partition": "gpuA100x4", "account": "YOUR_SLURM_ACCOUNT", "gpus": 1,
+  "resources": {"partition": "gpuA100x4", "account": "shared-delta-gpu", "gpus": 1,
                 "cpus": 8, "mem": "48G", "smoke_time": "01:00:00", "fold_time": {"focus": "06:00:00"}},
   "resource_note": "Provisional limits pending complete native-plus-three-adapter wall-time profiling; not a completion guarantee.",
   "launch_policy": "prepare_only_until_explicit_FOCUS_launch_authorization"

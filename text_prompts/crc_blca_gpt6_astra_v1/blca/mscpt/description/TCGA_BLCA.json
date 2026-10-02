@@ -1,0 +1,54 @@
+{
+  "NON_PAPILLARY": {
+    "small_mag": [
+      "At low magnification, non-papillary urothelial carcinoma may show solid or irregular infiltrative tumor architecture.",
+      "At low magnification, non-papillary urothelial carcinoma may show unevenly distributed cellular tumor nests.",
+      "At low magnification, non-papillary urothelial carcinoma may show irregular tumor groups embedded in bladder stroma.",
+      "At low magnification, non-papillary urothelial carcinoma may show fibrous tissue separating tumor islands.",
+      "At low magnification, non-papillary urothelial carcinoma may show broad sheets of malignant urothelial cells.",
+      "At low magnification, non-papillary urothelial carcinoma may show cords and small clusters at tumor margins.",
+      "At low magnification, non-papillary urothelial carcinoma may show distortion of the native bladder wall architecture.",
+      "At low magnification, non-papillary urothelial carcinoma may show variable tumor-to-stroma proportions.",
+      "At low magnification, non-papillary urothelial carcinoma may show solid tumor regions with focal necrotic areas.",
+      "At low magnification, non-papillary urothelial carcinoma may show irregular interfaces between tumor and surrounding tissue."
+    ],
+    "big_mag": [
+      "At high magnification, non-papillary urothelial carcinoma may show cohesive nests of atypical urothelial cells.",
+      "At high magnification, non-papillary urothelial carcinoma may show irregular epithelial cords.",
+      "At high magnification, non-papillary urothelial carcinoma may show solid sheets with disordered cell arrangement.",
+      "At high magnification, non-papillary urothelial carcinoma may show variation in tumor nuclear size.",
+      "At high magnification, non-papillary urothelial carcinoma may show hyperchromatic irregular nuclei.",
+      "At high magnification, non-papillary urothelial carcinoma may show variable nucleolar prominence.",
+      "At high magnification, non-papillary urothelial carcinoma may show small tumor groups between collagen fibers.",
+      "At high magnification, non-papillary urothelial carcinoma may show angulated epithelial nests at a stromal interface.",
+      "At high magnification, non-papillary urothelial carcinoma may show fibroblasts surrounding tumor islands.",
+      "At high magnification, non-papillary urothelial carcinoma may show collagen bundles between epithelial clusters."
+    ]
+  },
+  "PAPILLARY": {
+    "small_mag": [
+      "At low magnification, papillary urothelial carcinoma may show branching papillary fronds with stromal cores.",
+      "At low magnification, papillary urothelial carcinoma may show cellular urothelial layers covering papillary projections.",
+      "At low magnification, papillary urothelial carcinoma may show epithelial fronds organized around fibrovascular tissue.",
+      "At low magnification, papillary urothelial carcinoma may show spaces separating branching tumor fronds.",
+      "At low magnification, papillary urothelial carcinoma may show complex or fused papillary structures.",
+      "At low magnification, papillary urothelial carcinoma may show variation in papillary width and branching.",
+      "At low magnification, papillary urothelial carcinoma may show a crowded exophytic epithelial architecture.",
+      "At low magnification, papillary urothelial carcinoma may show papillary regions alongside possible invasive components.",
+      "At low magnification, papillary urothelial carcinoma may show irregular thickening of the papillary epithelium.",
+      "At low magnification, papillary urothelial carcinoma may show papillary contours interrupted by solid tumor areas."
+    ],
+    "big_mag": [
+      "At high magnification, papillary urothelial carcinoma may show atypical urothelium lining fibrovascular cores.",
+      "At high magnification, papillary urothelial carcinoma may show branching epithelial projections.",
+      "At high magnification, papillary urothelial carcinoma may show fused papillae with disordered lining cells.",
+      "At high magnification, papillary urothelial carcinoma may show variation in urothelial nuclear size.",
+      "At high magnification, papillary urothelial carcinoma may show irregular nuclear contours in papillary epithelium.",
+      "At high magnification, papillary urothelial carcinoma may show variable nucleolar prominence.",
+      "At high magnification, papillary urothelial carcinoma may show epithelial layers adjacent to vascular stromal cores.",
+      "At high magnification, papillary urothelial carcinoma may show small vessels within connective tissue cores.",
+      "At high magnification, papillary urothelial carcinoma may show fibroblasts beneath papillary epithelial layers.",
+      "At high magnification, papillary urothelial carcinoma may show stromal tissue at the center of papillary fronds."
+    ]
+  }
+}

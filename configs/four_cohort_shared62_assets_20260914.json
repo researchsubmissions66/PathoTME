@@ -1,0 +1,426 @@
+{
+  "version": "pathotme_four_cohort_shared62_20260914_v1",
+  "status": "assets_prepared_runtime_integration_pending",
+  "feature_panel": {
+    "panel": "shared_core62_v1",
+    "revision": "9262bc0cd0cd7774d0f7bcbfe6ae5f4665898b25",
+    "feature_names": [
+      "RELATIVE_AREA_VALID_TISSUE",
+      "RELATIVE_AREA_CARCINOMA",
+      "RELATIVE_AREA_STROMA",
+      "RELATIVE_AREA_NECROSIS",
+      "RELATIVE_AREA_EPITHELIAL_TISSUE",
+      "RELATIVE_AREA_VESSEL",
+      "RELATIVE_AREA_TUMOR_CORE",
+      "RELATIVE_AREA_INNER_INVASIVE_MARGIN",
+      "RELATIVE_AREA_OUTER_INVASIVE_MARGIN",
+      "RELATIVE_AREA_CARCINOMA_IN_TUMOR_CORE",
+      "RELATIVE_AREA_STROMA_IN_TUMOR_CORE",
+      "RELATIVE_AREA_NECROSIS_IN_TUMOR_CORE",
+      "RELATIVE_AREA_STROMA_IN_INNER_INVASIVE_MARGIN",
+      "RELATIVE_AREA_CARCINOMA_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_CARCINOMA_CELL_IN_TUMOR_CORE",
+      "CELL_DENSITY_CARCINOMA_CELL_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_LYMPHOCYTE_IN_TUMOR_CORE",
+      "CELL_DENSITY_LYMPHOCYTE_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_MACROPHAGE_IN_TUMOR_CORE",
+      "CELL_DENSITY_MACROPHAGE_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_GRANULOCYTE_IN_TUMOR_CORE",
+      "CELL_DENSITY_GRANULOCYTE_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_PLASMA_CELL_IN_TUMOR_CORE",
+      "CELL_DENSITY_PLASMA_CELL_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_FIBROBLAST_IN_TUMOR_CORE",
+      "CELL_DENSITY_FIBROBLAST_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_ENDOTHELIAL_CELL_IN_TUMOR_CORE",
+      "CELL_DENSITY_ENDOTHELIAL_CELL_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_CARCINOMA_CELL_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_CARCINOMA_CELL_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_LYMPHOCYTE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_LYMPHOCYTE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_MACROPHAGE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_MACROPHAGE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_GRANULOCYTE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_GRANULOCYTE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_PLASMA_CELL_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_PLASMA_CELL_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_FIBROBLAST_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_FIBROBLAST_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_ENDOTHELIAL_CELL_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_ENDOTHELIAL_CELL_IN_INNER_INVASIVE_MARGIN",
+      "RATIO_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "AVG_MIN_DISTANCE_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "RATIO_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "AVG_MIN_DISTANCE_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "RATIO_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "AVG_MIN_DISTANCE_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "RATIO_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "AVG_MIN_DISTANCE_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "RATIO_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "AVG_MIN_DISTANCE_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "RATIO_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "AVG_MIN_DISTANCE_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "RATIO_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "AVG_MIN_DISTANCE_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "RATIO_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "AVG_MIN_DISTANCE_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "TLS_IMMATURE_PRESENT",
+      "TLS_MATURE_PRESENT",
+      "LOG1P_COUNT_TLS_IMMATURE",
+      "LOG1P_COUNT_TLS_MATURE"
+    ],
+    "low_tokens": {
+      "global_tissue": [
+        "RELATIVE_AREA_VALID_TISSUE",
+        "RELATIVE_AREA_CARCINOMA",
+        "RELATIVE_AREA_STROMA",
+        "RELATIVE_AREA_NECROSIS",
+        "RELATIVE_AREA_EPITHELIAL_TISSUE",
+        "RELATIVE_AREA_VESSEL"
+      ],
+      "compartment_extent": [
+        "RELATIVE_AREA_TUMOR_CORE",
+        "RELATIVE_AREA_INNER_INVASIVE_MARGIN",
+        "RELATIVE_AREA_OUTER_INVASIVE_MARGIN"
+      ],
+      "tumor_core_composition": [
+        "RELATIVE_AREA_CARCINOMA_IN_TUMOR_CORE",
+        "RELATIVE_AREA_STROMA_IN_TUMOR_CORE",
+        "RELATIVE_AREA_NECROSIS_IN_TUMOR_CORE"
+      ],
+      "invasive_margin_composition": [
+        "RELATIVE_AREA_STROMA_IN_INNER_INVASIVE_MARGIN",
+        "RELATIVE_AREA_CARCINOMA_IN_INNER_INVASIVE_MARGIN"
+      ],
+      "tls": [
+        "TLS_IMMATURE_PRESENT",
+        "TLS_MATURE_PRESENT",
+        "LOG1P_COUNT_TLS_IMMATURE",
+        "LOG1P_COUNT_TLS_MATURE"
+      ]
+    },
+    "high_tokens": {
+      "cell_carcinoma_cell": [
+        "CELL_PERCENTAGE_CARCINOMA_CELL_IN_TUMOR_CORE",
+        "CELL_DENSITY_CARCINOMA_CELL_IN_TUMOR_CORE",
+        "CELL_PERCENTAGE_CARCINOMA_CELL_IN_INNER_INVASIVE_MARGIN",
+        "CELL_DENSITY_CARCINOMA_CELL_IN_INNER_INVASIVE_MARGIN"
+      ],
+      "cell_lymphocyte": [
+        "CELL_PERCENTAGE_LYMPHOCYTE_IN_TUMOR_CORE",
+        "CELL_DENSITY_LYMPHOCYTE_IN_TUMOR_CORE",
+        "CELL_PERCENTAGE_LYMPHOCYTE_IN_INNER_INVASIVE_MARGIN",
+        "CELL_DENSITY_LYMPHOCYTE_IN_INNER_INVASIVE_MARGIN"
+      ],
+      "cell_macrophage": [
+        "CELL_PERCENTAGE_MACROPHAGE_IN_TUMOR_CORE",
+        "CELL_DENSITY_MACROPHAGE_IN_TUMOR_CORE",
+        "CELL_PERCENTAGE_MACROPHAGE_IN_INNER_INVASIVE_MARGIN",
+        "CELL_DENSITY_MACROPHAGE_IN_INNER_INVASIVE_MARGIN"
+      ],
+      "cell_granulocyte": [
+        "CELL_PERCENTAGE_GRANULOCYTE_IN_TUMOR_CORE",
+        "CELL_DENSITY_GRANULOCYTE_IN_TUMOR_CORE",
+        "CELL_PERCENTAGE_GRANULOCYTE_IN_INNER_INVASIVE_MARGIN",
+        "CELL_DENSITY_GRANULOCYTE_IN_INNER_INVASIVE_MARGIN"
+      ],
+      "cell_plasma_cell": [
+        "CELL_PERCENTAGE_PLASMA_CELL_IN_TUMOR_CORE",
+        "CELL_DENSITY_PLASMA_CELL_IN_TUMOR_CORE",
+        "CELL_PERCENTAGE_PLASMA_CELL_IN_INNER_INVASIVE_MARGIN",
+        "CELL_DENSITY_PLASMA_CELL_IN_INNER_INVASIVE_MARGIN"
+      ],
+      "cell_fibroblast": [
+        "CELL_PERCENTAGE_FIBROBLAST_IN_TUMOR_CORE",
+        "CELL_DENSITY_FIBROBLAST_IN_TUMOR_CORE",
+        "CELL_PERCENTAGE_FIBROBLAST_IN_INNER_INVASIVE_MARGIN",
+        "CELL_DENSITY_FIBROBLAST_IN_INNER_INVASIVE_MARGIN"
+      ],
+      "cell_endothelial_cell": [
+        "CELL_PERCENTAGE_ENDOTHELIAL_CELL_IN_TUMOR_CORE",
+        "CELL_DENSITY_ENDOTHELIAL_CELL_IN_TUMOR_CORE",
+        "CELL_PERCENTAGE_ENDOTHELIAL_CELL_IN_INNER_INVASIVE_MARGIN",
+        "CELL_DENSITY_ENDOTHELIAL_CELL_IN_INNER_INVASIVE_MARGIN"
+      ],
+      "spatial_lymphocytes": [
+        "RATIO_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+        "AVG_MIN_DISTANCE_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+        "RATIO_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+        "AVG_MIN_DISTANCE_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40"
+      ],
+      "spatial_macrophages": [
+        "RATIO_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+        "AVG_MIN_DISTANCE_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+        "RATIO_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+        "AVG_MIN_DISTANCE_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40"
+      ],
+      "spatial_fibroblasts": [
+        "RATIO_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+        "AVG_MIN_DISTANCE_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+        "RATIO_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+        "AVG_MIN_DISTANCE_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40"
+      ],
+      "spatial_plasma_cells": [
+        "RATIO_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+        "AVG_MIN_DISTANCE_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+        "RATIO_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+        "AVG_MIN_DISTANCE_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40"
+      ]
+    },
+    "percent_to_fraction": [
+      "RELATIVE_AREA_VALID_TISSUE",
+      "RELATIVE_AREA_CARCINOMA",
+      "RELATIVE_AREA_STROMA",
+      "RELATIVE_AREA_NECROSIS",
+      "RELATIVE_AREA_EPITHELIAL_TISSUE",
+      "RELATIVE_AREA_VESSEL",
+      "CELL_PERCENTAGE_CARCINOMA_CELL_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_LYMPHOCYTE_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_MACROPHAGE_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_GRANULOCYTE_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_PLASMA_CELL_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_FIBROBLAST_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_ENDOTHELIAL_CELL_IN_TUMOR_CORE",
+      "CELL_PERCENTAGE_CARCINOMA_CELL_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_LYMPHOCYTE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_MACROPHAGE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_GRANULOCYTE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_PLASMA_CELL_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_FIBROBLAST_IN_INNER_INVASIVE_MARGIN",
+      "CELL_PERCENTAGE_ENDOTHELIAL_CELL_IN_INNER_INVASIVE_MARGIN"
+    ],
+    "log1p_nonnegative": [
+      "CELL_DENSITY_CARCINOMA_CELL_IN_TUMOR_CORE",
+      "CELL_DENSITY_LYMPHOCYTE_IN_TUMOR_CORE",
+      "CELL_DENSITY_MACROPHAGE_IN_TUMOR_CORE",
+      "CELL_DENSITY_GRANULOCYTE_IN_TUMOR_CORE",
+      "CELL_DENSITY_PLASMA_CELL_IN_TUMOR_CORE",
+      "CELL_DENSITY_FIBROBLAST_IN_TUMOR_CORE",
+      "CELL_DENSITY_ENDOTHELIAL_CELL_IN_TUMOR_CORE",
+      "CELL_DENSITY_CARCINOMA_CELL_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_LYMPHOCYTE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_MACROPHAGE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_GRANULOCYTE_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_PLASMA_CELL_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_FIBROBLAST_IN_INNER_INVASIVE_MARGIN",
+      "CELL_DENSITY_ENDOTHELIAL_CELL_IN_INNER_INVASIVE_MARGIN",
+      "AVG_MIN_DISTANCE_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "AVG_MIN_DISTANCE_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "AVG_MIN_DISTANCE_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "AVG_MIN_DISTANCE_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "AVG_MIN_DISTANCE_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "AVG_MIN_DISTANCE_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+      "AVG_MIN_DISTANCE_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+      "AVG_MIN_DISTANCE_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40"
+    ],
+    "tls_derivation": "legacy_missing_count_zero_then_presence_and_log1p",
+    "other_missing": "preserve_NaN_until_training_fold_median_imputation",
+    "fold_fitted": "training_median_then_training_mean_population_std_no_indicators",
+    "constant_training_scale": "standard_deviation_below_1e-8_becomes_1",
+    "all_missing_training_column": "reject_fold_do_not_select_a_new_panel",
+    "feature_schema_sha256": "0acd9525074a00687294c44f624577126ea974ccf49864ac5e0f7a53f6d02526"
+  },
+  "legacy_brca_morph64": "preserved_as_separate_historical_variant",
+  "new_brca_shared62_runs": "required; reuse exact matching native checkpoints and existing splits when verified",
+  "cohort_panels": {
+    "nsclc": {
+      "table": "${PATHOTME_DATA_ROOT}/panels/shared_core62_20260914_v1/nsclc/core62.csv",
+      "feature_schema_sha256": "0acd9525074a00687294c44f624577126ea974ccf49864ac5e0f7a53f6d02526",
+      "selected_table_sha256": "8a0ec03c84fa8f91da463ad67b2ccae5705ef5c75b4f541847db3a869aa056fe",
+      "source_table_slides_before_study_intersection": 1041
+    },
+    "brca": {
+      "table": "${PATHOTME_DATA_ROOT}/panels/shared_core62_20260914_v1/brca/core62.csv",
+      "feature_schema_sha256": "0acd9525074a00687294c44f624577126ea974ccf49864ac5e0f7a53f6d02526",
+      "selected_table_sha256": "5f97652bbea7c136e876e29f60c9415ddf5d482ad3196b387da928a0e04116d7",
+      "source_table_slides_before_study_intersection": 1125
+    },
+    "crc": {
+      "table": "${PATHOTME_DATA_ROOT}/panels/shared_core62_20260914_v1/crc/core62.csv",
+      "feature_schema_sha256": "0acd9525074a00687294c44f624577126ea974ccf49864ac5e0f7a53f6d02526",
+      "selected_table_sha256": "71f2f831b067c1d1ee21301d2c1417d2a45cf546aa5ea72772a775e58fcf0b48",
+      "source_table_slides_before_study_intersection": 600
+    },
+    "blca": {
+      "table": "${PATHOTME_DATA_ROOT}/panels/shared_core62_20260914_v1/blca/core62.csv",
+      "feature_schema_sha256": "0acd9525074a00687294c44f624577126ea974ccf49864ac5e0f7a53f6d02526",
+      "selected_table_sha256": "6178efaa3209b4cb557d508fb0df9690e549cc56d125aff23a2741f5ee722364",
+      "source_table_slides_before_study_intersection": 457
+    }
+  },
+  "new_cohort_text": {
+    "crc": {
+      "generator": "GPT 6 ASTRA",
+      "class_order": [
+        "ADENO_NOS",
+        "MUCINOUS"
+      ],
+      "label_dict": {
+        "ADENO_NOS": 0,
+        "MUCINOUS": 1
+      },
+      "source_label_mapping": {
+        "8140/3": 0,
+        "8480/3": 1
+      },
+      "label_field": "ICD_O_3_HISTOLOGY",
+      "files": [
+        {
+          "method": "vila_mil",
+          "role": "ordered_class_scale_descriptions",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/vila_mil/two_scale.csv",
+          "sha256": "2e065c3da7f1d8a13bc273f174e7a4ecd56b55c2ba53e954b56d3ac76d6eea99"
+        },
+        {
+          "method": "mgpath",
+          "role": "ordered_class_scale_descriptions",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/mgpath/two_scale.csv",
+          "sha256": "7646c9e9571ea2633483c00ca5c7122e30e83b8429d4abc416857ac96a996798"
+        },
+        {
+          "method": "focus",
+          "role": "ordered_class_scale_descriptions",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/focus/two_scale.csv",
+          "sha256": "85604f0b9fd2660eab84ec6b22799a6255c50cb3f0a609cc49e4c318b0db4a81"
+        },
+        {
+          "method": "muse",
+          "role": "inference_class_semantics",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/muse/class_semantics.json",
+          "sha256": "b165ea9533fc8228929c5c2f422e6493d36599d48b9e95e7c994f2233c6711f6"
+        },
+        {
+          "method": "muse",
+          "role": "training_retrieval_bank",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/muse/generated_new_0.csv",
+          "sha256": "620df40677fb735d97313fcd110de61f40b3e547f9202c71707c4c3bfa7e95bb"
+        },
+        {
+          "method": "muse",
+          "role": "training_retrieval_bank",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/muse/generated_new_1.csv",
+          "sha256": "905a47f22e33e22124695062ec7f8480fb27e0c6098f75425f0f2150aafeaca6"
+        },
+        {
+          "method": "hive_mil",
+          "role": "four_coarse_twelve_fine",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/hive_mil/hierarchy.json",
+          "sha256": "1bf362c8afcc884ff74f157d644b98c7a5ebf8c5fbdea8c99328a461bf02bd9d"
+        },
+        {
+          "method": "mscpt",
+          "role": "multiscale_description_graph",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/mscpt/description/TCGA_CRC.json",
+          "sha256": "81075f69f90f79436b76973da192c77693befdaac9d497668dc1bbe2dc233817"
+        },
+        {
+          "method": "dyko",
+          "role": "class_descriptions",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/dyko/class_descriptions.csv",
+          "sha256": "ecf0d74cc9c55926a4459d861a5d0421827662d7c10b2559a3f23ccce76620ff"
+        },
+        {
+          "method": "dyko",
+          "role": "unlabeled_visual_knowledge",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/dyko/knowledge_bank.json",
+          "sha256": "19effc40fe2db9138a98b2eaa2eeaf6827992b26a56822e9068177355a9c766e"
+        }
+      ],
+      "muse_resolution": "10x",
+      "dyko_TITAN_encoding": "pending",
+      "mscpt_selector": "mean_low_description_fallback",
+      "runtime_contracts": "new scoped task adapters still required"
+    },
+    "blca": {
+      "generator": "GPT 6 ASTRA",
+      "class_order": [
+        "NON_PAPILLARY",
+        "PAPILLARY"
+      ],
+      "label_dict": {
+        "NON_PAPILLARY": 0,
+        "PAPILLARY": 1
+      },
+      "source_label_mapping": {
+        "Non-Papillary": 0,
+        "Papillary": 1
+      },
+      "label_field": "HISTOLOGICAL_SUBTYPE",
+      "files": [
+        {
+          "method": "vila_mil",
+          "role": "ordered_class_scale_descriptions",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/vila_mil/two_scale.csv",
+          "sha256": "cd70a4f58a557be790cdc81f0fde2e5cfdb1898ad6bd7ee3655f3250e5a4b318"
+        },
+        {
+          "method": "mgpath",
+          "role": "ordered_class_scale_descriptions",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/mgpath/two_scale.csv",
+          "sha256": "2de6ace7180fb3acb7db116ed43921d360c7d450e51d2d19876b4d90df24e98b"
+        },
+        {
+          "method": "focus",
+          "role": "ordered_class_scale_descriptions",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/focus/two_scale.csv",
+          "sha256": "61e6a3731cda3732e6515acb2f7936054caa4ae6bbbaeac011966ba7475e5d26"
+        },
+        {
+          "method": "muse",
+          "role": "inference_class_semantics",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/muse/class_semantics.json",
+          "sha256": "90f400746ef8c2f3f32933539448e73e0999f452fbed4817c95d143e968e6860"
+        },
+        {
+          "method": "muse",
+          "role": "training_retrieval_bank",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/muse/generated_new_0.csv",
+          "sha256": "bd0c8beb2aedf5bf44b5da4043c802dfbe6d5e9c33f84563852795dd1992c5de"
+        },
+        {
+          "method": "muse",
+          "role": "training_retrieval_bank",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/muse/generated_new_1.csv",
+          "sha256": "f1be0a853bd940edbd2bc7a92076dfed4f85f9442cf8ed7eed96b1cdc0b0eda5"
+        },
+        {
+          "method": "hive_mil",
+          "role": "four_coarse_twelve_fine",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/hive_mil/hierarchy.json",
+          "sha256": "6791ba99179b4194b24fef794112fd08f3ad034b570f7ff4e9a08a6d96be4146"
+        },
+        {
+          "method": "mscpt",
+          "role": "multiscale_description_graph",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/mscpt/description/TCGA_BLCA.json",
+          "sha256": "f0cc942203430ab98fc7c892f061a6850b4325b13bba56e77ba3802b2241b96c"
+        },
+        {
+          "method": "dyko",
+          "role": "class_descriptions",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/dyko/class_descriptions.csv",
+          "sha256": "16e070afee7e15d3e06a971e50ab54853fce9a11ad7a7085277cb87943cc54fc"
+        },
+        {
+          "method": "dyko",
+          "role": "unlabeled_visual_knowledge",
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/dyko/knowledge_bank.json",
+          "sha256": "797731262e3758933bee9d06a53a8171a241c0785880b9e67090bfde5361bf85"
+        }
+      ],
+      "muse_resolution": "10x",
+      "dyko_TITAN_encoding": "pending",
+      "mscpt_selector": "mean_low_description_fallback",
+      "runtime_contracts": "new scoped task adapters still required"
+    }
+  },
+  "baseline_tme_same_prompt_bytes": true,
+  "encoders": [
+    "plip",
+    "clip-rn50"
+  ],
+  "new_cohort_jobs_submitted": false,
+  "prompt_manifest": {
+    "path": "text_prompts/crc_blca_gpt6_astra_v1/MANIFEST.json",
+    "sha256": "8206950ab3bf6a0ef2aa2f8dd695348ff5e7b6c380ce2de45a1d303016be4088"
+  }
+}

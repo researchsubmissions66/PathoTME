@@ -18,7 +18,7 @@ def build_plan(config, with_external=False):
     contract=load_yaml_config(config)
     python=str(Path(os.environ["PGVL_CONDA_ENV"])/"bin/python")
     runner=str(ROOT/"scripts/run_controlled_vila.py")
-    env=["env","HF_HUB_OFFLINE=1","TRANSFORMERS_OFFLINE=1","HF_HOME=/path/to/huggingface-cache",
+    env=["env","HF_HUB_OFFLINE=1","TRANSFORMERS_OFFLINE=1","HF_HOME=/path/to/shared/.cache_huggingface",
          "PYTHONNOUSERSITE=1","TOKENIZERS_PARALLELISM=false","OMP_NUM_THREADS=6","MKL_NUM_THREADS=6",
          "LD_LIBRARY_PATH="+str(Path(python).parent.parent/"lib")+
          (":"+os.environ["LD_LIBRARY_PATH"] if os.environ.get("LD_LIBRARY_PATH") else "")]
@@ -77,7 +77,7 @@ def build_plan(config, with_external=False):
                     if not verify_completed(e["output"],external_identity):
                         raise ValueError("only external inference remains; use an explicit evaluation-only launch")
         wrap="set -eu\n"+"\n".join(shlex.join(env+command) for command in [p["command"],*[e["command"] for e in p["external_components"]]])
-        p["sbatch"]=["sbatch","--parsable","--account=YOUR_SLURM_ACCOUNT","--partition=gpuA100x4",
+        p["sbatch"]=["sbatch","--parsable","--account=shared-delta-gpu","--partition=gpuA100x4",
             "--nodes=1","--ntasks=1","--gres=gpu:1","--cpus-per-task=6","--mem=24G",f"--time={p['time']}",
             f"--job-name={name}",f"--chdir={PGVL}",f"--output={logs}/{name}-%j.out",
             "--comment=pathotme-conch-brca-controlled-v1","--wrap",wrap]

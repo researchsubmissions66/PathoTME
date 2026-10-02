@@ -1,0 +1,38 @@
+{
+  "ADENO_NOS": {
+    "Gland architecture": "colorectal adenocarcinoma NOS may show irregular gland-forming tumor architecture.",
+    "Tumor cellularity": "colorectal adenocarcinoma NOS may show cellular glands interspersed with solid tumor areas.",
+    "Tumor interface": "colorectal adenocarcinoma NOS may show infiltrative glands within fibrous tissue.",
+    "Luminal background": "colorectal adenocarcinoma NOS may show glandular lumina containing necrotic material.",
+    "Gland architecture / Irregular lumina": "colorectal adenocarcinoma NOS may show atypical epithelium surrounding irregular lumina.",
+    "Gland architecture / Crowded glands": "colorectal adenocarcinoma NOS may show back-to-back malignant glands.",
+    "Gland architecture / Cribriform bridges": "colorectal adenocarcinoma NOS may show bridging epithelium within cribriform glands.",
+    "Tumor cellularity / Nuclear elongation": "colorectal adenocarcinoma NOS may show elongated hyperchromatic tumor nuclei.",
+    "Tumor cellularity / Nuclear stratification": "colorectal adenocarcinoma NOS may show nuclear stratification in glandular epithelium.",
+    "Tumor cellularity / Nuclear variation": "colorectal adenocarcinoma NOS may show variable nuclear size and epithelial polarity.",
+    "Tumor interface / Angulated glands": "colorectal adenocarcinoma NOS may show angulated glands between collagen bundles.",
+    "Tumor interface / Peripheral clusters": "colorectal adenocarcinoma NOS may show small epithelial clusters at a tumor boundary.",
+    "Tumor interface / Stromal fibroblasts": "colorectal adenocarcinoma NOS may show fibroblasts around infiltrating glands.",
+    "Luminal background / Luminal debris": "colorectal adenocarcinoma NOS may show granular debris within gland lumina.",
+    "Luminal background / Nuclear fragments": "colorectal adenocarcinoma NOS may show fragmented nuclei within luminal necrosis.",
+    "Luminal background / Stromal inflammation": "colorectal adenocarcinoma NOS may show scattered inflammatory cells in adjacent stroma."
+  },
+  "MUCINOUS": {
+    "Mucinous architecture": "colorectal mucinous adenocarcinoma may show broad extracellular mucin pools containing tumor.",
+    "Tumor cellularity": "colorectal mucinous adenocarcinoma may show epithelial clusters dispersed through mucinous areas.",
+    "Tumor interface": "colorectal mucinous adenocarcinoma may show mucinous tumor extending between tissue compartments.",
+    "Mucin background": "colorectal mucinous adenocarcinoma may show pale mucin lakes separated by fibrous septa.",
+    "Mucinous architecture / Floating clusters": "colorectal mucinous adenocarcinoma may show malignant epithelial clusters suspended in mucin.",
+    "Mucinous architecture / Gland fragments": "colorectal mucinous adenocarcinoma may show glandular fragments bordering mucin spaces.",
+    "Mucinous architecture / Epithelial strips": "colorectal mucinous adenocarcinoma may show extracellular mucin around atypical epithelial strips.",
+    "Tumor cellularity / Nuclear staining": "colorectal mucinous adenocarcinoma may show hyperchromatic nuclei in floating tumor clusters.",
+    "Tumor cellularity / Nuclear stratification": "colorectal mucinous adenocarcinoma may show variable nuclear stratification in tumor epithelium.",
+    "Tumor cellularity / Cellular mucin": "colorectal mucinous adenocarcinoma may show mucin-containing malignant cells.",
+    "Tumor interface / Septal epithelium": "colorectal mucinous adenocarcinoma may show epithelial groups along fibrous septa.",
+    "Tumor interface / Collagen interface": "colorectal mucinous adenocarcinoma may show mucin pools adjacent to collagen bundles.",
+    "Tumor interface / Stromal fibroblasts": "colorectal mucinous adenocarcinoma may show fibroblasts at mucinous tumor boundaries.",
+    "Mucin background / Extracellular mucin": "colorectal mucinous adenocarcinoma may show pale extracellular mucin between tumor cells.",
+    "Mucin background / Cellular debris": "colorectal mucinous adenocarcinoma may show scattered cellular debris within mucin.",
+    "Mucin background / Local inflammation": "colorectal mucinous adenocarcinoma may show variable inflammatory cells around mucin pools."
+  }
+}

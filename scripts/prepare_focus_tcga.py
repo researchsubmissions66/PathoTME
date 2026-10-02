@@ -155,7 +155,7 @@ def prepare(spec_path, output):
         for p in directory.rglob('*.py'):
             bind(p)
     for p in [PGVL/'train.py', ROOT/'scripts/run_vila_guided.py', ROOT/'scripts/prepare_locked_tcga.py',
-              ROOT/'scripts/prepare_cross_encoder_tcga.py', ROOT/'README.md', ROOT/'tests/test_focus_tme.py',
+              ROOT/'scripts/prepare_cross_encoder_tcga.py', ROOT/'TME_GUIDED_FOCUS.md', ROOT/'tests/test_focus_tme.py',
               *sorted((ROOT/'scripts').glob('*focus_tcga.py'))]:
         bind(p)
     for p in output.rglob('*'):

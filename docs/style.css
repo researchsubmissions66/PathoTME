@@ -26,3 +26,7 @@
 @media(max-width:800px){.hero-logo{width:64px}.hero h1{gap:12px}}
 @media(max-width:600px){.hero h1{font-size:56px}.hero-logo{width:60px}}
 @media(max-width:360px){.hero h1{font-size:48px;gap:10px}.hero-logo{width:49px}}
+
+/* Canonical variant names remain readable in narrow control cards. */
+.control-grid h4{overflow-wrap:anywhere}.baseline-variants{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:18px}
+@media(max-width:600px){.baseline-variants{grid-template-columns:1fr}}

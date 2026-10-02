@@ -1,0 +1,52 @@
+{
+  "version": "2026-09-15",
+  "scope": "Canonical display names for the matched PathoTME study. Stored condition IDs remain unchanged.",
+  "variants": {
+    "native": {
+      "display_name": "Native",
+      "description": "The matched underlying model without TME."
+    },
+    "tme_only": {
+      "display_name": "PathoTME-LR",
+      "description": "L2 logistic regression using only the matched numeric TME panel."
+    },
+    "late_fusion_fixed_half": {
+      "display_name": "PathoTME-Fusion50",
+      "description": "An equal average of Native and PathoTME-LR class probabilities."
+    },
+    "late_fusion_validation": {
+      "display_name": "PathoTME-FusionVal",
+      "description": "Native and PathoTME-LR probability fusion with the TME weight selected on validation patients."
+    },
+    "actual": {
+      "display_name": "PathoTME-Adapter",
+      "description": "A learned conditioner using the slide’s own TME measurements with a frozen native checkpoint."
+    },
+    "zero": {
+      "display_name": "PathoTME-Adapter-Zero",
+      "description": "The adapter ablation with standardized numeric TME inputs set to zero."
+    },
+    "shuffled": {
+      "display_name": "PathoTME-Adapter-Shuffled",
+      "description": "The adapter ablation with a different patient’s TME row from the same data split."
+    }
+  },
+  "fusion_equation": "p = (1 - alpha) * p_native + alpha * p_tme_lr",
+  "fusion50_alpha": 0.5,
+  "fusionval_alpha_candidates": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "fusionval_selection": "Validation patient AUROC, then NLL, then smaller alpha; endpoints remain eligible.",
+  "lr_scope": "One fit per matching cohort, panel and fold; independent of visual architecture and encoder.",
+  "short_table_aliases": {
+    "zero": "PathoTME-Zero",
+    "shuffled": "PathoTME-Shuffled"
+  },
+  "short_table_alias_requirement": "The caption must explicitly identify these as adapter ablations.",
+  "algorithm_note": "PathoTME is the study umbrella. LR and probability fusion are standard baseline algorithms.",
+  "naming_example": "PathoTME-FusionVal · MGPATH · PLIP"
+}

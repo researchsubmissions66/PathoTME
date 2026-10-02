@@ -49,12 +49,12 @@ def main():
                    "--tme-mode", mode, "--expected-identity", identity]
         if args.smoke_only: command.append("--smoke-only")
         env = ["env", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1",
-               "HF_HOME=/path/to/huggingface-cache", "PYTHONNOUSERSITE=1",
+               "HF_HOME=/path/to/shared/.cache_huggingface", "PYTHONNOUSERSITE=1",
                "OMP_NUM_THREADS=6", "MKL_NUM_THREADS=6",
                "LD_LIBRARY_PATH=" + str(Path(python).parent.parent / "lib")
                + (":" + os.environ["LD_LIBRARY_PATH"] if os.environ.get("LD_LIBRARY_PATH") else "")]
         tag = "smoke" if args.smoke_only else mode
-        submit = ["sbatch", "--parsable", "--account=YOUR_SLURM_ACCOUNT",
+        submit = ["sbatch", "--parsable", "--account=shared-delta-gpu",
                   f"--partition={args.partition}", "--gres=gpu:1", "--cpus-per-task=6",
                   "--mem=24G", f"--time={args.time}", f"--job-name=ptme-mgp-{tag}-f{fold}",
                   f"--chdir={PGVL}", f"--output={logs}/pathotme-mgpath-{tag}-f{fold}-%j.out"]

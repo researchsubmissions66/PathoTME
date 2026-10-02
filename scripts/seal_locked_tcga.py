@@ -23,7 +23,7 @@ def main():
     validation=json.loads(args.validation.read_text())
     if validation['status']!='passed':raise ValueError('tests must pass')
     verify_files(validation['source_sha256'])
-    paths=[args.launch.resolve(),args.validation.resolve(),ROOT/'README.md',Path(__file__).resolve(),
+    paths=[args.launch.resolve(),args.validation.resolve(),ROOT/'TCGA_LOCKED_STUDY.md',Path(__file__).resolve(),
            PGVL/'methods/mscpt/dataset.py',PGVL/'text_prompts/PROVENANCE.json']
     paths+=list((ROOT/'tests').glob('test_*vila*.py'))
     paths += [ROOT/'tests/test_locked_tcga.py',ROOT/'tests/test_guided_mgpath.py',ROOT/'tests/test_brca_features.py']

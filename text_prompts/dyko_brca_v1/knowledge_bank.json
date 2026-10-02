@@ -45,7 +45,7 @@
   "encoder": {
     "name": "TITAN",
     "revision": "dac6773d9961cfc75503440676ff157a2c6e8d2e",
-    "checkpoint": "/path/to/huggingface-cache/hub/models--MahmoodLab--TITAN/snapshots/dac6773d9961cfc75503440676ff157a2c6e8d2e",
+    "checkpoint": "/path/to/shared/.cache_huggingface/hub/models--MahmoodLab--TITAN/snapshots/dac6773d9961cfc75503440676ff157a2c6e8d2e",
     "normalize": true,
     "width": 768
   },

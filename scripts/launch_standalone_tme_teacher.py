@@ -21,7 +21,7 @@ def build_plan(config, with_external=False):
     python = str(Path(os.environ['PGVL_CONDA_ENV'])/'bin/python')
     runner = str(ROOT/'scripts/run_standalone_tme_teacher.py')
     env = ['env', 'HF_HUB_OFFLINE=1', 'TRANSFORMERS_OFFLINE=1',
-        'HF_HOME=/path/to/huggingface-cache', 'PYTHONNOUSERSITE=1',
+        'HF_HOME=/path/to/shared/.cache_huggingface', 'PYTHONNOUSERSITE=1',
         'TOKENIZERS_PARALLELISM=false', 'OMP_NUM_THREADS=6', 'MKL_NUM_THREADS=6',
         'LD_LIBRARY_PATH='+str(Path(python).parent.parent/'lib')+
         (':'+os.environ['LD_LIBRARY_PATH'] if os.environ.get('LD_LIBRARY_PATH') else '')]
@@ -95,7 +95,7 @@ def build_plan(config, with_external=False):
         logs = Path(os.environ['PATHOTME_RESULTS_ROOT'])/'logs'
         plan.update(job_name=name, skip_completed=not commands)
         wrap = 'set -eu\n'+'\n'.join(shlex.join(env+cmd) for cmd in commands)
-        plan['sbatch'] = ['sbatch', '--parsable', '--account=YOUR_SLURM_ACCOUNT', '--partition=gpuA100x4',
+        plan['sbatch'] = ['sbatch', '--parsable', '--account=shared-delta-gpu', '--partition=gpuA100x4',
             '--nodes=1', '--ntasks=1', '--gres=gpu:1', '--cpus-per-task=6', '--mem=24G',
             f"--time={plan['time']}", f'--job-name={name}', f'--chdir={PGVL}',
             f'--output={logs}/{name}-%j.out', '--comment=pathotme-standalone-tme-teacher-v1', '--wrap', wrap]

@@ -190,3 +190,14 @@ in this repository.** Request dataset access through the official Hugging Face
 page and follow its access and use terms. The published
 [panel definitions](docs/data/panels.json) contain feature names, semantic groups,
 and source-column metadata, not patient- or slide-level measurement rows.
+
+## Extended experiments
+
+The [research overview](RESEARCH_OVERVIEW.md) documents the MSCPT extension,
+matched logistic-regression and fusion baselines, attribution, and additional
+cohort and shot-count campaigns. Source files, configurations, prompt banks,
+and tests are included; local credentials and raw datasets are excluded.
+
+Machine-specific paths in this anonymous release use `/path/to` placeholders.
+Configure these paths for your environment. Stored local-run hashes are historical
+provenance; regenerate contracts before launching from this sanitized checkout.

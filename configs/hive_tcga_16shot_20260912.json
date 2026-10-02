@@ -69,7 +69,7 @@
   },
   "resources": {
     "partition": "gpuA100x4",
-    "account": "YOUR_SLURM_ACCOUNT",
+    "account": "shared-delta-gpu",
     "gpus": 1,
     "cpus": 8,
     "mem": "48G",

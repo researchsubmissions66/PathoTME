@@ -31,13 +31,13 @@ def commands(campaign,path):
                             time_limit=f'{hours:02d}:{minutes:02d}:{seconds:02d}'
                             name=f"ptme-s48-{cohort}-{'vila' if method=='vila_mil' else 'mgp'}-{encoder}-"+('smk' if smoke else f's{shot}-f{fold}')
                             env=['env','HF_HUB_OFFLINE=1','TRANSFORMERS_OFFLINE=1',
-                                'HF_HOME=/path/to/huggingface-cache','PYTHONNOUSERSITE=1','PYTHONDONTWRITEBYTECODE=1',
+                                'HF_HOME=/path/to/shared/.cache_huggingface','PYTHONNOUSERSITE=1','PYTHONDONTWRITEBYTECODE=1',
                                 'OMP_NUM_THREADS=8','MKL_NUM_THREADS=8','OPENBLAS_NUM_THREADS=8',
                                 'LD_LIBRARY_PATH=/path/to/shared/envs/pgvl-gym/lib']
                             runtime=[PYTHON,'-u',str(worker),'--campaign',str(path.resolve()),'--cohort',cohort,
                                 '--method',method,'--encoder',encoder,'--fold',str(fold),'--execute']
                             runtime+=['--smoke'] if smoke else ['--shots',str(shot)]
-                            command=['sbatch','--parsable','--account=YOUR_SLURM_ACCOUNT','--partition=gpuA100x4',
+                            command=['sbatch','--parsable','--account=shared-delta-gpu','--partition=gpuA100x4',
                                 '--gres=gpu:1','--cpus-per-task=8','--mem=48G',f'--time={time_limit}',
                                 f'--job-name={name}',f'--chdir={PGVL}',f'--output={output}/logs/{name}-%j.out',
                                 '--wrap',shlex.join(env+runtime)]
@@ -49,7 +49,7 @@ def commands(campaign,path):
 
 
 def queue():
-    return subprocess.run(['squeue','-h','-u',getpass.getuser(),'-o','%i|%j|%T|%R|%E|%Q'],
+    return subprocess.run(['squeue','-h','-u','anonymous','-o','%i|%j|%T|%R|%E|%Q'],
                           capture_output=True,text=True,check=True,timeout=30).stdout
 
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Retry only the 25 unstarted folds, with type-preserving runtime YAML."""
-import getpass
 import argparse
 import copy
 from datetime import datetime, timezone
@@ -68,7 +67,7 @@ def prepare():
             'authorization':'User: Fix and launch again. Preserve completed folds.'}
         sources = [parent_path, parent_root/'submission.json', Path(__file__).resolve(),
                    ROOT/'pathotme/yaml_runtime_config.py', ROOT/'scripts/check_tcga_numeric_retry.py',
-                   ROOT/'README.md']
+                   ROOT/'TCGA_NUMERIC_RETRY.md']
         for path in sources: launch['file_sha256'][str(path)] = sha(path)
         n = len(launch['plans']); nsmokes = sum(p['fold'] == 0 for p in launch['plans'])
         launch['counts'] = {'fold_jobs':n, 'smoke_jobs':nsmokes, 'native_new':n,
@@ -88,7 +87,7 @@ def commands(campaign):
     for g in campaign['groups']:
         launch=load_launch(g['launch']);out=Path(launch['output']);r=launch['protocol']['resources']
         env=['env','HF_HUB_OFFLINE=1','TRANSFORMERS_OFFLINE=1',
-             'HF_HOME=/path/to/huggingface-cache','PYTHONNOUSERSITE=1','PYTHONDONTWRITEBYTECODE=1',
+             'HF_HOME=/path/to/shared/.cache_huggingface','PYTHONNOUSERSITE=1','PYTHONDONTWRITEBYTECODE=1',
              'OMP_NUM_THREADS=8','MKL_NUM_THREADS=8','OPENBLAS_NUM_THREADS=8',
              'LD_LIBRARY_PATH=/path/to/shared/envs/pgvl-gym/lib']
         runner=ROOT/('scripts/run_locked_tcga.py' if g['tag']=='native' else 'scripts/run_cross_encoder_tcga.py')
@@ -123,12 +122,12 @@ def submit(campaign,jobs):
         reports.append({'name':j['name'],'returncode':result.returncode,'stdout':result.stdout,'stderr':result.stderr})
         if result.returncode:raise RuntimeError(reports[-1])
     atomic_json(OUTPUT/'slurm_test_only.json',reports)
-    queue=run(['squeue','-h','-u',getpass.getuser(),'-o','%i|%u|%j|%T|%R|%E'])
+    queue=run(['squeue','-h','-u','anonymous','-o','%i|%u|%j|%T|%R|%E'])
     if 'ptme-num-' in queue:raise RuntimeError('Numeric retry already queued')
     lookup={r.split('|')[0]:r.split('|') for r in queue.splitlines()}
     for jid in BLOCKED:
         r=lookup[jid]
-        assert r[1]==getpass.getuser() and r[2].startswith('ptme-cross-') and r[3]=='PENDING' and 'DependencyNeverSatisfied' in r[4] and '(failed)' in r[5],r
+        assert r[1]=='anonymous' and r[2].startswith('ptme-cross-') and r[3]=='PENDING' and 'DependencyNeverSatisfied' in r[4] and '(failed)' in r[5],r
     failed=[j['retry_of_job'] for j in jobs if j['retry_of_job'] and j['retry_of_job'] not in BLOCKED]
     states=run(['sacct','-X','-n','-j',','.join(failed),'--format=JobIDRaw,State','-P'])
     assert {r.split('|')[0] for r in states.splitlines()}==set(failed)

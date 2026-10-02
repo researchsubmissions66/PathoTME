@@ -1,0 +1,54 @@
+{
+  "ADENO_NOS": {
+    "small_mag": [
+      "At low magnification, colorectal adenocarcinoma NOS may show irregular gland-forming tumor architecture.",
+      "At low magnification, colorectal adenocarcinoma NOS may show cellular glands interspersed with solid tumor areas.",
+      "At low magnification, colorectal adenocarcinoma NOS may show infiltrative glands within fibrous tissue.",
+      "At low magnification, colorectal adenocarcinoma NOS may show glandular lumina containing necrotic material.",
+      "At low magnification, colorectal adenocarcinoma NOS may show crowded or fused malignant glands.",
+      "At low magnification, colorectal adenocarcinoma NOS may show variation in gland size and shape.",
+      "At low magnification, colorectal adenocarcinoma NOS may show complex cribriform epithelial structures.",
+      "At low magnification, colorectal adenocarcinoma NOS may show uneven proportions of tumor and stroma.",
+      "At low magnification, colorectal adenocarcinoma NOS may show distortion of the native mucosal architecture.",
+      "At low magnification, colorectal adenocarcinoma NOS may show focal mucin alongside gland-forming tumor."
+    ],
+    "big_mag": [
+      "At high magnification, colorectal adenocarcinoma NOS may show atypical epithelium surrounding irregular lumina.",
+      "At high magnification, colorectal adenocarcinoma NOS may show back-to-back malignant glands.",
+      "At high magnification, colorectal adenocarcinoma NOS may show bridging epithelium within cribriform glands.",
+      "At high magnification, colorectal adenocarcinoma NOS may show elongated hyperchromatic tumor nuclei.",
+      "At high magnification, colorectal adenocarcinoma NOS may show nuclear stratification in glandular epithelium.",
+      "At high magnification, colorectal adenocarcinoma NOS may show variable nuclear size and epithelial polarity.",
+      "At high magnification, colorectal adenocarcinoma NOS may show angulated glands between collagen bundles.",
+      "At high magnification, colorectal adenocarcinoma NOS may show small epithelial clusters at a tumor boundary.",
+      "At high magnification, colorectal adenocarcinoma NOS may show fibroblasts around infiltrating glands.",
+      "At high magnification, colorectal adenocarcinoma NOS may show granular debris within gland lumina."
+    ]
+  },
+  "MUCINOUS": {
+    "small_mag": [
+      "At low magnification, colorectal mucinous adenocarcinoma may show broad extracellular mucin pools containing tumor.",
+      "At low magnification, colorectal mucinous adenocarcinoma may show epithelial clusters dispersed through mucinous areas.",
+      "At low magnification, colorectal mucinous adenocarcinoma may show mucinous tumor extending between tissue compartments.",
+      "At low magnification, colorectal mucinous adenocarcinoma may show pale mucin lakes separated by fibrous septa.",
+      "At low magnification, colorectal mucinous adenocarcinoma may show glandular tumor bordering extracellular mucin.",
+      "At low magnification, colorectal mucinous adenocarcinoma may show variable cellularity across mucin-filled regions.",
+      "At low magnification, colorectal mucinous adenocarcinoma may show coalescent mucin pools with epithelial islands.",
+      "At low magnification, colorectal mucinous adenocarcinoma may show mixed mucinous and gland-forming regions.",
+      "At low magnification, colorectal mucinous adenocarcinoma may show mucinous areas interrupting native bowel architecture.",
+      "At low magnification, colorectal mucinous adenocarcinoma may show sparse tumor clusters in abundant extracellular mucin."
+    ],
+    "big_mag": [
+      "At high magnification, colorectal mucinous adenocarcinoma may show malignant epithelial clusters suspended in mucin.",
+      "At high magnification, colorectal mucinous adenocarcinoma may show glandular fragments bordering mucin spaces.",
+      "At high magnification, colorectal mucinous adenocarcinoma may show extracellular mucin around atypical epithelial strips.",
+      "At high magnification, colorectal mucinous adenocarcinoma may show hyperchromatic nuclei in floating tumor clusters.",
+      "At high magnification, colorectal mucinous adenocarcinoma may show variable nuclear stratification in tumor epithelium.",
+      "At high magnification, colorectal mucinous adenocarcinoma may show mucin-containing malignant cells.",
+      "At high magnification, colorectal mucinous adenocarcinoma may show epithelial groups along fibrous septa.",
+      "At high magnification, colorectal mucinous adenocarcinoma may show mucin pools adjacent to collagen bundles.",
+      "At high magnification, colorectal mucinous adenocarcinoma may show fibroblasts at mucinous tumor boundaries.",
+      "At high magnification, colorectal mucinous adenocarcinoma may show pale extracellular mucin between tumor cells."
+    ]
+  }
+}

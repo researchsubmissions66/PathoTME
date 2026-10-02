@@ -37,7 +37,7 @@ def build_plan():
     python=str(Path(os.environ["PGVL_CONDA_ENV"])/"bin/python")
     logs=Path(os.environ["PATHOTME_RESULTS_ROOT"])/"logs"
     environment=["env","HF_HUB_OFFLINE=1","TRANSFORMERS_OFFLINE=1",
-        "HF_HOME=/path/to/huggingface-cache","PYTHONNOUSERSITE=1",
+        "HF_HOME=/path/to/shared/.cache_huggingface","PYTHONNOUSERSITE=1",
         "TOKENIZERS_PARALLELISM=false","OMP_NUM_THREADS=6","MKL_NUM_THREADS=6",
         "LD_LIBRARY_PATH="+str(Path(python).parent.parent/"lib")+
         (":"+os.environ["LD_LIBRARY_PATH"] if os.environ.get("LD_LIBRARY_PATH") else "")]
@@ -67,7 +67,7 @@ def build_plan():
                     raise RuntimeError("only a CPU comparator remains; do not reserve a new GPU just for it")
             name=f"ptme-brca-{short}-smoke" if execution=="smoke" else f"ptme-brca-{short}-{mode[0]}-f{fold}"
             wrap="set -eu\n"+"\n".join(shlex.join(environment+c["command"]) for c in components if not c["completed"])
-            submit=["sbatch","--parsable","--account=YOUR_SLURM_ACCOUNT","--partition=gpuA100x4",
+            submit=["sbatch","--parsable","--account=shared-delta-gpu","--partition=gpuA100x4",
                     "--nodes=1","--ntasks=1","--gres=gpu:1","--cpus-per-task=6","--mem=24G",
                     "--time=00:45:00",f"--job-name={name}",f"--chdir={PGVL}",
                     f"--output={logs}/{name}-%j.out","--comment=pathotme-brca-v1-20260907","--wrap",wrap]

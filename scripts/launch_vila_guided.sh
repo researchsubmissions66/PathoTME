@@ -4,7 +4,7 @@ set -euo pipefail
 PATHOTME_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PGVL_REPO_ROOT="${PGVL_REPO_ROOT:-/path/to/PGVL-Gym}"
 PATHOTME_RESULTS_ROOT="${PATHOTME_RESULTS_ROOT:-/path/to/shared/PathoTME-results}"
-PGVL_ACCOUNT="${PGVL_ACCOUNT:-YOUR_SLURM_ACCOUNT}"
+PGVL_ACCOUNT="${PGVL_ACCOUNT:-shared-delta-gpu}"
 LOG_DIR="${PATHOTME_RESULTS_ROOT}/logs"
 mkdir -p "${LOG_DIR}"
 

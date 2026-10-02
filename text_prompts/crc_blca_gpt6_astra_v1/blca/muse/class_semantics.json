@@ -1,0 +1,11 @@
+{
+  "classnames": [
+    "non-papillary urothelial carcinoma",
+    "papillary urothelial carcinoma"
+  ],
+  "template": "a histopathology image of {name}",
+  "rendered_prompts": [
+    "a histopathology image of non-papillary urothelial carcinoma",
+    "a histopathology image of papillary urothelial carcinoma"
+  ]
+}

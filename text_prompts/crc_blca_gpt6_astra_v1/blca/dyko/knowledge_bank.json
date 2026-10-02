@@ -1,0 +1,395 @@
+{
+  "version": "pathotme_crc_blca_astra_v1",
+  "generator": "GPT 6 ASTRA",
+  "cohort": "TCGA-BLCA",
+  "concepts": [
+    {
+      "id": "papillary_01",
+      "group": "papillary",
+      "text": "Branching papillary fronds with fibrovascular cores.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "papillary_02",
+      "group": "papillary",
+      "text": "Multilayered urothelium coating a stromal projection.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "papillary_03",
+      "group": "papillary",
+      "text": "Small blood vessels inside a papillary core.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "papillary_04",
+      "group": "papillary",
+      "text": "Fusion of neighboring epithelial papillae.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "papillary_05",
+      "group": "papillary",
+      "text": "Uneven epithelial thickness along a papillary frond.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "papillary_06",
+      "group": "papillary",
+      "text": "Complex branching of a papillary epithelial structure.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "papillary_07",
+      "group": "papillary",
+      "text": "Spaces separating adjacent urothelial fronds.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "papillary_08",
+      "group": "papillary",
+      "text": "Atypical urothelial cells lining a vascular stromal core.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "solid_growth_01",
+      "group": "solid_growth",
+      "text": "Solid nests of malignant urothelial cells.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "solid_growth_02",
+      "group": "solid_growth",
+      "text": "Broad epithelial sheets with disordered cell arrangement.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "solid_growth_03",
+      "group": "solid_growth",
+      "text": "Irregular cords of tumor cells in connective tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "solid_growth_04",
+      "group": "solid_growth",
+      "text": "Small epithelial clusters at an infiltrative tumor margin.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "solid_growth_05",
+      "group": "solid_growth",
+      "text": "Angulated tumor nests separated by collagen bundles.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "solid_growth_06",
+      "group": "solid_growth",
+      "text": "Unevenly distributed tumor islands in bladder stroma.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "solid_growth_07",
+      "group": "solid_growth",
+      "text": "Discohesive cells near a larger epithelial nest.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "solid_growth_08",
+      "group": "solid_growth",
+      "text": "A solid tumor focus beside papillary architecture.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "epithelium_01",
+      "group": "epithelium",
+      "text": "Disordered maturation in multilayered urothelium.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "epithelium_02",
+      "group": "epithelium",
+      "text": "Crowded urothelial nuclei with variable orientation.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "epithelium_03",
+      "group": "epithelium",
+      "text": "Polygonal tumor cells with distinct cell borders.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "epithelium_04",
+      "group": "epithelium",
+      "text": "Variation in cytoplasmic staining among urothelial cells.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "epithelium_05",
+      "group": "epithelium",
+      "text": "Prominent nucleoli within malignant urothelial cells.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "epithelium_06",
+      "group": "epithelium",
+      "text": "Mitotic figures away from the basal epithelial layer.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "epithelium_07",
+      "group": "epithelium",
+      "text": "Irregular nuclear contours in papillary lining cells.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "epithelium_08",
+      "group": "epithelium",
+      "text": "Surface epithelial debris above a tumor frond.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_01",
+      "group": "interfaces",
+      "text": "Fibroblasts immediately below a papillary lining.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_02",
+      "group": "interfaces",
+      "text": "A transition from a papillary frond to solid epithelial tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_03",
+      "group": "interfaces",
+      "text": "Collagenous stroma surrounding invasive epithelial nests.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_04",
+      "group": "interfaces",
+      "text": "Smooth muscle bundles next to urothelial tumor groups.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_05",
+      "group": "interfaces",
+      "text": "Distorted bladder wall tissue at a tumor boundary.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_06",
+      "group": "interfaces",
+      "text": "Hemorrhage within a fibrovascular papillary core.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_07",
+      "group": "interfaces",
+      "text": "Necrotic material beside a viable urothelial tumor nest.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_08",
+      "group": "interfaces",
+      "text": "Uneven tumor-to-stroma proportions across adjacent regions.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_01",
+      "group": "cytology",
+      "text": "Tumor cells with enlarged nuclei.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_02",
+      "group": "cytology",
+      "text": "Variation in nuclear size within tumor epithelium.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_03",
+      "group": "cytology",
+      "text": "Irregular nuclear contours in malignant cells.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_04",
+      "group": "cytology",
+      "text": "Coarsely stained chromatin in epithelial nuclei.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_05",
+      "group": "cytology",
+      "text": "Visible nucleoli in atypical epithelial cells.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_06",
+      "group": "cytology",
+      "text": "Mitotic figures within tumor epithelium.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_07",
+      "group": "cytology",
+      "text": "Variation in epithelial cytoplasmic abundance.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_08",
+      "group": "cytology",
+      "text": "Disordered orientation of adjacent epithelial nuclei.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_01",
+      "group": "stroma",
+      "text": "Dense collagen bundles between tumor groups.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_02",
+      "group": "stroma",
+      "text": "Loose connective tissue around epithelial clusters.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_03",
+      "group": "stroma",
+      "text": "Spindle-shaped fibroblasts in collagenous stroma.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_04",
+      "group": "stroma",
+      "text": "Small blood vessels within stromal tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_05",
+      "group": "stroma",
+      "text": "Red blood cells within vascular lumina.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_06",
+      "group": "stroma",
+      "text": "Uneven spacing between tumor and stromal compartments.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_07",
+      "group": "stroma",
+      "text": "Fibrous septa separating epithelial regions.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_08",
+      "group": "stroma",
+      "text": "A gradual transition from cellular tumor to fibrous tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_01",
+      "group": "inflammation",
+      "text": "Scattered small lymphocytes in the stroma.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_02",
+      "group": "inflammation",
+      "text": "A compact lymphoid aggregate beside tumor.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_03",
+      "group": "inflammation",
+      "text": "Plasma cells with eccentric nuclei in connective tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_04",
+      "group": "inflammation",
+      "text": "Granulocytes with lobulated nuclei near epithelial debris.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_05",
+      "group": "inflammation",
+      "text": "Macrophage-like cells with abundant pale cytoplasm.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_06",
+      "group": "inflammation",
+      "text": "Mixed inflammatory cells near necrotic material.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_07",
+      "group": "inflammation",
+      "text": "Inflammatory cells between epithelial tumor groups.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_08",
+      "group": "inflammation",
+      "text": "Variable inflammatory cellularity across adjacent fields.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_01",
+      "group": "background",
+      "text": "Necrotic material with fragmented cell nuclei.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_02",
+      "group": "background",
+      "text": "Eosinophilic cellular debris next to viable tumor.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_03",
+      "group": "background",
+      "text": "Hemorrhage within a stromal region.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_04",
+      "group": "background",
+      "text": "Acellular spaces between tissue fragments.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_05",
+      "group": "background",
+      "text": "Intact vessels beside an epithelial tumor focus.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_06",
+      "group": "background",
+      "text": "An abrupt boundary between viable and necrotic tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_07",
+      "group": "background",
+      "text": "Adipose tissue adjacent to fibrous stroma.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_08",
+      "group": "background",
+      "text": "Smooth muscle bundles near a tumor-containing region.",
+      "role": "unlabeled_visual_concept"
+    }
+  ],
+  "concept_count": 64,
+  "embedding_status": "not_encoded",
+  "embedding_requirement": "same_pinned_TITAN_revision_and_native_text_encoding_as_PathoTME_BRCA",
+  "note": "DyKo text concepts are model inputs, distinct from the fixed 62 numeric TME measurements."
+}

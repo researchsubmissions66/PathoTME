@@ -1,0 +1,395 @@
+{
+  "version": "pathotme_crc_blca_astra_v1",
+  "generator": "GPT 6 ASTRA",
+  "cohort": "TCGA-CRC",
+  "concepts": [
+    {
+      "id": "glands_01",
+      "group": "glands",
+      "text": "Irregular malignant glands with angulated outlines.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "glands_02",
+      "group": "glands",
+      "text": "Back-to-back epithelial glands with little intervening stroma.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "glands_03",
+      "group": "glands",
+      "text": "Bridging epithelium inside a cribriform gland.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "glands_04",
+      "group": "glands",
+      "text": "Branching glandular structures with uneven lumina.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "glands_05",
+      "group": "glands",
+      "text": "Columnar epithelial cells lining a tumor gland.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "glands_06",
+      "group": "glands",
+      "text": "Stratified nuclei in atypical glandular epithelium.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "glands_07",
+      "group": "glands",
+      "text": "Granular dirty necrosis within a gland lumen.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "glands_08",
+      "group": "glands",
+      "text": "Fused epithelial glands beside fibrous stroma.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "mucin_01",
+      "group": "mucin",
+      "text": "Broad extracellular mucin pools in tumor tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "mucin_02",
+      "group": "mucin",
+      "text": "Epithelial clusters suspended in a mucin lake.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "mucin_03",
+      "group": "mucin",
+      "text": "Atypical epithelial strips bordering extracellular mucin.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "mucin_04",
+      "group": "mucin",
+      "text": "Small tumor glands within a mucinous region.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "mucin_05",
+      "group": "mucin",
+      "text": "Pale mucin separating malignant epithelial groups.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "mucin_06",
+      "group": "mucin",
+      "text": "Isolated atypical cells in extracellular mucin.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "mucin_07",
+      "group": "mucin",
+      "text": "Mucin-containing cytoplasmic vacuoles in epithelial cells.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "mucin_08",
+      "group": "mucin",
+      "text": "Fibrous septa dividing adjacent mucin pools.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_01",
+      "group": "interfaces",
+      "text": "Angulated glands infiltrating between collagen bundles.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_02",
+      "group": "interfaces",
+      "text": "Small epithelial buds at a gland-forming tumor margin.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_03",
+      "group": "interfaces",
+      "text": "An isolated tumor cluster next to a larger gland.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_04",
+      "group": "interfaces",
+      "text": "Fibroblasts surrounding an irregular epithelial gland.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_05",
+      "group": "interfaces",
+      "text": "Mucin pools abutting muscular tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_06",
+      "group": "interfaces",
+      "text": "A transition between mucin-rich and cellular tumor regions.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_07",
+      "group": "interfaces",
+      "text": "Malignant glands near otherwise preserved bowel crypts.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "interfaces_08",
+      "group": "interfaces",
+      "text": "Tumor epithelium interrupting native mucosal organization.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "regional_variation_01",
+      "group": "regional_variation",
+      "text": "Well-formed glands beside a less differentiated tumor region.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "regional_variation_02",
+      "group": "regional_variation",
+      "text": "Solid epithelial clusters within a gland-forming tumor.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "regional_variation_03",
+      "group": "regional_variation",
+      "text": "Uneven gland density across neighboring tissue regions.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "regional_variation_04",
+      "group": "regional_variation",
+      "text": "A sparsely cellular mucin lake beside a dense epithelial focus.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "regional_variation_05",
+      "group": "regional_variation",
+      "text": "Ulcerated mucosa overlying glandular tumor.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "regional_variation_06",
+      "group": "regional_variation",
+      "text": "Distorted bowel crypts at a tumor boundary.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "regional_variation_07",
+      "group": "regional_variation",
+      "text": "Necrotic luminal material beside viable glandular epithelium.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "regional_variation_08",
+      "group": "regional_variation",
+      "text": "A mucin-rich region with variable epithelial cellularity.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_01",
+      "group": "cytology",
+      "text": "Tumor cells with enlarged nuclei.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_02",
+      "group": "cytology",
+      "text": "Variation in nuclear size within tumor epithelium.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_03",
+      "group": "cytology",
+      "text": "Irregular nuclear contours in malignant cells.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_04",
+      "group": "cytology",
+      "text": "Coarsely stained chromatin in epithelial nuclei.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_05",
+      "group": "cytology",
+      "text": "Visible nucleoli in atypical epithelial cells.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_06",
+      "group": "cytology",
+      "text": "Mitotic figures within tumor epithelium.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_07",
+      "group": "cytology",
+      "text": "Variation in epithelial cytoplasmic abundance.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "cytology_08",
+      "group": "cytology",
+      "text": "Disordered orientation of adjacent epithelial nuclei.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_01",
+      "group": "stroma",
+      "text": "Dense collagen bundles between tumor groups.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_02",
+      "group": "stroma",
+      "text": "Loose connective tissue around epithelial clusters.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_03",
+      "group": "stroma",
+      "text": "Spindle-shaped fibroblasts in collagenous stroma.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_04",
+      "group": "stroma",
+      "text": "Small blood vessels within stromal tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_05",
+      "group": "stroma",
+      "text": "Red blood cells within vascular lumina.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_06",
+      "group": "stroma",
+      "text": "Uneven spacing between tumor and stromal compartments.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_07",
+      "group": "stroma",
+      "text": "Fibrous septa separating epithelial regions.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "stroma_08",
+      "group": "stroma",
+      "text": "A gradual transition from cellular tumor to fibrous tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_01",
+      "group": "inflammation",
+      "text": "Scattered small lymphocytes in the stroma.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_02",
+      "group": "inflammation",
+      "text": "A compact lymphoid aggregate beside tumor.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_03",
+      "group": "inflammation",
+      "text": "Plasma cells with eccentric nuclei in connective tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_04",
+      "group": "inflammation",
+      "text": "Granulocytes with lobulated nuclei near epithelial debris.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_05",
+      "group": "inflammation",
+      "text": "Macrophage-like cells with abundant pale cytoplasm.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_06",
+      "group": "inflammation",
+      "text": "Mixed inflammatory cells near necrotic material.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_07",
+      "group": "inflammation",
+      "text": "Inflammatory cells between epithelial tumor groups.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "inflammation_08",
+      "group": "inflammation",
+      "text": "Variable inflammatory cellularity across adjacent fields.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_01",
+      "group": "background",
+      "text": "Necrotic material with fragmented cell nuclei.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_02",
+      "group": "background",
+      "text": "Eosinophilic cellular debris next to viable tumor.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_03",
+      "group": "background",
+      "text": "Hemorrhage within a stromal region.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_04",
+      "group": "background",
+      "text": "Acellular spaces between tissue fragments.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_05",
+      "group": "background",
+      "text": "Intact vessels beside an epithelial tumor focus.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_06",
+      "group": "background",
+      "text": "An abrupt boundary between viable and necrotic tissue.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_07",
+      "group": "background",
+      "text": "Adipose tissue adjacent to fibrous stroma.",
+      "role": "unlabeled_visual_concept"
+    },
+    {
+      "id": "background_08",
+      "group": "background",
+      "text": "Smooth muscle bundles near a tumor-containing region.",
+      "role": "unlabeled_visual_concept"
+    }
+  ],
+  "concept_count": 64,
+  "embedding_status": "not_encoded",
+  "embedding_requirement": "same_pinned_TITAN_revision_and_native_text_encoding_as_PathoTME_BRCA",
+  "note": "DyKo text concepts are model inputs, distinct from the fixed 62 numeric TME measurements."
+}

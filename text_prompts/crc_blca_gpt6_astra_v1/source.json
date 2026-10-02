@@ -1,0 +1,92 @@
+{
+  "version": "pathotme_crc_blca_astra_v1",
+  "generator": "GPT 6 ASTRA",
+  "authorship": "Assistant-authored in this conversation at the user's request; exact endpoint/model revision is not independently attested. No external generation API was called.",
+  "construction": "Short banks use the authored clauses below. MUSE retrieval rows are deterministic two-clause combinations, not independent model responses. DyKo concepts are separately authored, unlabeled visual descriptions.",
+  "selection": "Written before CRC/BLCA fitting, without accessing cohort images, patient reports, outcomes, feature-label associations or test predictions. Clinical source definitions establish the tasks; H&E morphology supplies the text.",
+  "sources": {
+    "crc_definitions": "https://documents.cap.org/protocols/cp-colon-rectum-2017-v4000.pdf",
+    "crc_reporting": "https://rcpath.org/static/c8b61ba0-ae3f-43f1-85ffd3ab9f17cfe6/166b96a8-1771-451b-98190d5f3bd12f5f/G049-Dataset-for-histopathological-reporting-of-colorectal-cancer.pdf",
+    "crc_morphology": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5380525/",
+    "blca_reporting": "https://www.nature.com/articles/s41379-019-0403-9",
+    "blca_papillary": "https://www.cancer.gov/types/bladder/research",
+    "blca_task_caveat": "https://seer.cancer.gov/seer-inquiry/inquiry-detail/20180054/",
+    "blca_tcga": "https://pubmed.ncbi.nlm.nih.gov/28988769/"
+  },
+  "templates": {
+    "positional": "At {scale} magnification, {name} may show {first} and {second}.",
+    "single": "At {scale} magnification, {name} may show {clause}.",
+    "retrieval": "H&E morphology of {name} may include {first} and {second}.",
+    "hive": "{name} may show {clause}.",
+    "dyko_class": "H&E morphology of {name} may include {first} and {second}.",
+    "muse_class": "a histopathology image of {name}"
+  },
+  "cohorts": {
+    "crc": {
+      "cohort": "TCGA-CRC",
+      "classes": ["ADENO_NOS", "MUCINOUS"],
+      "label_field": "ICD_O_3_HISTOLOGY",
+      "label_source": "https://github.com/cBioPortal/datahub/blob/master/public/coadread_tcga_pan_can_atlas_2018/data_clinical_patient.txt",
+      "source_label_mapping": {"8140/3": 0, "8480/3": 1},
+      "limitations": ["NOS does not mean absence of mucin. These are variable visual descriptions, not necessary or sufficient diagnostic criteria.", "The mucinous diagnosis is a whole-tumor histologic classification; no patch-level percentage threshold is asserted.", "COAD versus READ, MSI, mutations, stage, prognosis and treatment response are not class descriptors."]
+    },
+    "blca": {
+      "cohort": "TCGA-BLCA",
+      "classes": ["NON_PAPILLARY", "PAPILLARY"],
+      "label_field": "HISTOLOGICAL_SUBTYPE",
+      "label_source": "https://github.com/cBioPortal/datahub/blob/master/public/blca_tcga_pub_2017/data_clinical_patient.txt",
+      "source_label_mapping": {"Non-Papillary": 0, "Papillary": 1},
+      "limitations": ["Use the explicit clinical histological subtype; do not infer non-papillary from a generic NOS code.", "Papillary is an architectural designation, not a claim of low grade or non-invasion. Both classes can have invasive components.", "Non-papillary is a broad clinical category; no single growth pattern is mandatory on every slide.", "No mutation, expression, prognosis, treatment response or molecular subtype is asserted from H&E."]
+    }
+  },
+  "classes": {
+    "ADENO_NOS": {
+      "name": "colorectal adenocarcinoma NOS",
+      "low": ["irregular gland-forming tumor architecture", "cellular glands interspersed with solid tumor areas", "infiltrative glands within fibrous tissue", "glandular lumina containing necrotic material", "crowded or fused malignant glands", "variation in gland size and shape", "complex cribriform epithelial structures", "uneven proportions of tumor and stroma", "distortion of the native mucosal architecture", "focal mucin alongside gland-forming tumor"],
+      "high": ["atypical epithelium surrounding irregular lumina", "back-to-back malignant glands", "bridging epithelium within cribriform glands", "elongated hyperchromatic tumor nuclei", "nuclear stratification in glandular epithelium", "variable nuclear size and epithelial polarity", "angulated glands between collagen bundles", "small epithelial clusters at a tumor boundary", "fibroblasts around infiltrating glands", "granular debris within gland lumina", "fragmented nuclei within luminal necrosis", "scattered inflammatory cells in adjacent stroma", "columnar malignant cells", "mitotic figures in tumor epithelium", "cytoplasmic mucin in some tumor cells", "glandular and less differentiated tumor areas"],
+      "coarse_terms": ["Gland architecture", "Tumor cellularity", "Tumor interface", "Luminal background"],
+      "fine_terms": ["Irregular lumina", "Crowded glands", "Cribriform bridges", "Nuclear elongation", "Nuclear stratification", "Nuclear variation", "Angulated glands", "Peripheral clusters", "Stromal fibroblasts", "Luminal debris", "Nuclear fragments", "Stromal inflammation"]
+    },
+    "MUCINOUS": {
+      "name": "colorectal mucinous adenocarcinoma",
+      "low": ["broad extracellular mucin pools containing tumor", "epithelial clusters dispersed through mucinous areas", "mucinous tumor extending between tissue compartments", "pale mucin lakes separated by fibrous septa", "glandular tumor bordering extracellular mucin", "variable cellularity across mucin-filled regions", "coalescent mucin pools with epithelial islands", "mixed mucinous and gland-forming regions", "mucinous areas interrupting native bowel architecture", "sparse tumor clusters in abundant extracellular mucin"],
+      "high": ["malignant epithelial clusters suspended in mucin", "glandular fragments bordering mucin spaces", "extracellular mucin around atypical epithelial strips", "hyperchromatic nuclei in floating tumor clusters", "variable nuclear stratification in tumor epithelium", "mucin-containing malignant cells", "epithelial groups along fibrous septa", "mucin pools adjacent to collagen bundles", "fibroblasts at mucinous tumor boundaries", "pale extracellular mucin between tumor cells", "scattered cellular debris within mucin", "variable inflammatory cells around mucin pools", "small lumina within floating epithelial groups", "isolated atypical cells in extracellular mucin", "variation in nuclear size among tumor cells", "dense epithelial areas beside sparsely cellular mucin"],
+      "coarse_terms": ["Mucinous architecture", "Tumor cellularity", "Tumor interface", "Mucin background"],
+      "fine_terms": ["Floating clusters", "Gland fragments", "Epithelial strips", "Nuclear staining", "Nuclear stratification", "Cellular mucin", "Septal epithelium", "Collagen interface", "Stromal fibroblasts", "Extracellular mucin", "Cellular debris", "Local inflammation"]
+    },
+    "NON_PAPILLARY": {
+      "name": "non-papillary urothelial carcinoma",
+      "low": ["solid or irregular infiltrative tumor architecture", "unevenly distributed cellular tumor nests", "irregular tumor groups embedded in bladder stroma", "fibrous tissue separating tumor islands", "broad sheets of malignant urothelial cells", "cords and small clusters at tumor margins", "distortion of the native bladder wall architecture", "variable tumor-to-stroma proportions", "solid tumor regions with focal necrotic areas", "irregular interfaces between tumor and surrounding tissue"],
+      "high": ["cohesive nests of atypical urothelial cells", "irregular epithelial cords", "solid sheets with disordered cell arrangement", "variation in tumor nuclear size", "hyperchromatic irregular nuclei", "variable nucleolar prominence", "small tumor groups between collagen fibers", "angulated epithelial nests at a stromal interface", "fibroblasts surrounding tumor islands", "collagen bundles between epithelial clusters", "necrotic debris in some tumor areas", "variable inflammatory cells in adjacent stroma", "polygonal malignant cells", "mitotic figures in tumor epithelium", "variation in cytoplasmic abundance", "discohesive cells near infiltrative nests"],
+      "coarse_terms": ["Solid architecture", "Tumor cellularity", "Tumor interface", "Stromal background"],
+      "fine_terms": ["Epithelial nests", "Epithelial cords", "Disordered sheets", "Nuclear variation", "Nuclear irregularity", "Nucleolar variation", "Peripheral clusters", "Angulated nests", "Stromal fibroblasts", "Collagen bundles", "Focal debris", "Stromal inflammation"]
+    },
+    "PAPILLARY": {
+      "name": "papillary urothelial carcinoma",
+      "low": ["branching papillary fronds with stromal cores", "cellular urothelial layers covering papillary projections", "epithelial fronds organized around fibrovascular tissue", "spaces separating branching tumor fronds", "complex or fused papillary structures", "variation in papillary width and branching", "a crowded exophytic epithelial architecture", "papillary regions alongside possible invasive components", "irregular thickening of the papillary epithelium", "papillary contours interrupted by solid tumor areas"],
+      "high": ["atypical urothelium lining fibrovascular cores", "branching epithelial projections", "fused papillae with disordered lining cells", "variation in urothelial nuclear size", "irregular nuclear contours in papillary epithelium", "variable nucleolar prominence", "epithelial layers adjacent to vascular stromal cores", "small vessels within connective tissue cores", "fibroblasts beneath papillary epithelial layers", "stromal tissue at the center of papillary fronds", "focal surface debris on tumor fronds", "variable inflammatory cells within papillary stroma", "multilayered malignant urothelium", "loss of orderly epithelial maturation", "mitotic figures in papillary tumor epithelium", "uneven epithelial thickness along papillary fronds"],
+      "coarse_terms": ["Papillary architecture", "Tumor cellularity", "Core interface", "Papillary background"],
+      "fine_terms": ["Fibrovascular lining", "Branching projections", "Fused papillae", "Nuclear variation", "Nuclear irregularity", "Nucleolar variation", "Epithelial interface", "Core vessels", "Core fibroblasts", "Central stroma", "Surface debris", "Core inflammation"]
+    }
+  },
+  "knowledge_common": {
+    "cytology": ["Tumor cells with enlarged nuclei.", "Variation in nuclear size within tumor epithelium.", "Irregular nuclear contours in malignant cells.", "Coarsely stained chromatin in epithelial nuclei.", "Visible nucleoli in atypical epithelial cells.", "Mitotic figures within tumor epithelium.", "Variation in epithelial cytoplasmic abundance.", "Disordered orientation of adjacent epithelial nuclei."],
+    "stroma": ["Dense collagen bundles between tumor groups.", "Loose connective tissue around epithelial clusters.", "Spindle-shaped fibroblasts in collagenous stroma.", "Small blood vessels within stromal tissue.", "Red blood cells within vascular lumina.", "Uneven spacing between tumor and stromal compartments.", "Fibrous septa separating epithelial regions.", "A gradual transition from cellular tumor to fibrous tissue."],
+    "inflammation": ["Scattered small lymphocytes in the stroma.", "A compact lymphoid aggregate beside tumor.", "Plasma cells with eccentric nuclei in connective tissue.", "Granulocytes with lobulated nuclei near epithelial debris.", "Macrophage-like cells with abundant pale cytoplasm.", "Mixed inflammatory cells near necrotic material.", "Inflammatory cells between epithelial tumor groups.", "Variable inflammatory cellularity across adjacent fields."],
+    "background": ["Necrotic material with fragmented cell nuclei.", "Eosinophilic cellular debris next to viable tumor.", "Hemorrhage within a stromal region.", "Acellular spaces between tissue fragments.", "Intact vessels beside an epithelial tumor focus.", "An abrupt boundary between viable and necrotic tissue.", "Adipose tissue adjacent to fibrous stroma.", "Smooth muscle bundles near a tumor-containing region."]
+  },
+  "knowledge_cohort": {
+    "crc": {
+      "glands": ["Irregular malignant glands with angulated outlines.", "Back-to-back epithelial glands with little intervening stroma.", "Bridging epithelium inside a cribriform gland.", "Branching glandular structures with uneven lumina.", "Columnar epithelial cells lining a tumor gland.", "Stratified nuclei in atypical glandular epithelium.", "Granular dirty necrosis within a gland lumen.", "Fused epithelial glands beside fibrous stroma."],
+      "mucin": ["Broad extracellular mucin pools in tumor tissue.", "Epithelial clusters suspended in a mucin lake.", "Atypical epithelial strips bordering extracellular mucin.", "Small tumor glands within a mucinous region.", "Pale mucin separating malignant epithelial groups.", "Isolated atypical cells in extracellular mucin.", "Mucin-containing cytoplasmic vacuoles in epithelial cells.", "Fibrous septa dividing adjacent mucin pools."],
+      "interfaces": ["Angulated glands infiltrating between collagen bundles.", "Small epithelial buds at a gland-forming tumor margin.", "An isolated tumor cluster next to a larger gland.", "Fibroblasts surrounding an irregular epithelial gland.", "Mucin pools abutting muscular tissue.", "A transition between mucin-rich and cellular tumor regions.", "Malignant glands near otherwise preserved bowel crypts.", "Tumor epithelium interrupting native mucosal organization."],
+      "regional_variation": ["Well-formed glands beside a less differentiated tumor region.", "Solid epithelial clusters within a gland-forming tumor.", "Uneven gland density across neighboring tissue regions.", "A sparsely cellular mucin lake beside a dense epithelial focus.", "Ulcerated mucosa overlying glandular tumor.", "Distorted bowel crypts at a tumor boundary.", "Necrotic luminal material beside viable glandular epithelium.", "A mucin-rich region with variable epithelial cellularity."]
+    },
+    "blca": {
+      "papillary": ["Branching papillary fronds with fibrovascular cores.", "Multilayered urothelium coating a stromal projection.", "Small blood vessels inside a papillary core.", "Fusion of neighboring epithelial papillae.", "Uneven epithelial thickness along a papillary frond.", "Complex branching of a papillary epithelial structure.", "Spaces separating adjacent urothelial fronds.", "Atypical urothelial cells lining a vascular stromal core."],
+      "solid_growth": ["Solid nests of malignant urothelial cells.", "Broad epithelial sheets with disordered cell arrangement.", "Irregular cords of tumor cells in connective tissue.", "Small epithelial clusters at an infiltrative tumor margin.", "Angulated tumor nests separated by collagen bundles.", "Unevenly distributed tumor islands in bladder stroma.", "Discohesive cells near a larger epithelial nest.", "A solid tumor focus beside papillary architecture."],
+      "epithelium": ["Disordered maturation in multilayered urothelium.", "Crowded urothelial nuclei with variable orientation.", "Polygonal tumor cells with distinct cell borders.", "Variation in cytoplasmic staining among urothelial cells.", "Prominent nucleoli within malignant urothelial cells.", "Mitotic figures away from the basal epithelial layer.", "Irregular nuclear contours in papillary lining cells.", "Surface epithelial debris above a tumor frond."],
+      "interfaces": ["Fibroblasts immediately below a papillary lining.", "A transition from a papillary frond to solid epithelial tissue.", "Collagenous stroma surrounding invasive epithelial nests.", "Smooth muscle bundles next to urothelial tumor groups.", "Distorted bladder wall tissue at a tumor boundary.", "Hemorrhage within a fibrovascular papillary core.", "Necrotic material beside a viable urothelial tumor nest.", "Uneven tumor-to-stroma proportions across adjacent regions."]
+    }
+  }
+}

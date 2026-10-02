@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Dry-run by default; submit exactly four smokes and twenty dependent folds."""
-import getpass
 import argparse
 import fcntl
 import json
@@ -18,7 +17,7 @@ def commands(launch, path):
     resource = launch['protocol']['resources']; output = Path(launch['output'])
     plans = []
     env = ['env', 'HF_HUB_OFFLINE=1', 'TRANSFORMERS_OFFLINE=1',
-           'HF_HOME=/path/to/huggingface-cache', 'PYTHONNOUSERSITE=1', 'PYTHONDONTWRITEBYTECODE=1',
+           'HF_HOME=/path/to/shared/.cache_huggingface', 'PYTHONNOUSERSITE=1', 'PYTHONDONTWRITEBYTECODE=1',
            'OMP_NUM_THREADS=8', 'MKL_NUM_THREADS=8', 'OPENBLAS_NUM_THREADS=8',
            'LD_LIBRARY_PATH=/path/to/shared/envs/pgvl-gym/lib']
     for smoke in [True, False]:
@@ -82,7 +81,7 @@ def main():
         fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
         if ledger_path.exists():
             raise FileExistsError('submission ledger exists; inspect it before any continuation')
-        queue = subprocess.run(['squeue', '-h', '-u', getpass.getuser(), '-o', '%i|%j|%T|%R'], capture_output=True, text=True, check=True).stdout
+        queue = subprocess.run(['squeue', '-h', '-u', 'anonymous', '-o', '%i|%j|%T|%R'], capture_output=True, text=True, check=True).stdout
         if any('ptme-cross-' in line for line in queue.splitlines()):
             raise ValueError('existing locked-study jobs found; refusing duplicates')
         ledger = {'created_at': datetime.now(timezone.utc).isoformat(), 'launch': str(args.launch),

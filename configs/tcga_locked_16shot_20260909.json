@@ -26,6 +26,6 @@
     "MGPATH_scope": "PLIP_only_partial_implementation_not_primary_PLIP_G",
     "shuffle": "split_local_label_blind_whole_slide_row_bijection_excluding_same_patient; not_patient_block_permutation"
   },
-  "resources": {"partition": "gpuA100x4", "account": "YOUR_SLURM_ACCOUNT", "gpus": 1, "cpus": 8, "mem": "48G", "smoke_time": "01:00:00", "fold_time": {"vila_mil": "04:00:00", "mgpath": "06:00:00"}},
+  "resources": {"partition": "gpuA100x4", "account": "shared-delta-gpu", "gpus": 1, "cpus": 8, "mem": "48G", "smoke_time": "01:00:00", "fold_time": {"vila_mil": "04:00:00", "mgpath": "06:00:00"}},
   "job_packaging": "four_smokes_then_twenty_fold_jobs_each_native_if_needed_plus_three_adapters"
 }

@@ -1,5 +1,4 @@
 """Submit three replacement smokes and relink the fifteen existing MUSE folds."""
-import getpass
 import argparse
 import fcntl
 import json
@@ -13,7 +12,7 @@ from pathotme.locked_tcga import atomic_json, sha
 
 
 def query_queue():
-    result=subprocess.run(['squeue','-h','-u',getpass.getuser(),'-o','%i|%j|%T|%R|%E|%Q'],
+    result=subprocess.run(['squeue','-h','-u','anonymous','-o','%i|%j|%T|%R|%E|%Q'],
                           capture_output=True,text=True,check=True,timeout=30)
     fields=['id','name','state','reason','dependency','priority']
     return {r['id']:r for r in (dict(zip(fields,line.split('|'))) for line in result.stdout.splitlines())}
