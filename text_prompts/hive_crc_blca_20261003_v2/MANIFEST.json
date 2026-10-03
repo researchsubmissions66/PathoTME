@@ -1,0 +1,283 @@
+{
+  "version": "hive_crc_blca_20261003_v2",
+  "provenance": "locally_authored",
+  "authorship": "Assistant-authored in this conversation; no external generation API called; exact model endpoint/revision not independently attested.",
+  "policy": "Four morphological parent concepts and three explicitly authored children per parent. Possible H&E appearances, not necessary/sufficient diagnoses. No patient images, reports, outcomes, or test metrics used to select text.",
+  "upstream_structure_source": "https://github.com/bryanwong17/HiVE-MIL",
+  "task_definition_source": "../crc_blca_gpt6_astra_v1/source.json",
+  "source_sha256": "dc05fd02a64275fef4b98e7959d169f26beac1d5ce4f4242f98e7d7a66cb786b",
+  "records": [
+    {
+      "cohort": "crc",
+      "method": "hive_mil",
+      "path": "text_prompts/hive_crc_blca_20261003_v2/crc/hierarchy.json",
+      "classes": [
+        "ADENO_NOS",
+        "MUCINOUS"
+      ],
+      "sha256": "ee4b15ab003839035d26db6433c42cacaf5728415ca5e42aa1d53e57a29aa5f0",
+      "parents": {
+        "ADENO_NOS": [
+          {
+            "parent_index": 0,
+            "parent": "Irregular Malignant Glands",
+            "child": "Distorted Lumina"
+          },
+          {
+            "parent_index": 0,
+            "parent": "Irregular Malignant Glands",
+            "child": "Nuclear Stratification"
+          },
+          {
+            "parent_index": 0,
+            "parent": "Irregular Malignant Glands",
+            "child": "Loss of Polarity"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Cribriform Tumor Architecture",
+            "child": "Epithelial Bridges"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Cribriform Tumor Architecture",
+            "child": "Back-to-Back Glands"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Cribriform Tumor Architecture",
+            "child": "Crowded Atypical Epithelium"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Desmoplastic Invasive Front",
+            "child": "Angulated Infiltrating Glands"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Desmoplastic Invasive Front",
+            "child": "Small Epithelial Groups"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Desmoplastic Invasive Front",
+            "child": "Reactive Fibroblastic Stroma"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Necrotic Glandular Lumina",
+            "child": "Granular Cellular Debris"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Necrotic Glandular Lumina",
+            "child": "Karyorrhectic Fragments"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Necrotic Glandular Lumina",
+            "child": "Viable Tumor Lining"
+          }
+        ],
+        "MUCINOUS": [
+          {
+            "parent_index": 0,
+            "parent": "Extracellular Mucin Lakes",
+            "child": "Pale Mucinous Matrix"
+          },
+          {
+            "parent_index": 0,
+            "parent": "Extracellular Mucin Lakes",
+            "child": "Sparse Tumor Distribution"
+          },
+          {
+            "parent_index": 0,
+            "parent": "Extracellular Mucin Lakes",
+            "child": "Mucin-Lake Boundaries"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Floating Malignant Clusters",
+            "child": "Suspended Epithelial Islands"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Floating Malignant Clusters",
+            "child": "Atypical Cluster Nuclei"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Floating Malignant Clusters",
+            "child": "Isolated Mucin-Associated Cells"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Mucin-Associated Gland Fragments",
+            "child": "Fragmented Gland Walls"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Mucin-Associated Gland Fragments",
+            "child": "Lumina in Epithelial Groups"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Mucin-Associated Gland Fragments",
+            "child": "Mucin-Filled Tumor Cytoplasm"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Fibrous Septa Between Mucin Pools",
+            "child": "Collagenous Pool Partitions"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Fibrous Septa Between Mucin Pools",
+            "child": "Septal Malignant Epithelium"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Fibrous Septa Between Mucin Pools",
+            "child": "Fibroblastic Septal Reaction"
+          }
+        ]
+      }
+    },
+    {
+      "cohort": "blca",
+      "method": "hive_mil",
+      "path": "text_prompts/hive_crc_blca_20261003_v2/blca/hierarchy.json",
+      "classes": [
+        "NON_PAPILLARY",
+        "PAPILLARY"
+      ],
+      "sha256": "1c0fb14b04ccf403c33f25abecd665fc68a69fc8c7aabc74071a2cb1c8c6a4e4",
+      "parents": {
+        "NON_PAPILLARY": [
+          {
+            "parent_index": 0,
+            "parent": "Solid Urothelial Tumor Nests",
+            "child": "Cohesive Atypical Epithelium"
+          },
+          {
+            "parent_index": 0,
+            "parent": "Solid Urothelial Tumor Nests",
+            "child": "Disordered Nest Organization"
+          },
+          {
+            "parent_index": 0,
+            "parent": "Solid Urothelial Tumor Nests",
+            "child": "Uneven Nest Boundaries"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Infiltrative Cords and Small Groups",
+            "child": "Thin Epithelial Cords"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Infiltrative Cords and Small Groups",
+            "child": "Detached Stromal Tumor Groups"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Infiltrative Cords and Small Groups",
+            "child": "Angulated Infiltrative Profiles"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Reactive Stroma Around Tumor Islands",
+            "child": "Perinest Collagen Bundles"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Reactive Stroma Around Tumor Islands",
+            "child": "Interface Fibroblasts"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Reactive Stroma Around Tumor Islands",
+            "child": "Inflammation at Stromal Interfaces"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Heterogeneous Solid Tumor Compartments",
+            "child": "Uneven Cellular Packing"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Heterogeneous Solid Tumor Compartments",
+            "child": "Focal Intratumoral Necrosis"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Heterogeneous Solid Tumor Compartments",
+            "child": "Viable Perinecrotic Tumor"
+          }
+        ],
+        "PAPILLARY": [
+          {
+            "parent_index": 0,
+            "parent": "Branching Papillary Fronds",
+            "child": "Fingerlike Epithelial Projections"
+          },
+          {
+            "parent_index": 0,
+            "parent": "Branching Papillary Fronds",
+            "child": "Secondary Papillary Branches"
+          },
+          {
+            "parent_index": 0,
+            "parent": "Branching Papillary Fronds",
+            "child": "Interpapillary Spaces"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Fibrovascular Papillary Cores",
+            "child": "Core Capillary Profiles"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Fibrovascular Papillary Cores",
+            "child": "Collagenous Core Matrix"
+          },
+          {
+            "parent_index": 1,
+            "parent": "Fibrovascular Papillary Cores",
+            "child": "Epithelial\u2013Core Boundary"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Atypical Urothelial Lining",
+            "child": "Uneven Epithelial Thickness"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Atypical Urothelial Lining",
+            "child": "Disordered Nuclear Alignment"
+          },
+          {
+            "parent_index": 2,
+            "parent": "Atypical Urothelial Lining",
+            "child": "Surface Maturation Changes"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Complex and Fused Papillary Structures",
+            "child": "Crowded Papillary Profiles"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Complex and Fused Papillary Structures",
+            "child": "Epithelial Fusion Between Fronds"
+          },
+          {
+            "parent_index": 3,
+            "parent": "Complex and Fused Papillary Structures",
+            "child": "Residual Cores in Broad Projections"
+          }
+        ]
+      }
+    }
+  ]
+}

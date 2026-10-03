@@ -30,10 +30,17 @@
       "method": "hive_mil",
       "assets": [
         {
+          "path": "text_prompts/hive_crc_blca_20261003_v2/blca/hierarchy.json",
+          "sha256": "1c0fb14b04ccf403c33f25abecd665fc68a69fc8c7aabc74071a2cb1c8c6a4e4"
+        }
+      ],
+      "historical_assets": [
+        {
           "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/hive_mil/hierarchy.json",
           "sha256": "6791ba99179b4194b24fef794112fd08f3ad034b570f7ff4e9a08a6d96be4146"
         }
-      ]
+      ],
+      "version": "hive_crc_blca_20261003_v2"
     },
     {
       "cohort": "blca",
@@ -194,10 +201,17 @@
       "method": "hive_mil",
       "assets": [
         {
+          "path": "text_prompts/hive_crc_blca_20261003_v2/crc/hierarchy.json",
+          "sha256": "ee4b15ab003839035d26db6433c42cacaf5728415ca5e42aa1d53e57a29aa5f0"
+        }
+      ],
+      "historical_assets": [
+        {
           "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/hive_mil/hierarchy.json",
           "sha256": "1bf362c8afcc884ff74f157d644b98c7a5ebf8c5fbdea8c99328a461bf02bd9d"
         }
-      ]
+      ],
+      "version": "hive_crc_blca_20261003_v2"
     },
     {
       "cohort": "crc",

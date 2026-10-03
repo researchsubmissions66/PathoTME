@@ -1,0 +1,38 @@
+{
+  "NON_PAPILLARY": {
+    "Solid Urothelial Tumor Nests": "Cohesive malignant urothelial groups form solid islands or broad sheets with irregular outlines in the surrounding tissue.",
+    "Infiltrative Cords and Small Groups": "Narrow malignant epithelial cords and detached small tumor groups extend through stromal tissue at irregular interfaces.",
+    "Reactive Stroma Around Tumor Islands": "Fibrous stromal compartments surround malignant epithelial islands and separate neighboring solid tumor regions.",
+    "Heterogeneous Solid Tumor Compartments": "Solid tumor areas show variable cellular density and may contain focal necrotic regions beside viable malignant epithelium.",
+    "Solid Urothelial Tumor Nests / Cohesive Atypical Epithelium": "Closely apposed polygonal tumor cells form compact epithelial aggregates within a solid urothelial nest.",
+    "Solid Urothelial Tumor Nests / Disordered Nest Organization": "Tumor cells within solid nests have uneven orientation and irregular spacing rather than orderly epithelial layering.",
+    "Solid Urothelial Tumor Nests / Uneven Nest Boundaries": "The outer contours of malignant epithelial islands are irregular and may contain small projecting cell groups.",
+    "Infiltrative Cords and Small Groups / Thin Epithelial Cords": "Short strands of atypical urothelial cells track between stromal collagen bundles.",
+    "Infiltrative Cords and Small Groups / Detached Stromal Tumor Groups": "Small malignant epithelial clusters are separated from larger tumor nests by intervening connective tissue.",
+    "Infiltrative Cords and Small Groups / Angulated Infiltrative Profiles": "Irregularly shaped epithelial groups form sharply contoured profiles where tumor interdigitates with stroma.",
+    "Reactive Stroma Around Tumor Islands / Perinest Collagen Bundles": "Eosinophilic collagen fibers border and partition cohesive malignant urothelial groups.",
+    "Reactive Stroma Around Tumor Islands / Interface Fibroblasts": "Spindle-shaped fibroblastic cells lie in connective tissue immediately adjacent to infiltrative tumor islands.",
+    "Reactive Stroma Around Tumor Islands / Inflammation at Stromal Interfaces": "Variable inflammatory cells are interspersed within the stroma around malignant epithelial nests.",
+    "Heterogeneous Solid Tumor Compartments / Uneven Cellular Packing": "Cell-dense epithelial areas alternate with less compact malignant groups within a solid tumor compartment.",
+    "Heterogeneous Solid Tumor Compartments / Focal Intratumoral Necrosis": "Localized eosinophilic debris and fragmented nuclei occur within some solid malignant epithelial regions.",
+    "Heterogeneous Solid Tumor Compartments / Viable Perinecrotic Tumor": "Atypical urothelial cells border focal necrotic material within an otherwise viable solid tumor area."
+  },
+  "PAPILLARY": {
+    "Branching Papillary Fronds": "Exophytic epithelial projections form branching papillary structures supported by recognizable connective tissue cores.",
+    "Fibrovascular Papillary Cores": "Connective tissue stalks containing small vessels support malignant urothelial layers within the papillary projections.",
+    "Atypical Urothelial Lining": "Multilayered tumor epithelium covers papillary cores with variable thickness and disturbance of normal urothelial organization.",
+    "Complex and Fused Papillary Structures": "Adjacent papillary projections may become crowded, broadened, or fused while retaining portions of their supporting stromal framework.",
+    "Branching Papillary Fronds / Fingerlike Epithelial Projections": "Elongated epithelial fronds extend around stromal cores and project into spaces between adjacent papillae.",
+    "Branching Papillary Fronds / Secondary Papillary Branches": "Smaller epithelial-lined projections emerge from larger papillary stalks, creating a branched architecture.",
+    "Branching Papillary Fronds / Interpapillary Spaces": "Open spaces separate neighboring epithelial-lined fronds and delineate their external papillary contours.",
+    "Fibrovascular Papillary Cores / Core Capillary Profiles": "Small vascular channels containing erythrocytes are visible within the connective tissue center of papillary stalks.",
+    "Fibrovascular Papillary Cores / Collagenous Core Matrix": "Fine collagen fibers and spindle-shaped stromal cells form the supporting tissue beneath papillary epithelium.",
+    "Fibrovascular Papillary Cores / Epithelial–Core Boundary": "Malignant urothelial layers lie along a recognizable interface with the underlying fibrovascular stalk.",
+    "Atypical Urothelial Lining / Uneven Epithelial Thickness": "The number and arrangement of urothelial cell layers vary along individual papillary fronds.",
+    "Atypical Urothelial Lining / Disordered Nuclear Alignment": "Nuclei within the papillary lining show irregular orientation and variable crowding relative to the stromal core.",
+    "Atypical Urothelial Lining / Surface Maturation Changes": "The epithelial surface shows variable loss of orderly maturation and irregular contours of superficial tumor cells.",
+    "Complex and Fused Papillary Structures / Crowded Papillary Profiles": "Closely spaced epithelial-lined projections create complex contours with narrow intervening spaces.",
+    "Complex and Fused Papillary Structures / Epithelial Fusion Between Fronds": "Tumor epithelium joins neighboring papillary projections, producing irregular bridges between their outlines.",
+    "Complex and Fused Papillary Structures / Residual Cores in Broad Projections": "Small fibrovascular stromal profiles remain identifiable within broadened or partially fused papillary tumor structures."
+  }
+}
