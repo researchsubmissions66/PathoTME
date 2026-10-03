@@ -1,0 +1,364 @@
+{
+  "description": "Exact native NSCLC and BRCA text assets used by PathoTME, copied from PGVL-Gym. Existing runtime bindings are unchanged.",
+  "assets": [
+    {
+      "cohort": "nsclc",
+      "method": "vila_mil",
+      "path": "text_prompts/native_tcga/text_prompts/vila_mil/TCGA_Lung_two_scale_text_prompt.csv",
+      "source_repository_path": "text_prompts/vila_mil/TCGA_Lung_two_scale_text_prompt.csv",
+      "sha256": "4fcea3a2016b2b0c600421da19a9b40441faef5a6b491d40ed80aa80e58319f1",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/Jiangbo-Shi/ViLa-MIL/blob/68a11cf0d5cf092dd980f0da1cb38ccac8747a82/text_prompt/TCGA_Lung_two_scale_text_prompt.csv",
+        "format": "headerless_low_then_high",
+        "rows": 4,
+        "class_names": [
+          "LUAD",
+          "LUSC"
+        ],
+        "sha256": "4fcea3a2016b2b0c600421da19a9b40441faef5a6b491d40ed80aa80e58319f1",
+        "prompt_bank_sha256": "61c001097a14a153dd8723cf5d85b41b8b2b0f61bb09b84b218280f1818eedfa",
+        "note": "Byte-exact upstream ViLa-MIL prompt bank."
+      }
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mgpath",
+      "path": "text_prompts/native_tcga/text_prompts/mgpath/tcga_nsclc.csv",
+      "source_repository_path": "text_prompts/mgpath/tcga_nsclc.csv",
+      "sha256": "18a100400f6a52c9237488d95f3ca140ceb1d3e7f4a6b97f0ef5847c712910a7",
+      "provenance": {
+        "provenance": "derived",
+        "copied_from_upstream": false,
+        "source": "https://github.com/HauschildLab/MGPATH/blob/ed703fd6e1ae200b4821d611ec895dd75ecf8219/src/text_prompt/tcga_nsclc.csv",
+        "generator": "not_disclosed_by_upstream",
+        "format": "headerless_four_row_low_high_csv",
+        "rows": 4,
+        "class_bindings": [
+          "LUAD",
+          "LUSC",
+          "LUAD",
+          "LUSC"
+        ],
+        "upstream_sha256": "078915ea281ee011edbe00caba970704a83a90cdb31900493caab8ae211ad6f9",
+        "sha256": "18a100400f6a52c9237488d95f3ca140ceb1d3e7f4a6b97f0ef5847c712910a7",
+        "note": "Prompt text and order are unchanged; one insignificant trailing blank line is removed."
+      }
+    },
+    {
+      "cohort": "nsclc",
+      "method": "focus",
+      "path": "text_prompts/native_tcga/text_prompts/focus/TCGA_NSCLC_two_scale_text_prompt.csv",
+      "source_repository_path": "text_prompts/focus/TCGA_NSCLC_two_scale_text_prompt.csv",
+      "sha256": "a8df24b0adbfa15369b51fb31f17adef4a9a6b955d25cd9ab0e09f3284c76c50",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/dddavid4real/FOCUS/blob/66c4015d5ba09657f4c8183bc06947faecd5b01f/text_prompt/TCGA_Lung_two_scale_text_prompt.csv",
+        "format": "headerless_low_then_high",
+        "rows": 4,
+        "class_names": [
+          "LUAD",
+          "LUSC"
+        ],
+        "sha256": "a8df24b0adbfa15369b51fb31f17adef4a9a6b955d25cd9ab0e09f3284c76c50",
+        "prompt_bank_sha256": "a966d04324b31fe04b81874d5bbace791fd44347eac19bef0fa73d7a4c156b3c",
+        "note": "Byte-exact upstream FOCUS prompt bank."
+      }
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "path": "text_prompts/native_tcga/text_prompts/muse/class_template.json",
+      "source_repository_path": "text_prompts/muse/class_template.json",
+      "sha256": "26cb74df65701715d4762c7c03e2526f9a0245f708601995ebcef2b408f9e364",
+      "provenance": {
+        "provenance": "generated",
+        "generator": "legacy_local_generator_not_recorded",
+        "copied_from_upstream": false,
+        "sha256": "26cb74df65701715d4762c7c03e2526f9a0245f708601995ebcef2b408f9e364",
+        "source": "methods/muse/adapter.py:muse_class_prompt_template default",
+        "source_sha256": "feb516d5af9a645145a5e68560f1d19e6f637d9900c258c708e81ae71cd6abf1",
+        "note": "Lossless extraction of existing Python values; wording, whitespace and sequence/mapping order preserved. No new language-model generation."
+      }
+    },
+    {
+      "cohort": "nsclc",
+      "method": "hive_mil",
+      "path": "text_prompts/native_tcga/text_prompts/hive_mil/tcga_nsclc.json",
+      "source_repository_path": "text_prompts/hive_mil/tcga_nsclc.json",
+      "sha256": "4e06160ea2956a38736ede843373d33741499bc87066ed4178341b6749b6e06c",
+      "provenance": {
+        "provenance": "derived",
+        "copied_from_upstream": true,
+        "source": "https://github.com/bryanwong17/HiVE-MIL/blob/fa5ccec1a99db510e9add85b318e6241acb1aecd/text_prompt/HiVE_MIL/gpt4o/tcga_nsclc.json",
+        "usage": "HiVE-MIL hierarchical NSCLC prompt bank",
+        "generator": "GPT-4o (upstream release)",
+        "sha256": "4e06160ea2956a38736ede843373d33741499bc87066ed4178341b6749b6e06c",
+        "upstream_sha256": "cd023fa6740a9238f09ef38a6a7ac438b515aa7d5f2ac6f14636a84938b1db45",
+        "canonical_sha256": "1cb7cfa6011b1f100186e726421319335b5afd626b29a507e05bbc36ee1f2859",
+        "note": "Prompt strings and insertion order are exact; only JSON whitespace differs from upstream."
+      }
+    },
+    {
+      "cohort": "nsclc",
+      "method": "dyko",
+      "path": "text_prompts/native_tcga/text_prompts/dyko/NSCLC_text_prompt.csv",
+      "source_repository_path": "text_prompts/dyko/NSCLC_text_prompt.csv",
+      "sha256": "14bc274f5b25df020403feca0e03777408ea56dfbdfe5c7bf38b796bc77f953d",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/junjianli106/DyKo/blob/a8b43645840cf283c334b07c42cf4ddf230f644a/text_prompt/Cluade-3.5-Sonnet/NSCLC_text_prompt.csv",
+        "generator": "Claude-3.5-Sonnet (upstream authors)",
+        "format": "headered_prompt_classname_csv",
+        "rows": 2,
+        "class_names": [
+          "Lung Squamous Cell Carcinoma",
+          "Lung Adenocarcinoma"
+        ],
+        "sha256": "14bc274f5b25df020403feca0e03777408ea56dfbdfe5c7bf38b796bc77f953d"
+      }
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mscpt",
+      "path": "text_prompts/native_tcga/train_data/gpt/description/Lung.json",
+      "source_repository_path": "train_data/gpt/description/Lung.json",
+      "sha256": "816d8dadaf1c8a7039b22f57c7a8e31a60d6b4f7eddf27593c611901def903ac",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/Hanminghao/MSCPT/blob/main/train_data/gpt/description/Lung.json",
+        "prompt_counts_per_class": {
+          "small_mag": 10,
+          "big_mag": 30
+        },
+        "known_content_issue": {
+          "status": "upstream_preserved_and_disclosed",
+          "affected_label": "LUSC",
+          "affected_prompt_count": 9,
+          "zero_based_indices": {
+            "small_mag": [
+              0,
+              2
+            ],
+            "big_mag": [
+              0,
+              1,
+              3,
+              8,
+              9,
+              28,
+              29
+            ]
+          },
+          "note": "These LUSC entries describe glandular/acinar architecture, mucin production, lepidic growth, signet-ring cells, bronchioloalveolar carcinoma, or micropapillary morphology associated with lung adenocarcinoma. They contribute to the LUSC text representation. The file remains unchanged so an upstream prompt run is not silently converted into a local condition."
+        }
+      }
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mscpt",
+      "path": "text_prompts/native_tcga/train_data/gpt/description/Lung_select_pic.json",
+      "source_repository_path": "train_data/gpt/description/Lung_select_pic.json",
+      "sha256": "0dc0aa87348cb6165934fe259ef7a78a025914f95b47b4ae021d143b94b327d5",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/Hanminghao/MSCPT/blob/be438afdef8f7ef4515b44d63a369ee3ebcb5688/train_data/gpt/description/Lung_select_pic.json",
+        "sha256": "0dc0aa87348cb6165934fe259ef7a78a025914f95b47b4ae021d143b94b327d5",
+        "prompt_sets": 50,
+        "usage": "selected_low_magnification_patch_ranking",
+        "note": "Byte-exact selector bank. Kept distinct from Lung.json multiscale descriptions and consumed in classifier-label order."
+      }
+    },
+    {
+      "cohort": "brca",
+      "method": "vila_mil",
+      "path": "text_prompts/native_tcga/text_prompts/vila_mil/TCGA_BRCA_two_scale_text_prompt.csv",
+      "source_repository_path": "text_prompts/vila_mil/TCGA_BRCA_two_scale_text_prompt.csv",
+      "sha256": "a8bf0709cd4ef0fd7630c6b60bc38743ec079a1097fcb104f779a0a5ff17ded5",
+      "provenance": {
+        "generator": "legacy_local_generator_not_recorded",
+        "provenance": "generated",
+        "copied_from_upstream": false,
+        "source": "local ViLa-MIL task extension using locally authored BRCA wording, stored low-then-high",
+        "upstream_counterpart": null,
+        "format": "headerless_low_then_high",
+        "rows": 4,
+        "class_names": [
+          "IDC",
+          "ILC"
+        ],
+        "sha256": "a8bf0709cd4ef0fd7630c6b60bc38743ec079a1097fcb104f779a0a5ff17ded5",
+        "prompt_bank_sha256": "af5c672ba5e6565bfd1402ec90e8b265810d97fd96fba719ef648c0bf7b36c70",
+        "note": "ViLa-MIL publishes no BRCA subtype bank; this is not reported as upstream."
+      }
+    },
+    {
+      "cohort": "brca",
+      "method": "mgpath",
+      "path": "text_prompts/native_tcga/text_prompts/mgpath/tcga_brca.csv",
+      "source_repository_path": "text_prompts/mgpath/tcga_brca.csv",
+      "sha256": "ed6b6af40bb1312e2dca82b11bc0b80ca837b9b56b1ae8c04aaa258b3315d311",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/HauschildLab/MGPATH/blob/ed703fd6e1ae200b4821d611ec895dd75ecf8219/src/text_prompt/tcga_brca.csv",
+        "generator": "not_disclosed_by_upstream",
+        "format": "headerless_four_row_low_high_csv",
+        "rows": 4,
+        "class_bindings": [
+          "IDC",
+          "ILC",
+          "IDC",
+          "ILC"
+        ],
+        "sha256": "ed6b6af40bb1312e2dca82b11bc0b80ca837b9b56b1ae8c04aaa258b3315d311"
+      }
+    },
+    {
+      "cohort": "brca",
+      "method": "focus",
+      "path": "text_prompts/native_tcga/text_prompts/focus/TCGA_BRCA_two_scale_text_prompt.csv",
+      "source_repository_path": "text_prompts/focus/TCGA_BRCA_two_scale_text_prompt.csv",
+      "sha256": "a8bf0709cd4ef0fd7630c6b60bc38743ec079a1097fcb104f779a0a5ff17ded5",
+      "provenance": {
+        "generator": "legacy_local_generator_not_recorded",
+        "provenance": "generated",
+        "copied_from_upstream": false,
+        "source": "authored for this benchmark",
+        "upstream_counterpart": null,
+        "format": "headerless_low_then_high",
+        "rows": 4,
+        "class_names": [
+          "IDC",
+          "ILC"
+        ],
+        "sha256": "a8bf0709cd4ef0fd7630c6b60bc38743ec079a1097fcb104f779a0a5ff17ded5",
+        "prompt_bank_sha256": "af5c672ba5e6565bfd1402ec90e8b265810d97fd96fba719ef648c0bf7b36c70",
+        "note": "The FOCUS release has no TCGA-BRCA prompt CSV. This generated bank now uses FOCUS's native positional format."
+      }
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "path": "text_prompts/native_tcga/text_prompts/muse/class_template.json",
+      "source_repository_path": "text_prompts/muse/class_template.json",
+      "sha256": "26cb74df65701715d4762c7c03e2526f9a0245f708601995ebcef2b408f9e364",
+      "provenance": {
+        "provenance": "generated",
+        "generator": "legacy_local_generator_not_recorded",
+        "copied_from_upstream": false,
+        "sha256": "26cb74df65701715d4762c7c03e2526f9a0245f708601995ebcef2b408f9e364",
+        "source": "methods/muse/adapter.py:muse_class_prompt_template default",
+        "source_sha256": "feb516d5af9a645145a5e68560f1d19e6f637d9900c258c708e81ae71cd6abf1",
+        "note": "Lossless extraction of existing Python values; wording, whitespace and sequence/mapping order preserved. No new language-model generation."
+      }
+    },
+    {
+      "cohort": "brca",
+      "method": "hive_mil",
+      "path": "text_prompts/native_tcga/text_prompts/hive_mil/tcga_brca.json",
+      "source_repository_path": "text_prompts/hive_mil/tcga_brca.json",
+      "sha256": "ea7b617475723982c45a45ee552fa0ebe049bf24b963b927711489d0498d9d3a",
+      "provenance": {
+        "provenance": "derived",
+        "copied_from_upstream": true,
+        "source": "https://github.com/bryanwong17/HiVE-MIL/blob/fa5ccec1a99db510e9add85b318e6241acb1aecd/text_prompt/HiVE_MIL/gpt4o/tcga_brca.json",
+        "usage": "HiVE-MIL hierarchical BRCA prompt bank",
+        "generator": "GPT-4o (upstream release)",
+        "sha256": "ea7b617475723982c45a45ee552fa0ebe049bf24b963b927711489d0498d9d3a",
+        "upstream_sha256": "1ec25f8e7c03dcfb4d6c02df81e57d669d7463c6957a08bc440551c8dadcdb6f",
+        "canonical_sha256": "7190fc5567d6dd6fe7ff50a6f3c451200d485f223a185ca5cb4856bfc7c2c78c",
+        "note": "Prompt strings and insertion order are exact; only JSON whitespace differs from upstream."
+      }
+    },
+    {
+      "cohort": "brca",
+      "method": "mscpt",
+      "path": "text_prompts/native_tcga/text_prompts/mscpt/description/TCGA_BRCA_IDC_ILC.json",
+      "source_repository_path": "text_prompts/mscpt/description/TCGA_BRCA_IDC_ILC.json",
+      "sha256": "decb12ecff0b7b2017bbbe775f7aad3fa381648683c4484a5212a6ceb9809581",
+      "provenance": {
+        "generator": "not_applicable_derivation_from_checked_in_maple_prompts",
+        "provenance": "generated",
+        "copied_from_upstream": false,
+        "source": "authored for this benchmark from the checked-in MAPLE BRCA attribute bank",
+        "upstream_counterpart": null,
+        "related_upstream_file": "https://github.com/Hanminghao/MSCPT/blob/main/train_data/gpt/description/BRCA.json",
+        "prompt_counts_per_class": {
+          "small_mag": 10,
+          "big_mag": 10
+        },
+        "note": "MSCPT's BRCA.json is a High/Low recurrence/grade task, not this benchmark's IDC/ILC subtype task. This local task-matched bank is therefore generated, not copied. It has 10 big_mag prompts per class versus 30 in the task-matched upstream Lung, RCC, and UBC-OCEAN banks, so prompt-count comparisons across these cohorts are not controlled."
+      }
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "path": "text_prompts/native_tcga/text_prompts/muse/tcga_nsclc/generated_new_0.csv",
+      "source_repository_path": "text_prompts/muse/tcga_nsclc/generated_new_0.csv",
+      "sha256": "d014961af20a572d44016c076c01c43600a7ae37c657eec8e641288e80375ba4",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/JiahaoXu-god/CVPR2026_MUSE/blob/9f2ec37bad5a10bb79616900ec017830b0bdfa0a/text_prompt/tcga_nsclc/generated_new_0.csv",
+        "classname": "lung adenocarcinoma",
+        "class_index": 0,
+        "rows": 300,
+        "sha256": "d014961af20a572d44016c076c01c43600a7ae37c657eec8e641288e80375ba4"
+      }
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "path": "text_prompts/native_tcga/text_prompts/muse/tcga_nsclc/generated_new_1.csv",
+      "source_repository_path": "text_prompts/muse/tcga_nsclc/generated_new_1.csv",
+      "sha256": "e59cc3b4816ff286c2b49095f4e7a060a6e2b8ddc917a06660588439bf3aeada",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/JiahaoXu-god/CVPR2026_MUSE/blob/9f2ec37bad5a10bb79616900ec017830b0bdfa0a/text_prompt/tcga_nsclc/generated_new_1.csv",
+        "classname": "lung squamous cell carcinoma",
+        "class_index": 1,
+        "rows": 300,
+        "sha256": "e59cc3b4816ff286c2b49095f4e7a060a6e2b8ddc917a06660588439bf3aeada"
+      }
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "path": "text_prompts/native_tcga/text_prompts/muse/tcga_brca/generated_new_0.csv",
+      "source_repository_path": "text_prompts/muse/tcga_brca/generated_new_0.csv",
+      "sha256": "3b611e4e14a1e37cd56a78f052bf1d0d922b238ae8cc62f9df4044f67d4497c4",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/JiahaoXu-god/CVPR2026_MUSE/blob/9f2ec37bad5a10bb79616900ec017830b0bdfa0a/text_prompt/tcga_brca/generated_new_0.csv",
+        "classname": "invasive ductal carcinoma",
+        "class_index": 0,
+        "rows": 300,
+        "sha256": "3b611e4e14a1e37cd56a78f052bf1d0d922b238ae8cc62f9df4044f67d4497c4"
+      }
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "path": "text_prompts/native_tcga/text_prompts/muse/tcga_brca/generated_new_1.csv",
+      "source_repository_path": "text_prompts/muse/tcga_brca/generated_new_1.csv",
+      "sha256": "523749fddaa4267dc889b130bff71f831c1c6944513d8c5c96c7dd829b4094cb",
+      "provenance": {
+        "provenance": "upstream",
+        "copied_from_upstream": true,
+        "source": "https://github.com/JiahaoXu-god/CVPR2026_MUSE/blob/9f2ec37bad5a10bb79616900ec017830b0bdfa0a/text_prompt/tcga_brca/generated_new_1.csv",
+        "classname": "invasive lobular carcinoma",
+        "class_index": 1,
+        "rows": 300,
+        "sha256": "523749fddaa4267dc889b130bff71f831c1c6944513d8c5c96c7dd829b4094cb"
+      }
+    }
+  ]
+}

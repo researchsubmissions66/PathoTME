@@ -199,3 +199,7 @@ The repository also includes an [MSCPT conditioner](pathotme/mscpt_tme.py),
 
 Machine-specific paths use `/path/to` placeholders. Configure these paths and
 regenerate experiment contracts before launching in your environment.
+
+## Text prompt banks
+
+All seven architectures’ text banks for NSCLC, BRCA, CRC, and BLCA are indexed in [text_prompts/README.md](text_prompts/README.md), including native source snapshots and provenance hashes.
