@@ -1,0 +1,333 @@
+{
+  "description": "Published text coverage for four TCGA cohorts and seven architectures. SHA-256 values identify published files. Historical release assets may anonymize provenance paths while retaining prompt text.",
+  "groups": [
+    {
+      "cohort": "blca",
+      "method": "dyko",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/dyko/class_descriptions.csv",
+          "sha256": "16e070afee7e15d3e06a971e50ab54853fce9a11ad7a7085277cb87943cc54fc"
+        },
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/dyko/knowledge_bank.json",
+          "sha256": "797731262e3758933bee9d06a53a8171a241c0785880b9e67090bfde5361bf85"
+        }
+      ]
+    },
+    {
+      "cohort": "blca",
+      "method": "focus",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/focus/two_scale.csv",
+          "sha256": "61e6a3731cda3732e6515acb2f7936054caa4ae6bbbaeac011966ba7475e5d26"
+        }
+      ]
+    },
+    {
+      "cohort": "blca",
+      "method": "hive_mil",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/hive_mil/hierarchy.json",
+          "sha256": "6791ba99179b4194b24fef794112fd08f3ad034b570f7ff4e9a08a6d96be4146"
+        }
+      ]
+    },
+    {
+      "cohort": "blca",
+      "method": "mgpath",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/mgpath/two_scale.csv",
+          "sha256": "2de6ace7180fb3acb7db116ed43921d360c7d450e51d2d19876b4d90df24e98b"
+        }
+      ]
+    },
+    {
+      "cohort": "blca",
+      "method": "mscpt",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/mscpt/description/TCGA_BLCA.json",
+          "sha256": "f0cc942203430ab98fc7c892f061a6850b4325b13bba56e77ba3802b2241b96c"
+        }
+      ]
+    },
+    {
+      "cohort": "blca",
+      "method": "muse",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/muse/class_semantics.json",
+          "sha256": "90f400746ef8c2f3f32933539448e73e0999f452fbed4817c95d143e968e6860"
+        },
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/muse/generated_new_0.csv",
+          "sha256": "bd0c8beb2aedf5bf44b5da4043c802dfbe6d5e9c33f84563852795dd1992c5de"
+        },
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/muse/generated_new_1.csv",
+          "sha256": "f1be0a853bd940edbd2bc7a92076dfed4f85f9442cf8ed7eed96b1cdc0b0eda5"
+        }
+      ]
+    },
+    {
+      "cohort": "blca",
+      "method": "vila_mil",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/blca/vila_mil/two_scale.csv",
+          "sha256": "cd70a4f58a557be790cdc81f0fde2e5cfdb1898ad6bd7ee3655f3250e5a4b318"
+        }
+      ]
+    },
+    {
+      "cohort": "brca",
+      "method": "dyko",
+      "assets": [
+        {
+          "path": "text_prompts/dyko_brca_v1/class_descriptions.csv",
+          "sha256": "8ea5f07bfdd2e789063a80f5d2bb3f4dc2870561d8ac09db7f51285d79b7270b"
+        },
+        {
+          "path": "text_prompts/dyko_brca_v1/knowledge_bank.json",
+          "sha256": "a73fe0a58952f44f5ddad27d752217f1501509efa0a9a97d982ded497ff83caf"
+        }
+      ]
+    },
+    {
+      "cohort": "brca",
+      "method": "focus",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/focus/TCGA_BRCA_two_scale_text_prompt.csv",
+          "sha256": "a8bf0709cd4ef0fd7630c6b60bc38743ec079a1097fcb104f779a0a5ff17ded5"
+        }
+      ]
+    },
+    {
+      "cohort": "brca",
+      "method": "hive_mil",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/hive_mil/tcga_brca.json",
+          "sha256": "ea7b617475723982c45a45ee552fa0ebe049bf24b963b927711489d0498d9d3a"
+        }
+      ]
+    },
+    {
+      "cohort": "brca",
+      "method": "mgpath",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/mgpath/tcga_brca.csv",
+          "sha256": "ed6b6af40bb1312e2dca82b11bc0b80ca837b9b56b1ae8c04aaa258b3315d311"
+        }
+      ]
+    },
+    {
+      "cohort": "brca",
+      "method": "mscpt",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/mscpt/description/TCGA_BRCA_IDC_ILC.json",
+          "sha256": "decb12ecff0b7b2017bbbe775f7aad3fa381648683c4484a5212a6ceb9809581"
+        }
+      ]
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/muse/class_template.json",
+          "sha256": "26cb74df65701715d4762c7c03e2526f9a0245f708601995ebcef2b408f9e364"
+        },
+        {
+          "path": "text_prompts/native_tcga/text_prompts/muse/tcga_brca/generated_new_0.csv",
+          "sha256": "3b611e4e14a1e37cd56a78f052bf1d0d922b238ae8cc62f9df4044f67d4497c4"
+        },
+        {
+          "path": "text_prompts/native_tcga/text_prompts/muse/tcga_brca/generated_new_1.csv",
+          "sha256": "523749fddaa4267dc889b130bff71f831c1c6944513d8c5c96c7dd829b4094cb"
+        }
+      ]
+    },
+    {
+      "cohort": "brca",
+      "method": "vila_mil",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/vila_mil/TCGA_BRCA_two_scale_text_prompt.csv",
+          "sha256": "a8bf0709cd4ef0fd7630c6b60bc38743ec079a1097fcb104f779a0a5ff17ded5"
+        }
+      ]
+    },
+    {
+      "cohort": "crc",
+      "method": "dyko",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/dyko/class_descriptions.csv",
+          "sha256": "ecf0d74cc9c55926a4459d861a5d0421827662d7c10b2559a3f23ccce76620ff"
+        },
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/dyko/knowledge_bank.json",
+          "sha256": "19effc40fe2db9138a98b2eaa2eeaf6827992b26a56822e9068177355a9c766e"
+        }
+      ]
+    },
+    {
+      "cohort": "crc",
+      "method": "focus",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/focus/two_scale.csv",
+          "sha256": "85604f0b9fd2660eab84ec6b22799a6255c50cb3f0a609cc49e4c318b0db4a81"
+        }
+      ]
+    },
+    {
+      "cohort": "crc",
+      "method": "hive_mil",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/hive_mil/hierarchy.json",
+          "sha256": "1bf362c8afcc884ff74f157d644b98c7a5ebf8c5fbdea8c99328a461bf02bd9d"
+        }
+      ]
+    },
+    {
+      "cohort": "crc",
+      "method": "mgpath",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/mgpath/two_scale.csv",
+          "sha256": "7646c9e9571ea2633483c00ca5c7122e30e83b8429d4abc416857ac96a996798"
+        }
+      ]
+    },
+    {
+      "cohort": "crc",
+      "method": "mscpt",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/mscpt/description/TCGA_CRC.json",
+          "sha256": "81075f69f90f79436b76973da192c77693befdaac9d497668dc1bbe2dc233817"
+        }
+      ]
+    },
+    {
+      "cohort": "crc",
+      "method": "muse",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/muse/class_semantics.json",
+          "sha256": "b165ea9533fc8228929c5c2f422e6493d36599d48b9e95e7c994f2233c6711f6"
+        },
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/muse/generated_new_0.csv",
+          "sha256": "620df40677fb735d97313fcd110de61f40b3e547f9202c71707c4c3bfa7e95bb"
+        },
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/muse/generated_new_1.csv",
+          "sha256": "905a47f22e33e22124695062ec7f8480fb27e0c6098f75425f0f2150aafeaca6"
+        }
+      ]
+    },
+    {
+      "cohort": "crc",
+      "method": "vila_mil",
+      "assets": [
+        {
+          "path": "text_prompts/crc_blca_gpt6_astra_v1/crc/vila_mil/two_scale.csv",
+          "sha256": "2e065c3da7f1d8a13bc273f174e7a4ecd56b55c2ba53e954b56d3ac76d6eea99"
+        }
+      ]
+    },
+    {
+      "cohort": "nsclc",
+      "method": "dyko",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/dyko/NSCLC_text_prompt.csv",
+          "sha256": "14bc274f5b25df020403feca0e03777408ea56dfbdfe5c7bf38b796bc77f953d"
+        }
+      ]
+    },
+    {
+      "cohort": "nsclc",
+      "method": "focus",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/focus/TCGA_NSCLC_two_scale_text_prompt.csv",
+          "sha256": "a8df24b0adbfa15369b51fb31f17adef4a9a6b955d25cd9ab0e09f3284c76c50"
+        }
+      ]
+    },
+    {
+      "cohort": "nsclc",
+      "method": "hive_mil",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/hive_mil/tcga_nsclc.json",
+          "sha256": "4e06160ea2956a38736ede843373d33741499bc87066ed4178341b6749b6e06c"
+        }
+      ]
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mgpath",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/mgpath/tcga_nsclc.csv",
+          "sha256": "18a100400f6a52c9237488d95f3ca140ceb1d3e7f4a6b97f0ef5847c712910a7"
+        }
+      ]
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mscpt",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/train_data/gpt/description/Lung.json",
+          "sha256": "816d8dadaf1c8a7039b22f57c7a8e31a60d6b4f7eddf27593c611901def903ac"
+        },
+        {
+          "path": "text_prompts/native_tcga/train_data/gpt/description/Lung_select_pic.json",
+          "sha256": "0dc0aa87348cb6165934fe259ef7a78a025914f95b47b4ae021d143b94b327d5"
+        }
+      ]
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/muse/class_template.json",
+          "sha256": "26cb74df65701715d4762c7c03e2526f9a0245f708601995ebcef2b408f9e364"
+        },
+        {
+          "path": "text_prompts/native_tcga/text_prompts/muse/tcga_nsclc/generated_new_0.csv",
+          "sha256": "d014961af20a572d44016c076c01c43600a7ae37c657eec8e641288e80375ba4"
+        },
+        {
+          "path": "text_prompts/native_tcga/text_prompts/muse/tcga_nsclc/generated_new_1.csv",
+          "sha256": "e59cc3b4816ff286c2b49095f4e7a060a6e2b8ddc917a06660588439bf3aeada"
+        }
+      ]
+    },
+    {
+      "cohort": "nsclc",
+      "method": "vila_mil",
+      "assets": [
+        {
+          "path": "text_prompts/native_tcga/text_prompts/vila_mil/TCGA_Lung_two_scale_text_prompt.csv",
+          "sha256": "4fcea3a2016b2b0c600421da19a9b40441faef5a6b491d40ed80aa80e58319f1"
+        }
+      ]
+    }
+  ]
+}

@@ -32,8 +32,8 @@ patch features.
 The central question is: **does slide-specific biological context improve a model's
 aggregation beyond its native representation and the capacity of an added conditioner?**
 
-A shared biological interface connects to six architectures, with matched controls
-across two TCGA cohorts and two visual encoders.
+A shared biological interface connects to seven architectures, with matched controls
+across four TCGA cohorts and two visual encoders.
 
 <a name="method"></a>
 
@@ -76,6 +76,7 @@ The interface follows each architecture's existing computation.
 | [MUSE](pathotme/muse_tme.py) | 10× | Inference class semantics before sparse expert routing |
 | [HiVE-MIL](pathotme/hive_tme.py) | 5× + 20× | Encoded hierarchical text nodes before filtering and graph construction |
 | [DyKo](pathotme/dyko_tme.py) | 20× | Class queries after concept retrieval and before dual cross-attention |
+| [MSCPT](pathotme/mscpt_tme.py) | 5× + 20× | Multiscale text graph representations |
 
 The paired PLIP/CLIP-RN50 implementations include explicit PathoTME encoder
 extensions. Discrete retrieval and selection operations remain non-differentiable;
@@ -91,7 +92,9 @@ The primary design uses **16 shots per class**, **five patient-disjoint folds**,
 | Cohort | Classification task | Slides | Patients | Biological panel |
 |---|---|---:|---:|---|
 | TCGA-NSCLC | LUAD vs. LUSC | 1,041 | 944 | core62 |
-| TCGA-BRCA | IDC vs. ILC | 960 | 900 | morph64 |
+| TCGA-BRCA | IDC vs. ILC | 960 | 900 | morph64 (historical); shared core62 for matched extensions |
+| TCGA-CRC | Adenocarcinoma NOS vs. mucinous | 544 | 536 | core62 |
+| TCGA-BLCA | Non-papillary vs. papillary | 451 | 380 | core62 |
 
 Every architecture/cohort/encoder/fold comparison includes four conditions:
 
