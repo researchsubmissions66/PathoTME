@@ -12,6 +12,7 @@ across the visual conditions.
 
 Start with the top-10 file for a cancer: [NSCLC](top10_nsclc.csv),
 [BRCA](top10_brca.csv), [CRC](top10_crc.csv), or [BLCA](top10_blca.csv).
+For a visual overview, see the [publication figures](figures/README.md).
 Each has 580 rows: the ten largest individual-feature and ten largest group
 scores for every LR or fusion variant/architecture/encoder combination. Filter
 `variant`, `image_architecture`, `image_encoder`, and `level` together. The
