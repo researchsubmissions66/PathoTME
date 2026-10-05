@@ -69,9 +69,16 @@ feature_cache/
 # Native text prompt banks are source assets, not raw feature measurements
 !text_prompts/**/*.csv
 
+# Aggregated 16-shot attribution tables approved for public release.
+!/docs/data/attribution-16shot-20261004/feature_rankings.csv
+!/docs/data/attribution-16shot-20261004/fold_feature_scores.csv
+!/docs/data/attribution-16shot-20261004/lr_coefficients.csv
+!/docs/data/attribution-16shot-20261004/lr_coefficient_stability.csv
+
 # Internal research notes and planning artifacts are not publication assets
 *.md
 !/README.md
+!/docs/data/attribution-16shot-20261004/README.md
 source_history/
 walltimes.json
 /*_STATUS.*

@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "recorded_at_utc": "2026-10-05T00:00:12.419609+00:00",
+  "elapsed_seconds": 128.5023567850003,
+  "completed_variant_folds": {
+    "PathoTME-LR": 20,
+    "Native": 280,
+    "PathoTME-Fusion50": 280,
+    "PathoTME-FusionVal": 280
+  },
+  "waiting_fusion_folds": 0,
+  "rank_rows": 27004,
+  "neural_adapter_scores_included": false,
+  "all_LR_features_retained": true,
+  "training": false,
+  "GPU_jobs": 0,
+  "artifact_sha256": {
+    "feature_rankings.csv": "2dfe31ad47d0dc8348d8d9cfedd93ec23a03d0f3f1d00587401ea70e0c73d8d1",
+    "lr_coefficient_stability.csv": "8b61ae6bed3159ad604918b53a13f3d7a242cfd9c7130f1ccb99d9b6361e5074",
+    "lr_coefficients.csv": "37af598720b181baab3653d5678383bfd50b50f51ae30fef4c49a5455b3ecf9b",
+    "fold_feature_scores.csv": "48da51b289939673483911c942043f65ccb39b2ef13a05a1324f2b9cd02cfa2c"
+  }
+}
