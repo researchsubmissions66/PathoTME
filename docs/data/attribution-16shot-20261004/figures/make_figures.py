@@ -1,4 +1,4 @@
-"""Render publication-ready 16-shot PathoTME-LR attribution bar charts.
+"""Render compact publication-ready 16-shot PathoTME-LR bar charts.
 
 Run with a Python environment containing Matplotlib:
     python figures/make_figures.py
@@ -8,6 +8,7 @@ Only the published aggregate CSVs are read. No patient-level data is needed.
 
 import csv
 import re
+import statistics
 from collections import defaultdict
 from pathlib import Path
 
@@ -34,6 +35,7 @@ GROUP_LABELS = {
     "low/compartment_extent": "Compartment extent",
     "low/tissue_composition": "Tissue composition",
     "low/tumor_core_composition": "Tumor-core composition",
+    "low/invasive_margin_composition": "Invasive-margin composition",
 }
 CELL_LABELS = {
     "FIBROBLASTS": "Fibroblast",
@@ -54,7 +56,10 @@ TISSUE_LABELS = {
     "NECROSIS": "Necrosis",
     "EPITHELIAL_TISSUE": "Epithelial-tissue",
     "OUTER_INVASIVE_MARGIN": "Outer invasive-margin",
+    "INNER_INVASIVE_MARGIN": "Inner invasive-margin",
     "TUMOR_CORE": "Tumor-core",
+    "VALID_TISSUE": "Valid-tissue",
+    "VESSEL": "Vessel",
 }
 REGION_LABELS = {
     "INNER_INVASIVE_MARGIN": "inner margin",
@@ -96,14 +101,20 @@ def display_label(name, level):
         return f"{CELL_LABELS[match[2]]} {measure} · {REGION_LABELS[match[3]]}"
     if name.startswith("RELATIVE_AREA_"):
         tissue = name.removeprefix("RELATIVE_AREA_")
-        if tissue.endswith("_IN_TUMOR_CORE"):
-            tissue = tissue.removesuffix("_IN_TUMOR_CORE")
-            return f"{TISSUE_LABELS[tissue]} area · tumor core"
+        if "_IN_" in tissue:
+            tissue, region = tissue.rsplit("_IN_", 1)
+            return f"{TISSUE_LABELS[tissue]} area · {REGION_LABELS[region]}"
         return f"{TISSUE_LABELS[tissue]} area"
     if name.startswith("AVG_SOLIDICITY_"):
         return f"{TISSUE_LABELS[name.removeprefix('AVG_SOLIDICITY_')]} solidity"
     if name.startswith("AVG_ECCENTRICITY_"):
         return f"{TISSUE_LABELS[name.removeprefix('AVG_ECCENTRICITY_')]} eccentricity"
+    if name.startswith("LARGEST_ROUNDNESS_"):
+        return f"Largest {TISSUE_LABELS[name.removeprefix('LARGEST_ROUNDNESS_')].lower()} roundness"
+    if name.startswith("LOG1P_COUNT_TLS_"):
+        return f"{name.removeprefix('LOG1P_COUNT_TLS_').title()} TLS count (log1p)"
+    if name.startswith("REGIONS_PER_MM2_VALID_TISSUE_"):
+        return f"{TISSUE_LABELS[name.removeprefix('REGIONS_PER_MM2_VALID_TISSUE_')]} regions per mm²"
     if name.startswith("TLS_") and name.endswith("_PRESENT"):
         return f"{name.removeprefix('TLS_').removesuffix('_PRESENT').title()} TLS present"
     raise ValueError(f"Unmapped feature: {name}")
@@ -135,87 +146,87 @@ def plot_panel(axis, cohort, level, rankings, folds):
     labels = [display_label(row["feature_name"], level) for row in top]
     assert len(set(labels)) == len(labels), (cohort, level, labels)
     means = [float(row["mean_absolute_pp"]) for row in top]
+    standard_deviations = [float(row["fold_sd_absolute_pp"]) for row in top]
     fold_values = [
         [float(folds[(cohort, level, row["feature_name"], fold)]["mean_absolute_pp"])
          for fold in range(5)]
         for row in top
     ]
-    for mean, values in zip(means, fold_values):
+    for mean, standard_deviation, values in zip(means, standard_deviations, fold_values):
         assert abs(mean - sum(values) / 5) < 1e-10
+        assert abs(standard_deviation - statistics.stdev(values)) < 1e-10
 
     accent = "#147A7E" if level == "group" else "#3A609B"
     pale = "#A5D5D2" if level == "group" else "#B9CBE5"
-    axis.barh(range(10), means, height=0.59,
+    axis.barh(range(10), means, height=0.66,
               color=[accent] + [pale] * 9, edgecolor="none", zorder=2)
-    offsets = (-0.18, -0.09, 0.0, 0.09, 0.18)
-    for row_index, values in enumerate(fold_values):
-        for fold, value in enumerate(values):
-            axis.scatter(value, row_index + offsets[fold], s=21,
-                         facecolor="white", edgecolor="#27384B", linewidth=0.9,
-                         zorder=4)
-
-    widest = max(max(values) for values in fold_values)
-    x_max = max(widest * 1.07, max(means) * 1.07, 0.4)
+    x_max = max(max(means) * 1.07, 0.4)
     axis.set_xlim(0, x_max)
     axis.set_yticks(range(10), labels=labels)
     axis.invert_yaxis()
-    axis.tick_params(axis="y", length=0, pad=9, labelsize=9.5, colors="#26374A")
-    axis.tick_params(axis="x", length=0, labelsize=9, colors="#536578")
-    axis.xaxis.set_major_locator(MaxNLocator(nbins=6, min_n_ticks=4))
+    axis.tick_params(axis="y", length=0, pad=8, labelsize=8.7, colors="#26374A")
+    axis.tick_params(axis="x", length=0, labelsize=8.5, colors="#536578")
+    axis.xaxis.set_major_locator(MaxNLocator(nbins=5, min_n_ticks=4))
     axis.grid(axis="x", color="#E3E9EF", linewidth=0.8)
     axis.set_axisbelow(True)
     for spine in ("top", "right", "left"):
         axis.spines[spine].set_visible(False)
     axis.spines["bottom"].set_color("#C9D3DD")
-    axis.text(1.025, 1.035, "MEAN", transform=axis.transAxes,
-              ha="left", va="bottom", fontsize=8.3, fontweight="bold",
+    axis.text(1.018, 1.03, "MEAN ± SD", transform=axis.transAxes,
+              ha="left", va="bottom", fontsize=8.2, fontweight="bold",
               color="#52687B", clip_on=False)
-    for index, mean in enumerate(means):
-        axis.text(1.025, index, f"{mean:.2f}",
+    for index, (mean, standard_deviation) in enumerate(zip(means, standard_deviations)):
+        axis.text(1.018, index, f"{mean:.2f} ± {standard_deviation:.2f}",
                   transform=axis.get_yaxis_transform(), ha="left", va="center",
-                  fontsize=9.1, fontweight="semibold", color="#21384E",
+                  fontsize=8.5, fontweight="semibold", color="#21384E",
                   clip_on=False, zorder=5)
     axis.set_title(
         "A  Biological feature groups" if level == "group" else "B  Individual measurements",
-        loc="left", fontsize=11.5, fontweight="bold", color="#172B41", pad=18,
+        loc="left", fontsize=10.5, fontweight="bold", color="#172B41", pad=13,
     )
-    axis.set_xlabel("Mean absolute probability change (percentage points)",
-                    fontsize=9.5, color="#334D63", labelpad=9)
+    axis.set_xlabel("Mean absolute probability change (pp)",
+                    fontsize=8.8, color="#334D63", labelpad=6)
 
 
-def make_figure(cohort, rankings, folds):
+def render_chart(cohort, rankings, folds, *, variant_label, scope_line,
+                 note_line, stem, output_dir=OUTPUT):
     title, positive_class = COHORTS[cohort]
-    fig, axes = plt.subplots(2, 1, figsize=(9.0, 12.0))
+    fig, axes = plt.subplots(2, 1, figsize=(8.4, 8.6))
     fig.patch.set_facecolor("white")
-    fig.subplots_adjust(left=0.36, right=0.88, top=0.82, bottom=0.12, hspace=0.38)
+    fig.subplots_adjust(left=0.38, right=0.80, top=0.82 if scope_line else 0.85,
+                        bottom=0.14, hspace=0.40)
     fig.text(0.055, 0.955, f"{title}  |  TME feature attribution",
-             fontsize=17, fontweight="bold", color="#172B41")
+             fontsize=16, fontweight="bold", color="#172B41")
     fig.text(0.055, 0.922,
-             f"PathoTME-LR · 16-shot · predicted {positive_class} probability · five held-out folds",
-             fontsize=10.5, color="#51677C")
-    fig.text(0.055, 0.880,
-             "BAR  five-fold mean       ○  individual fold means",
-             fontsize=9.4, color="#536578")
+             f"{variant_label} · 16-shot · predicted {positive_class} probability · five held-out folds",
+             fontsize=9.7, color="#51677C")
+    if scope_line:
+        fig.text(0.055, 0.890, scope_line, fontsize=9.2, color="#536578")
     for axis, level in zip(axes, ("group", "feature")):
         plot_panel(axis, cohort, level, rankings, folds)
-    fig.text(0.055, 0.075,
-             "Fold means average absolute patient-level probability changes after replacing a TME feature with its training-fold reference.",
-             fontsize=8.6, color="#536578")
-    fig.text(0.055, 0.052,
-             "Panels use separate x scales. Scores describe model sensitivity, not predictive accuracy or causal effects. No image input is used.",
-             fontsize=8.6, color="#536578")
+    fig.text(0.055, 0.075, "Bars show mean absolute patient-level scores; SD describes the five fold means (sample SD).",
+             fontsize=8.1, color="#536578")
+    fig.text(0.055, 0.053, note_line, fontsize=8.1, color="#536578")
 
-    stem = f"{cohort}_lr_16shot_attribution"
+    output_dir.mkdir(parents=True, exist_ok=True)
     for extension in ("pdf", "svg", "png"):
-        target = OUTPUT / f"{stem}.{extension}"
+        target = output_dir / f"{stem}.{extension}"
         fig.savefig(
             target, dpi=300, facecolor="white",
-            metadata={"Title": f"{title} PathoTME-LR 16-shot TME feature attribution"},
+            metadata={"Title": f"{title} {variant_label} 16-shot TME feature attribution"},
         )
         if extension == "svg":
             # Matplotlib adds trailing spaces to multiline SVG path data.
             target.write_text("\n".join(line.rstrip() for line in target.read_text().splitlines()) + "\n")
     plt.close(fig)
+
+
+def make_figure(cohort, rankings, folds):
+    render_chart(
+        cohort, rankings, folds, variant_label="PathoTME-LR", scope_line="",
+        note_line="Separate x scales. TME-only model with no image input; sensitivity is not accuracy or causality.",
+        stem=f"{cohort}_lr_16shot_attribution",
+    )
 
 
 def main():

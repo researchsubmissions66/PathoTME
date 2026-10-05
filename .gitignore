@@ -84,6 +84,7 @@ feature_cache/
 !/README.md
 !/docs/data/attribution-16shot-20261004/README.md
 !/docs/data/attribution-16shot-20261004/figures/README.md
+!/docs/data/attribution-16shot-20261004/figures/fusionval/README.md
 source_history/
 walltimes.json
 /*_STATUS.*
