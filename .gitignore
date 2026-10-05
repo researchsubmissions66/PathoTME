@@ -74,6 +74,10 @@ feature_cache/
 !/docs/data/attribution-16shot-20261004/fold_feature_scores.csv
 !/docs/data/attribution-16shot-20261004/lr_coefficients.csv
 !/docs/data/attribution-16shot-20261004/lr_coefficient_stability.csv
+!/docs/data/attribution-16shot-20261004/top10_nsclc.csv
+!/docs/data/attribution-16shot-20261004/top10_brca.csv
+!/docs/data/attribution-16shot-20261004/top10_crc.csv
+!/docs/data/attribution-16shot-20261004/top10_blca.csv
 
 # Internal research notes and planning artifacts are not publication assets
 *.md
