@@ -159,16 +159,8 @@ def plot_panel(axis, cohort, level, rankings, folds):
     accent = "#147A7E" if level == "group" else "#3A609B"
     pale = "#A5D5D2" if level == "group" else "#B9CBE5"
     axis.barh(range(10), means, height=0.66,
-              color=[accent] + [pale] * 9, edgecolor="none", zorder=2,
-              xerr=standard_deviations,
-              error_kw={"ecolor": "#26374A", "elinewidth": 1.1,
-                        "capsize": 3, "capthick": 1.1, "zorder": 3})
-    lower = min(mean - sd for mean, sd in zip(means, standard_deviations))
-    upper = max(mean + sd for mean, sd in zip(means, standard_deviations))
-    span = max(upper - min(0, lower), 0.4)
-    axis.set_xlim(min(0, lower - 0.04 * span) if lower < 0 else 0,
-                  max(upper + 0.07 * span, 0.4))
-    axis.axvline(0, color="#C9D3DD", linewidth=0.8, zorder=1)
+              color=[accent] + [pale] * 9, edgecolor="none", zorder=2)
+    axis.set_xlim(0, max(max(means) * 1.07, 0.4))
     axis.set_yticks(range(10), labels=labels)
     axis.invert_yaxis()
     axis.tick_params(axis="y", length=0, pad=8, labelsize=8.7, colors="#26374A")
@@ -179,11 +171,11 @@ def plot_panel(axis, cohort, level, rankings, folds):
     for spine in ("top", "right", "left"):
         axis.spines[spine].set_visible(False)
     axis.spines["bottom"].set_color("#C9D3DD")
-    axis.text(1.018, 1.03, "MEAN ± SD", transform=axis.transAxes,
+    axis.text(1.018, 1.03, "MEAN (pp)", transform=axis.transAxes,
               ha="left", va="bottom", fontsize=8.2, fontweight="bold",
               color="#52687B", clip_on=False)
-    for index, (mean, standard_deviation) in enumerate(zip(means, standard_deviations)):
-        axis.text(1.018, index, f"{mean:.2f} ± {standard_deviation:.2f}",
+    for index, mean in enumerate(means):
+        axis.text(1.018, index, f"{mean:.2f}",
                   transform=axis.get_yaxis_transform(), ha="left", va="center",
                   fontsize=8.5, fontweight="semibold", color="#21384E",
                   clip_on=False, zorder=5)
@@ -211,7 +203,7 @@ def render_chart(cohort, rankings, folds, *, variant_label, scope_line,
         fig.text(0.055, 0.890, scope_line, fontsize=9.2, color="#536578")
     for axis, level in zip(axes, ("group", "feature")):
         plot_panel(axis, cohort, level, rankings, folds)
-    fig.text(0.055, 0.075, "Bars: mean absolute patient-level scores. Error bars: ±1 sample SD across five fold means.",
+    fig.text(0.055, 0.075, "Bars and labels show mean absolute patient-level scores averaged across five held-out folds.",
              fontsize=8.1, color="#536578")
     fig.text(0.055, 0.053, note_line, fontsize=8.1, color="#536578")
 
