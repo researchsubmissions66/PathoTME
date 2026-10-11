@@ -126,7 +126,7 @@ def main():
     records = group_records(rankings, folds)
     DESTINATION.mkdir(parents=True, exist_ok=True)
     with (DESTINATION / "all_lr_group_consistency.csv").open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(records[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(records[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(records)
     render(records)
