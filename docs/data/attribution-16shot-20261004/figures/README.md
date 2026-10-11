@@ -3,8 +3,9 @@
 Each compact bar chart shows the **top 10 biological feature groups** and
 **top 10 individual TME measurements** for one cancer and variant. Bars show
 the five-fold mean absolute patient-level probability change, in percentage
-points. The right column gives that mean ± the **sample SD across the five fold
-means**. Group and individual panels use separate horizontal scales. Exact
+points. Capped error bars show **±1 sample SD across the five fold means**;
+the right column gives the same mean ± SD. These describe fold variability,
+not standard errors or confidence intervals. Group and individual panels use separate horizontal scales. Exact
 fold values and canonical feature names are in the [per-cancer top-10 CSVs](../README.md).
 
 | Cancer | TME-only PathoTME-LR | PathoTME-Fusion50 |
