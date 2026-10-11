@@ -15,6 +15,11 @@ fold values and canonical feature names are in the [per-cancer top-10 CSVs](../R
 | CRC | [PNG](crc_lr_16shot_attribution.png) · [SVG](crc_lr_16shot_attribution.svg) · [PDF](crc_lr_16shot_attribution.pdf) | [PNG](fusion50/crc_fusion50_16shot_attribution.png) · [SVG](fusion50/crc_fusion50_16shot_attribution.svg) · [PDF](fusion50/crc_fusion50_16shot_attribution.pdf) |
 | BLCA | [PNG](blca_lr_16shot_attribution.png) · [SVG](blca_lr_16shot_attribution.svg) · [PDF](blca_lr_16shot_attribution.pdf) | [PNG](fusion50/blca_fusion50_16shot_attribution.png) · [SVG](fusion50/blca_fusion50_16shot_attribution.svg) · [PDF](fusion50/blca_fusion50_16shot_attribution.pdf) |
 
+For a view of rank consistency, see [groups ranked in the top 10 in every
+fold](consistent_groups/README.md). This separate LR overview shows all groups
+meeting the same explicit rule, their mean attribution and exact fold ranks;
+it includes a CSV of all selected and excluded groups.
+
 The [FusionVal model index](fusionval/README.md) links to **56 more charts**:
 one for every cancer, image architecture, and encoder. Each chart labels its
 saved TME fusion weight for folds 0–4. Fusion50 needs only one chart per cancer

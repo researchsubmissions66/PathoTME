@@ -78,6 +78,7 @@ feature_cache/
 !/docs/data/attribution-16shot-20261004/top10_brca.csv
 !/docs/data/attribution-16shot-20261004/top10_crc.csv
 !/docs/data/attribution-16shot-20261004/top10_blca.csv
+!/docs/data/attribution-16shot-20261004/figures/consistent_groups/all_lr_group_consistency.csv
 
 # Internal research notes and planning artifacts are not publication assets
 *.md
@@ -85,6 +86,7 @@ feature_cache/
 !/docs/data/attribution-16shot-20261004/README.md
 !/docs/data/attribution-16shot-20261004/figures/README.md
 !/docs/data/attribution-16shot-20261004/figures/fusionval/README.md
+!/docs/data/attribution-16shot-20261004/figures/consistent_groups/README.md
 source_history/
 walltimes.json
 /*_STATUS.*
