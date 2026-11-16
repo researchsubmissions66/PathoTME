@@ -1,5 +1,9 @@
 # 16-shot TME feature attribution: completed LR and fusion snapshot
 
+**Historical HiVE-MIL note:** The HiVE-MIL attribution rows in this snapshot
+precede the October 3 refresh and are not current HiVE-MIL results. Exclude
+those rows from current comparisons. The non-HiVE rows remain usable.
+
 This snapshot contains the completed, five-fold, patient-aggregated feature
 attribution scores for the 16-shot TCGA NSCLC, BRCA, CRC, and BLCA experiments.
 It covers PathoTME-LR and matched Native, PathoTME-Fusion50, and
