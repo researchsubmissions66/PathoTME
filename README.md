@@ -201,6 +201,8 @@ The repository also includes an [MSCPT conditioner](pathotme/mscpt_tme.py),
 [TME attribution](pathotme/attribution.py), and [additional experiment runners](campaigns/).
 The [16-shot attribution index](docs/data/attribution-16shot-20261004/README.md)
 organizes the published aggregate scores by cancer, variant, architecture, and encoder.
+The [quantitative TME figure exports](docs/data/interpretability-figures/README.md)
+include feature redundancy, phenotype maps, and held-out prediction overlays.
 
 Machine-specific paths use `/path/to` placeholders. Configure these paths and
 regenerate experiment contracts before launching in your environment.
