@@ -1,0 +1,38 @@
+{
+  "ADENO_NOS": {
+    "Irregular Malignant Glands": "Variably sized, distorted glands infiltrate colorectal tissue, with crowded epithelial structures and disrupted normal mucosal organization.",
+    "Cribriform Tumor Architecture": "Confluent malignant glands form complex epithelial structures containing multiple closely spaced luminal openings.",
+    "Desmoplastic Invasive Front": "Angulated tumor glands and small epithelial groups infiltrate a reactive fibrous stromal compartment.",
+    "Necrotic Glandular Lumina": "Malignant glandular structures contain granular necrotic material, producing irregular intraluminal debris.",
+    "Irregular Malignant Glands / Distorted Lumina": "Uneven glandular lumina are surrounded by atypical columnar epithelium with irregular epithelial contours.",
+    "Irregular Malignant Glands / Nuclear Stratification": "Elongated hyperchromatic nuclei overlap and stratify along the lining of malignant glands.",
+    "Irregular Malignant Glands / Loss of Polarity": "Tumor cells show disordered nuclear orientation and variable positioning relative to the glandular lumen.",
+    "Cribriform Tumor Architecture / Epithelial Bridges": "Atypical epithelial bridges divide confluent glandular spaces into multiple smaller luminal compartments.",
+    "Cribriform Tumor Architecture / Back-to-Back Glands": "Closely packed malignant glands have little intervening stroma and irregular shared epithelial boundaries.",
+    "Cribriform Tumor Architecture / Crowded Atypical Epithelium": "Dense epithelial proliferations surrounding cribriform openings show overlapping hyperchromatic nuclei and variable nuclear size.",
+    "Desmoplastic Invasive Front / Angulated Infiltrating Glands": "Irregular, sharply angulated malignant glands extend between collagen bundles at the tumor–stroma interface.",
+    "Desmoplastic Invasive Front / Small Epithelial Groups": "Small clusters of atypical epithelial cells lie within reactive stroma near larger infiltrating glands.",
+    "Desmoplastic Invasive Front / Reactive Fibroblastic Stroma": "Collagen-rich tissue containing spindle-shaped fibroblasts surrounds invasive malignant glandular structures.",
+    "Necrotic Glandular Lumina / Granular Cellular Debris": "Glandular lumina contain granular eosinophilic material mixed with degenerating epithelial fragments.",
+    "Necrotic Glandular Lumina / Karyorrhectic Fragments": "Dark fragmented nuclear material is distributed within necrotic debris inside malignant glands.",
+    "Necrotic Glandular Lumina / Viable Tumor Lining": "Atypical viable epithelial cells border luminal necrotic material, preserving recognizable malignant gland outlines."
+  },
+  "MUCINOUS": {
+    "Extracellular Mucin Lakes": "Broad pools of extracellular mucin separate malignant epithelial elements and replace portions of the colorectal tissue architecture.",
+    "Floating Malignant Clusters": "Detached epithelial islands and irregular tumor aggregates are suspended within extracellular mucin collections.",
+    "Mucin-Associated Gland Fragments": "Incomplete glands and epithelial strips border or traverse mucinous regions, retaining variable glandular differentiation.",
+    "Fibrous Septa Between Mucin Pools": "Collagenous tissue partitions separate adjacent extracellular mucin collections and support variable tumor-associated epithelium.",
+    "Extracellular Mucin Lakes / Pale Mucinous Matrix": "Abundant pale extracellular material occupies spaces between malignant epithelial clusters within a mucin lake.",
+    "Extracellular Mucin Lakes / Sparse Tumor Distribution": "Small viable tumor groups are separated by broad expanses of extracellular mucin.",
+    "Extracellular Mucin Lakes / Mucin-Lake Boundaries": "The margins of extracellular mucin collections abut residual tissue, tumor epithelium, or fibrous stromal partitions.",
+    "Floating Malignant Clusters / Suspended Epithelial Islands": "Compact aggregates of atypical epithelial cells have free surfaces surrounded by extracellular mucin.",
+    "Floating Malignant Clusters / Atypical Cluster Nuclei": "Floating tumor aggregates contain enlarged, irregular, hyperchromatic nuclei with variable crowding.",
+    "Floating Malignant Clusters / Isolated Mucin-Associated Cells": "Individual atypical epithelial cells or tiny detached groups occur between larger clusters in extracellular mucin.",
+    "Mucin-Associated Gland Fragments / Fragmented Gland Walls": "Discontinuous segments of atypical glandular epithelium line portions of extracellular mucin spaces.",
+    "Mucin-Associated Gland Fragments / Lumina in Epithelial Groups": "Small glandular openings are visible within epithelial aggregates embedded in mucinous material.",
+    "Mucin-Associated Gland Fragments / Mucin-Filled Tumor Cytoplasm": "Some malignant epithelial cells contain pale cytoplasmic mucin that alters the position and shape of their nuclei.",
+    "Fibrous Septa Between Mucin Pools / Collagenous Pool Partitions": "Eosinophilic collagen bundles form narrow tissue boundaries between neighboring mucin lakes.",
+    "Fibrous Septa Between Mucin Pools / Septal Malignant Epithelium": "Atypical epithelial strips or small tumor groups lie along fibrous septa bordering mucinous spaces.",
+    "Fibrous Septa Between Mucin Pools / Fibroblastic Septal Reaction": "Spindle-shaped stromal cells and collagen are present in tissue partitions adjacent to mucin-associated malignant epithelium."
+  }
+}

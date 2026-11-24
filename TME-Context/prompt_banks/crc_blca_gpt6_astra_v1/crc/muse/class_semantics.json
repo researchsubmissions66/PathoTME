@@ -1,0 +1,11 @@
+{
+  "classnames": [
+    "colorectal adenocarcinoma NOS",
+    "colorectal mucinous adenocarcinoma"
+  ],
+  "template": "a histopathology image of {name}",
+  "rendered_prompts": [
+    "a histopathology image of colorectal adenocarcinoma NOS",
+    "a histopathology image of colorectal mucinous adenocarcinoma"
+  ]
+}

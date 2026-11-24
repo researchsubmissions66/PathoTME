@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+data/
+results/
+checkpoints/
+*.pt
+*.pth
+*.npz
+*.pkl
+.env
