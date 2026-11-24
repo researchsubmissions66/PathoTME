@@ -12,6 +12,8 @@
 <p align="center">
   <a href="#overview">Overview</a> ·
   <a href="#method">Method</a> ·
+  <a href="#study-variants">Study variants</a> ·
+  <a href="#numeric-baselines">Baselines</a> ·
   <a href="#supported-architectures">Architectures</a> ·
   <a href="#study-design">Study design</a> ·
   <a href="#biological-panels">Panels</a> ·
@@ -27,55 +29,106 @@
 ## 🔬 Overview
 
 **TME-Context** studies how quantitative **tumor microenvironment (TME)**
-measurements can condition whole-slide pathology models. Tissue organization,
-cell composition, and spatial relationships provide biological context for
-visual patch features.
+measurements contribute to whole-slide pathology prediction. Tissue
+organization, cell composition, and spatial relationships provide biological
+context for visual patch features. The study evaluates that context as a
+numeric-only predictor, as a probability-fusion input, and as a learned
+conditioner inside a frozen native model.
 
-The central question is: **does slide-specific biological context improve a
-model's aggregation beyond its native representation and the capacity of an
-added conditioner?**
+The central question is: **when does slide-specific biological context add
+information beyond a native whole-slide model, a simple TME-only classifier,
+and the capacity of an added conditioner?**
 
 This small supplement contains the reusable biological panels and conditioner,
 text prompt banks, five patient-disjoint BRCA split definitions, and an
-executable **BRCA · MUSE · CLIP-RN50 · actual-TME** adapter recipe. It contains
-no whole-slide images, patch features, measured TME rows, model weights,
-previous results, or test suite.
+executable **BRCA · MUSE · CLIP-RN50 · actual-TME** adapter recipe. The method
+definitions below cover the broader comparison; the [run instructions](#getting-started)
+identify what this folder executes. No whole-slide images, patch features,
+measured TME rows, model weights, previous results, or test suite are bundled.
 
 <a name="method"></a>
 
 ## 🧠 Method
 
-Quantitative measurements are arranged into **16 biological tokens**. A
-trainable cross-attention module reads those tokens and adds a gated residual
-to a native model's visual centers or semantic queries. The native model stays
-frozen during adapter training.
+All TME-based methods begin with the same ordered quantitative panel and
+preprocessing fitted on training slides. The **TME-only baseline** fits an L2
+logistic classifier on those measurements. **Probability fusion** combines
+its output with a native model's probabilities. The **adapter** instead
+arranges the measurements into **16 biological tokens**; trainable
+cross-attention adds a gated residual to the native model's visual centers or
+semantic queries while the native parameters remain frozen.
 
 ```mermaid
 flowchart LR
-    W["Whole-slide features"] --> A["Native aggregation"]
-    T["TME measurements"] --> B["16 biological tokens"]
-    B --> C["Trainable gated conditioner"]
-    Q["Native visual centers<br/>or semantic queries"] --> C
-    C --> A
-    A --> P["Slide prediction"]
+    W["Whole-slide features"] --> N["Native model"]
+    N --> PN["Native probabilities"]
+    T["TME measurements"] --> P["Training-fold preprocessing"]
+    P --> L["TME-only logistic regression"]
+    L --> PL["TME probabilities"]
+    PN --> F["Probability fusion"]
+    PL --> F
+    P --> B["16 biological tokens"]
+    B --> C["Gated cross-attention"]
+    N --> Q["Native centers or queries"]
+    Q --> C
+    C --> A["Frozen native aggregation"]
+    A --> PA["Adapter probabilities"]
     classDef biological fill:#f3e8ff,stroke:#9333ea,color:#1e1b4b
     classDef frozen fill:#f8fafc,stroke:#94a3b8,color:#1e1b4b
-    class T,B,C biological
-    class W,Q,A,P frozen
+    class T,P,L,PL,B,C,F biological
+    class W,N,PN,Q,A,PA frozen
 ```
 
-The actual-TME model needs measurements for each slide **at inference**.
-Preprocessing is fitted on training slides only. Text prompts remain separate
-from the numeric biological measurements.
+The TME-only classifier and actual-TME adapter need measurements at inference.
+Fusion needs them whenever its TME weight is nonzero. Text prompts remain
+separate from the numeric biological measurements.
+
+<a name="study-variants"></a>
+
+## 🧭 Study variants
+
+| Variant | Definition | TME at inference? |
+|---|---|---|
+| **Native** | Matched underlying whole-slide model | No |
+| **TME-only LR** | L2 logistic regression on the matching quantitative panel | Yes |
+| **Fusion50** | Equal average of Native and TME-only LR class probabilities | Yes |
+| **FusionVal** | Same probability mixture with its TME weight selected on validation patients | If selected weight is nonzero |
+| **TME adapter** | Slide's own TME tokens condition a frozen native checkpoint | Yes |
+| **Zero-TME adapter** | Same adapter with standardized TME values set to zero | Control input |
+| **Shuffled-TME adapter** | Same adapter with another patient's row from the same split | Control input |
+
+<a name="numeric-baselines"></a>
+
+## 📊 Numeric and fusion baselines
+
+The TME-only model fits an L2 logistic classifier on the selected panel. Its
+fixed unit transforms, median imputation, and population standardization use
+training slides only. Regularization is chosen from
+`C = {0.001, 0.01, 0.1, 1, 10}` on validation-patient AUROC, then NLL, then
+stronger regularization.
+The selected model is evaluated on held-out patients without a train/validation
+refit. One TME fit is shared when cohort, panel, fold, labels, and policy match;
+it has no visual encoder.
+
+Fusion combines saved native and TME-only class probabilities:
+`p_fused = (1 - alpha) * p_native + alpha * p_TME-LR`.
+Fusion50 fixes `alpha = 0.5`. FusionVal chooses from
+`alpha = {0, 0.25, 0.5, 0.75, 1}` using validation-patient AUROC, then NLL,
+then the smaller TME weight.
+Both native-only (`alpha = 0`) and TME-only (`alpha = 1`) remain eligible.
+Neither selection uses test labels. Native probabilities must come from the
+matching saved checkpoint and the same held-out slides.
 
 <a name="supported-architectures"></a>
 
 ## 🧩 Supported architectures
 
-The wider study applies the same biological interface at each architecture's
-native query location. This folder provides prompt assets and the reusable
-conditioner for all seven; the **MUSE/CLIP-RN50 BRCA actual-TME runner** is the
-executable model integration included here.
+The wider study compares seven native architectures. TME-only LR does not use
+an architecture; fusion uses each architecture's saved native probabilities.
+For the adapter, the 16-token conditioner is inserted at the architecture's
+native query location. This folder includes the reusable core and prompt
+assets; the **MUSE/CLIP-RN50 BRCA actual-TME runner** is its one executable
+architecture integration.
 
 | Architecture | Visual scales | TME-conditioned representation |
 |---|---|---|
@@ -87,8 +140,8 @@ executable model integration included here.
 | DyKo | 20× | Class queries after concept retrieval |
 | MSCPT | 5× + 20× | Multiscale text graph representations |
 
-The other native architecture implementations are not bundled in this small
-folder. Their prompt inputs are retained in [the prompt banks](prompt_banks/README.md).
+The other native architecture implementations are outside this small folder.
+Their text inputs are retained in [the prompt banks](prompt_banks/README.md).
 
 <a name="study-design"></a>
 
@@ -106,17 +159,18 @@ CLIP-RN50 feature filenames.
 | TCGA-CRC | Adenocarcinoma NOS vs. mucinous | 544 | 536 | core62 |
 | TCGA-BLCA | Non-papillary vs. papillary | 451 | 380 | core62 |
 
-| Condition | Biological input | Role |
-|---|---|---|
-| **Native** | No TME conditioner | Matched starting model |
-| **Zero TME** | Standardized values set to zero | Added-capacity control |
-| **Shuffled TME** | Another patient's row within the same split | Slide–TME matching control |
-| **Actual TME** | The slide's own measurements | Biological-context arm |
+The quantitative panel and native checkpoint are matched within each
+cohort/encoder/fold comparison. Fixed transforms precede median imputation
+and population standardization fitted on training slides. TME-only LR
+regularization and FusionVal's weight use validation patients only; no
+training/validation refit follows selection. The actual, zero, and shuffled
+adapter arms use the same capacity and selection rules. Shuffling stays
+within a split and uses another patient's TME row.
 
-Only **actual TME** is executable in this supplement. The native, zero, and
-shuffled arms require their corresponding full-study runners. No performance
-scores are bundled or claimed here. Patient-level probabilities are computed
-by averaging a patient's slide probabilities.
+Held-out patient probabilities average that patient's slide probabilities.
+The wider analysis reports AUROC, NLL, Brier score, accuracy, macro-F1, and
+calibration alongside slide-level metrics. This folder contains no previous
+performance scores or predictions.
 
 <a name="biological-panels"></a>
 
@@ -141,6 +195,12 @@ not an optimized feature selection result.
 <a name="getting-started"></a>
 
 ## 🚀 Getting started
+
+The study variants above describe the full comparison. This folder executes
+the **actual-TME BRCA MUSE/CLIP-RN50 adapter**. The [TME-only LR and fusion
+runners](https://github.com/researchsubmissions66/PathoTME/tree/main/campaigns/baselines_20260914),
+other architecture integrations, and control arms are in the larger research
+repository and require their own inputs.
 
 Use Python 3.10 or newer. Install from inside this folder:
 
@@ -225,9 +285,9 @@ Obtain them separately and follow their access and use terms.
 ## Additional research tools
 
 The [companion full-study repository](https://github.com/researchsubmissions66/PathoTME)
-contains other model integrations, matched baseline analyses, attribution
-utilities, and the wider experimental setup. Those tools and their results are
-outside this minimal folder.
+also contains other model integrations, attribution utilities, and the wider
+experimental setup. Those tools and their results are outside this minimal
+folder.
 
 ## Text prompt banks
 
