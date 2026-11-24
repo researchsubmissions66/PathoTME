@@ -16,7 +16,6 @@
   <a href="#study-design">Study design</a> ·
   <a href="#biological-panels">Panels</a> ·
   <a href="#getting-started">Getting started</a> ·
-  <a href="#project-website">Website</a> ·
   <a href="#repository-layout">Layout</a> ·
   <a href="#acknowledgements">Acknowledgements</a>
 </p>
@@ -191,14 +190,6 @@ New `adapter.pt`, `history.csv`, `predictions.csv`, and `summary.json` files
 are written **only** to `RUN_OUTPUT`. The summary includes slide- and
 patient-level metrics. The trained native checkpoint and feature tensors are
 not distributed with this supplement.
-
-<a name="project-website"></a>
-
-## 🌐 Project website
-
-The [companion project website source](https://github.com/researchsubmissions66/PathoTME/tree/main/docs)
-contains an interactive architecture explorer, panel details, and the broader
-study protocol. It is separate from this runnable supplement.
 
 <a name="repository-layout"></a>
 
