@@ -83,20 +83,24 @@ the same reference measurement to BRCA, NSCLC, CRC, and BLCA MUSE/CLIP-RN50
 slides. For BRCA MUSE/CLIP-RN50, use the same
 completed fold and slide as above with `--granularity groups`,
 `--spatial-reference` set to the exact feature name, `--spatial-groups 64`,
-`--wsi "$BRCA_WSI"`, and `--execute`. Then render three labeled panels with:
+`--wsi "$BRCA_WSI"`, and `--execute`. Then render a single full-slide thumbnail
+heatmap from the saved real patch coordinates and interaction scores:
 
 ```bash
-python scripts/render_tme_spatial_triptych.py \
+python scripts/render_tme_thumbnail_heatmap.py \
   --spatial "$HEATMAP_EXPORT/spatial/spatial_scores.json" \
   --class-name ILC \
-  --output "$HEATMAP_EXPORT/spatial/triptych.png"
+  --output "$HEATMAP_EXPORT/spatial/thumbnail_heatmap.png"
 ```
 
-The panels show each spatial group's visual removal effect under measured
-TME, the effect after replacing the selected feature by its training mean,
-and their difference. Each group receives **one joint score**, repeated on
-its member patches. The heatmap does not claim individual patch scores,
-interpolate across unmeasured tissue, or locate the named TME measurement.
+The heatmap shows the difference in each spatial group's visual removal
+effect under measured TME and the selected feature's training-mean reference.
+Each group receives **one joint score**, repeated on its member patches.
+Every plotted tile comes from a real feature-bag patch; no values are filled
+into unmeasured tissue. A patch-weighted 95th-percentile color scale reveals
+the full thumbnail while the numeric legend and maximum score retain the
+effect magnitude. The map does not claim individual patch scores or locate
+the named TME measurement.
 For CRC and BLCA, the loader reconstructs the exact saved shared-core62
 campaign wrapper; the BRCA model uses morph64 and NSCLC uses core62.
 
