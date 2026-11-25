@@ -39,8 +39,8 @@ def main(argv=None):
     parser.add_argument('--spatial-groups', type=int, default=16, help='Maximum visual regions per scale for thumbnail attribution')
     args = parser.parse_args(argv)
     if args.list_providers:
-        print(json.dumps({'methods': METHODS, 'cohorts': ['nsclc', 'brca'], 'encoders': ['plip', 'clip-rn50'],
-                          'score_version': SCORE_VERSION, 'feature_counts': {'nsclc': 62, 'brca': 64},
+        print(json.dumps({'methods': METHODS, 'cohorts': ['nsclc', 'brca', 'crc', 'blca'], 'encoders': ['plip', 'clip-rn50'],
+                          'score_version': SCORE_VERSION, 'feature_counts': {'nsclc': 62, 'brca': 64, 'crc': 62, 'blca': 62},
                           'biological_groups': 16, 'spatial': 'region probability delta and its change under TME replacement'}))
         return
     if not args.completion or not args.output:
@@ -107,7 +107,7 @@ def main(argv=None):
                   baseline='zero after saved training-fold standardization; transformed training mean, not biological absence',
                   interpretation='signed class-probability sensitivity in percentage points; nonadditive and noncausal',
                   source_sha256={str(path.relative_to(ROOT)): digest(path) for path in
-                                 [Path(__file__), *sorted((ROOT / 'pathotme').glob('attribution*.py'))]},
+                                 [Path(__file__).resolve(), *sorted((ROOT / 'pathotme').glob('attribution*.py'))]},
                   expected_test_slides=[{'slide_id': r['slide_id'], 'case_id': r['case_id'],
                                         'label': int(cfg['label_dict'].get(r['label'], r['label']))} for r in bound['test_rows']], slides=[])
     pending_spatial = None

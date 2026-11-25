@@ -17,7 +17,7 @@ def panel_layout(cohort):
         spec = panel_spec('brca_morph64_v1')
         names = list(spec['feature_names'])
         low, high = spec['low_tokens'], spec['high_tokens']
-    elif cohort == 'nsclc':
+    elif cohort in ('nsclc', 'crc', 'blca'):
         names = list(f.FEATURE_NAMES)
         low = dict(zip(('global_tissue', 'compartment_extent', 'tumor_core_composition',
                         'invasive_margin_composition', 'tls'),
@@ -29,7 +29,7 @@ def panel_layout(cohort):
                                                if f'_OF_{cell}_AROUND_' in n]
                      for cell in f.SPATIAL_CELL_GROUPS})
     else:
-        raise ValueError('Only the current NSCLC core62 and BRCA morph64 panels are supported')
+        raise ValueError('Only the NSCLC/CRC/BLCA core62 and BRCA morph64 panels are supported')
     groups = [{'name': scale + '/' + name, 'indices': [names.index(n) for n in columns]}
               for scale, mapping in [('low', low), ('high', high)] for name, columns in mapping.items()]
     covered = [i for group in groups for i in group['indices']]

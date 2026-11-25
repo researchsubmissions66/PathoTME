@@ -9,6 +9,9 @@ from pathlib import Path
 def make_bridge(cfg, maps, arm, device):
     """Use the exact native/cross-encoder extension without refitting anything."""
     name, cohort, encoder = cfg['method'], cfg['task'], cfg['backbone']
+    if cohort in ('crc', 'blca'):
+        from campaigns.crc_blca_core62_20260914.runtime_models import adapter_type
+        return adapter_type(name, encoder)(cfg, maps, arm, device)
     if name in ('vila_mil', 'mgpath'):
         cross = (name, encoder) in (('vila_mil', 'plip'), ('mgpath', 'clip-rn50'))
         if cross:
@@ -41,7 +44,7 @@ def make_bridge(cfg, maps, arm, device):
 def load_model(bound, arm, device):
     import torch
     from train import build_loaders, set_seed
-    cfg = {**bound['config'], 'num_workers': 0, 'pin_memory': False}
+    cfg = bound['config']
     set_seed(cfg['seed'] + cfg['_fold_index'])
     maps = json.loads(Path(bound['completion']['plan']['donor_maps']).read_text())
     bridge = make_bridge(cfg, maps, arm, device)
@@ -53,7 +56,8 @@ def load_model(bound, arm, device):
     if not bool(model.standardizer.fitted.item()):
         raise ValueError('Saved training-fold preprocessing is not fitted')
     model.eval()
-    loader = build_loaders(cfg['method'], cfg, cfg['_fold_index'])[2]
+    loader_cfg = {**cfg, 'num_workers': 0, 'pin_memory': False}
+    loader = build_loaders(cfg['method'], loader_cfg, cfg['_fold_index'])[2]
     return bridge, model, loader
 
 
@@ -72,7 +76,7 @@ def one_batch(loader, slide_id):
 def check_selected_features(bound, row):
     """Recheck the launch-audited size/mtime for only the consumed feature files."""
     inventory = json.loads(Path(bound['completion']['plan']['feature_inventory']).read_text())
-    if bound['config']['method'] in ('hive_mil','mscpt'):
+    if 'slides' in inventory:
         inventory = inventory['slides'][row['slide_id']]['files']
     paths = []
     for key in ('feature_path_column', 'feature_path_column_s', 'feature_path_column_l'):

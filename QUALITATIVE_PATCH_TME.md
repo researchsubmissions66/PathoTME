@@ -1,0 +1,125 @@
+# Qualitative patch–TME analysis
+
+`scripts/export_tme_patch_examples.py` explains one real held-out BRCA slide
+from a completed PathoTME-Adapter · MUSE · CLIP-RN50 checkpoint. It uses the
+saved fold preprocessing, the exact coordinate-bearing feature bag, and the
+original WSI when tissue crops are requested. It does not train a model or
+generate synthetic patches.
+
+## What a patch score means
+
+For a selected class \(c\), measured TME feature \(j\), patch bag \(X\), and
+saved standardized TME vector \(z\), let \(X_{-i}\) replace consumed patch \(i\)
+with the fixed mean vector of the original bag. Let \(z_{j=0}\) set feature
+\(j\) to zero **after** the saved training-fold standardizer. The reported
+interaction is
+
+\[
+I_{i,j,c} = 100\{[p_c(X,z)-p_c(X_{-i},z)]
+                 -[p_c(X,z_{j=0})-p_c(X_{-i},z_{j=0})]\}.
+\]
+
+A positive value means that patch removal reduces the selected class
+probability more under the observed TME than under the feature reference.
+The standardized zero is the training-fold reference, not biological absence.
+These are finite-difference **model sensitivities**. They do not establish
+that the measured phenotype occurs inside the patch, identify a cell type,
+or demonstrate a causal mechanism. Patch scores need not add up to the
+slide-level feature effect.
+
+MUSE attention screens candidates, using the union of the top positive-weight
+patches under observed and reference TME. The exporter then computes every
+reported score from full prediction reruns. `patch_scores.csv` ranks **only
+the screened candidates**; `analysis.json` records both the candidate count
+and the total consumed patch count. Ties are broken by consumed patch index.
+
+## Reproduce an export
+
+Set `PATHOTME_RESULTS` to the private directory containing the saved results.
+The selected fold must be completed and its input hashes must still match.
+
+```bash
+python scripts/export_tme_patch_examples.py \
+  --completion "$PATHOTME_RESULTS/muse_tcga_16shot_20260912_v1/runs/brca/clip-rn50/fold0/fold_complete.json" \
+  --feature-name RELATIVE_AREA_OUTER_INVASIVE_MARGIN \
+  --candidate-per-condition 32 \
+  --selection-note 'Exploratory feature choice from existing BRCA MUSE feature ranking' \
+  --output "$PATHOTME_RESULTS/interpretability/qualitative_muse_brca_fold0_margin"
+```
+
+Without `--slide-id`, the slide is the first lexicographic held-out slide in
+that fold. Without `--class-name`, the target is its saved true class. These
+rules are recorded in `analysis.json`. A feature used for a paper figure
+should be selected by an explicitly reported rule; the example above is an
+exploratory, post hoc feature choice. The candidate screen can miss a large
+interaction on a low-attention patch, so the montage must not be described as
+a global ranking of all patches.
+
+To export unaltered tissue crops and a montage, add `--wsi "$BRCA_WSI"` where
+`BRCA_WSI` points to the original slide whose filename contains the exact
+analyzed slide ID. The WSI dimensions must match the HDF5 level-0 geometry.
+The output folder contains `analysis.json`, `patch_scores.csv`, and, when a
+WSI is supplied, `crops/` with individual PNG crops and `montage.png`. Keep
+WSIs and result exports outside this source repository.
+
+For spatial context, `scripts/render_tme_patch_overview.py --analysis
+"$EXPORT/analysis.json" --wsi "$BRCA_WSI" --output "$EXPORT/overview.png"`
+marks the highest and lowest scored crops on a real full-slide thumbnail. It
+shows only scored candidates and does not interpolate values into a heatmap.
+
+To compare two prespecified features on the same slide, run
+`scripts/compare_tme_patch_examples.py` with `--first` and `--second` pointing
+to their respective `analysis.json` files. The joined CSV preserves blank
+scores for patches screened under only one feature; blanks are not zero.
+
+## WSI thumbnail heatmaps
+
+`scripts/generate_tme_attribution.py` can evaluate deterministic spatial
+groups on the same saved checkpoint and real WSI. It exports an interactive
+`spatial/heatmap.html`, the original `spatial/thumbnail.png`, and a static
+interaction `spatial/overlay.png`. The
+[held-out four-cohort figure set](docs/qualitative-heatmaps/README.md) applies
+the same reference measurement to BRCA, NSCLC, CRC, and BLCA MUSE/CLIP-RN50
+slides. For BRCA MUSE/CLIP-RN50, use the same
+completed fold and slide as above with `--granularity groups`,
+`--spatial-reference` set to the exact feature name, `--spatial-groups 64`,
+`--wsi "$BRCA_WSI"`, and `--execute`. Then render three labeled panels with:
+
+```bash
+python scripts/render_tme_spatial_triptych.py \
+  --spatial "$HEATMAP_EXPORT/spatial/spatial_scores.json" \
+  --class-name ILC \
+  --output "$HEATMAP_EXPORT/spatial/triptych.png"
+```
+
+The panels show each spatial group's visual removal effect under measured
+TME, the effect after replacing the selected feature by its training mean,
+and their difference. Each group receives **one joint score**, repeated on
+its member patches. The heatmap does not claim individual patch scores,
+interpolate across unmeasured tissue, or locate the named TME measurement.
+For CRC and BLCA, the loader reconstructs the exact saved shared-core62
+campaign wrapper; the BRCA model uses morph64 and NSCLC uses core62.
+
+For a direct but sparse map of the individual patch interactions already
+computed by `export_tme_patch_examples.py`, use
+`scripts/render_tme_patch_heatmap.py --analysis "$EXPORT/analysis.json"
+--wsi "$BRCA_WSI" --output "$EXPORT/patch_heatmap.png"`. It colors only the
+attention-screened patches and leaves every unscored location unchanged.
+
+## Figure use
+
+A compact supplement panel can show three highest and three lowest
+interactions with their signed percentage-point scores, followed by the
+slide-level class probability with measured and reference TME. State the
+number of screened patches out of all consumed patches. For an overview,
+`scripts/generate_tme_attribution.py` already exports spatial region effects
+on a registered real WSI thumbnail; its **region** scores are not individual
+patch scores. A second panel can show a preselected disagreement case, or
+how the MUSE group attention and expert routing change under the same TME
+reference, with the same sensitivity caveat.
+
+Suggested caption: “Held-out BRCA MUSE/CLIP-RN50 example. Patches were
+screened by model attention under measured and training-mean-reference TME,
+then ranked by the difference in their class-probability removal effects.
+Scores are reference-dependent model interactions in percentage points; the
+numeric TME feature is measured at slide level and is not a patch annotation.”
