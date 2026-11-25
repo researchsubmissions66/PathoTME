@@ -203,9 +203,10 @@ The [16-shot attribution index](docs/data/attribution-16shot-20261004/README.md)
 organizes the published aggregate scores by cancer, variant, architecture, and encoder.
 The [quantitative TME figure exports](docs/data/interpretability-figures/README.md)
 include feature redundancy, phenotype maps, and held-out prediction overlays.
-The [qualitative WSI heatmaps](docs/qualitative-heatmaps/README.md) show
-registered MUSE/CLIP-RN50 examples for BRCA, NSCLC, CRC, and BLCA; the
-[patch–TME analysis guide](QUALITATIVE_PATCH_TME.md) explains their score.
+The [qualitative WSI heatmaps](docs/qualitative-heatmaps/README.md) localize
+OpenTME regions that correspond to saved TME-LR features on held-out BRCA,
+NSCLC, CRC, and BLCA thumbnails. The [patch–TME analysis guide](QUALITATIVE_PATCH_TME.md)
+describes separate MUSE model-sensitivity exports.
 
 Machine-specific paths use `/path/to` placeholders. Configure these paths and
 regenerate experiment contracts before launching in your environment.

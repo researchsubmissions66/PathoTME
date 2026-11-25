@@ -72,15 +72,22 @@ To compare two prespecified features on the same slide, run
 to their respective `analysis.json` files. The joined CSV preserves blank
 scores for patches screened under only one feature; blanks are not zero.
 
-## WSI thumbnail heatmaps
+## Feature-localized WSI heatmaps
+
+The [four-cohort figure set](docs/qualitative-heatmaps/README.md) overlays real
+OpenTME whole-tumor-region annotations on registered WSI thumbnails. A saved
+fold-0 TME-LR model provides the feature coefficient and slide-level logit
+term. The heatmap shows smoothed local occupancy of the annotated feature
+compartment. It does not show MUSE attention, pixel-level LR weights, or a
+cell-density estimate. The figure index gives the exact feature, held-out
+slide, measurement, and reproduction command for BRCA, NSCLC, CRC, and BLCA.
+
+## Separate MUSE model-sensitivity maps
 
 `scripts/generate_tme_attribution.py` can evaluate deterministic spatial
 groups on the same saved checkpoint and real WSI. It exports an interactive
 `spatial/heatmap.html`, the original `spatial/thumbnail.png`, and a static
-interaction `spatial/overlay.png`. The
-[held-out four-cohort figure set](docs/qualitative-heatmaps/README.md) applies
-the same reference measurement to BRCA, NSCLC, CRC, and BLCA MUSE/CLIP-RN50
-slides. For BRCA MUSE/CLIP-RN50, use the same
+interaction `spatial/overlay.png`. For BRCA MUSE/CLIP-RN50, use the same
 completed fold and slide as above with `--granularity groups`,
 `--spatial-reference` set to the exact feature name, `--spatial-groups 64`,
 `--wsi "$BRCA_WSI"`, and `--execute`. Then render a single full-slide thumbnail
@@ -111,6 +118,12 @@ computed by `export_tme_patch_examples.py`, use
 attention-screened patches and leaves every unscored location unchanged.
 
 ## Figure use
+
+Suggested caption for the feature-localization set: “Held-out OpenTME WSI
+thumbnails for BRCA, NSCLC, CRC, and BLCA. Warm color shows local occupancy
+of the annotated region corresponding to the displayed TME-LR area feature.
+The coefficient and standardized logit term are slide-level quantities;
+color is normalized within each slide and is not pixel-level model attention.”
 
 A compact supplement panel can show three highest and three lowest
 interactions with their signed percentage-point scores, followed by the
