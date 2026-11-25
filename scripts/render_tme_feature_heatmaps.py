@@ -2,7 +2,8 @@
 """Render feature-localization heatmaps from real OpenTME slide thumbnails.
 
 The spatial color is a smoothed thumbnail segmentation mask. The TME-LR model
-selects and annotates a slide-level feature; it does not supply pixel scores.
+supplies slide-level coefficients for four visible area features; it does not
+supply pixel scores.
 Only Pillow is needed beyond the Python standard library.
 """
 
@@ -25,20 +26,20 @@ COHORTS = {
     "blca": "bladder_cancer",
 }
 
-# Chosen among WTR area features that remain visible at thumbnail resolution.
-# Region and tissue colors are the swatches in the OpenTME thumbnail legends.
-FEATURES = {
-    "brca": ("RELATIVE_AREA_OUTER_INVASIVE_MARGIN", "outer invasive margin", "outer", None),
-    "nsclc": ("RELATIVE_AREA_STROMA_IN_INNER_INVASIVE_MARGIN", "stroma in inner invasive margin", "inner", "stroma"),
-    "crc": ("RELATIVE_AREA_INNER_INVASIVE_MARGIN", "inner invasive margin", "inner", None),
-    "blca": ("RELATIVE_AREA_OUTER_INVASIVE_MARGIN", "outer invasive margin", "outer", None),
-}
+# Four WTR area features with corresponding OpenTME thumbnail annotations in
+# every cohort. Region and tissue colors are the thumbnail legend swatches.
+FEATURES = (
+    ("RELATIVE_AREA_CARCINOMA_IN_TUMOR_CORE", "Carcinoma in tumor core", "core", "carcinoma"),
+    ("RELATIVE_AREA_INNER_INVASIVE_MARGIN", "Inner invasive margin", "inner", None),
+    ("RELATIVE_AREA_STROMA_IN_INNER_INVASIVE_MARGIN", "Stroma in inner margin", "inner", "stroma"),
+    ("RELATIVE_AREA_OUTER_INVASIVE_MARGIN", "Outer invasive margin", "outer", None),
+)
 REGION_COLORS = {
     "core": (5, 255, 188),
     "inner": (0, 151, 111),
     "outer": (214, 0, 110),
 }
-TISSUE_COLORS = {"stroma": (255, 204, 102)}
+TISSUE_COLORS = {"carcinoma": (153, 0, 0), "stroma": (255, 204, 102)}
 
 
 def font(size: int, bold: bool = False):
@@ -117,8 +118,15 @@ def compartment_mask(region: Image.Image, tissue: Image.Image, region_name: str,
 def heat_overlay(wsi: Image.Image, region: Image.Image, mask: Image.Image) -> tuple[Image.Image, float, int]:
     radius = max(6.0, min(wsi.size) * 0.028)
     blurred = mask.filter(ImageFilter.GaussianBlur(radius=radius))
-    values = sorted(blurred.tobytes())
-    top = max(1, values[int(0.995 * (len(values) - 1))])
+    histogram = blurred.histogram()
+    target = math.ceil(0.995 * wsi.width * wsi.height)
+    cumulative = 0
+    top = 1
+    for value, count in enumerate(histogram):
+        cumulative += count
+        if cumulative >= target:
+            top = max(1, value)
+            break
     background = wsi.load()
     local = blurred.load()
     region_pixels = region.load()
@@ -142,34 +150,50 @@ def heat_overlay(wsi: Image.Image, region: Image.Image, mask: Image.Image) -> tu
     return output, radius, mask.histogram()[255]
 
 
-def draw_figure(overlay: Image.Image, cohort: str, label: str, slide_id: str,
-                display_feature: str, beta: float, rank: int, total_features: int,
-                raw_value: float, contribution: float, positive_class: str) -> Image.Image:
-    image_width = 1200
-    image_height = round(overlay.height * image_width / overlay.width)
-    scaled = overlay.resize((image_width, image_height), Image.Resampling.LANCZOS)
-    margin, header, footer = 36, 112, 146
-    figure = Image.new("RGB", (image_width + 2 * margin, image_height + header + footer), "white")
-    figure.paste(scaled, (margin, header))
+def draw_atlas(cohort: str, slide_rows: list[dict], positive_class: str) -> Image.Image:
+    tile_width, margin, gap = 440, 34, 20
+    width = 2 * margin + len(FEATURES) * tile_width + (len(FEATURES) - 1) * gap
+    image_heights = [round(row["wsi_size"][1] * tile_width / row["wsi_size"][0])
+                     for row in slide_rows]
+    height = 145 + sum(52 + image_height + 68 for image_height in image_heights) + 83
+    figure = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(figure)
-    draw.text((margin, 20), f"{cohort.upper()}  /  {label}  /  {slide_id}", fill=(27, 36, 50), font=font(25, True))
-    draw.text((margin, 60), f"TME feature: {display_feature}", fill=(73, 79, 91), font=font(23))
-    base_y = header + image_height + 22
-    bar_x, bar_y, bar_width, bar_height = margin, base_y, 380, 18
-    for x in range(bar_width):
-        v = x / (bar_width - 1)
-        color = (222 + round(33 * v), round(46 + 168 * v), round(38 + 32 * v))
-        draw.line((bar_x + x, bar_y, bar_x + x, bar_y + bar_height), fill=color)
-    draw.text((margin, base_y + 27), "Low local occupancy", fill=(72, 80, 91), font=font(17))
-    draw.text((margin + 248, base_y + 27), "High", fill=(72, 80, 91), font=font(17))
-    draw.text((margin + 445, base_y - 4),
-              f"TME-LR coefficient: {beta:+.4f} / 1 SD  (rank {rank}/{total_features})",
-              fill=(40, 48, 60), font=font(19))
-    draw.text((margin + 445, base_y + 27),
-              f"Measured area: {raw_value:.4f}  |  {positive_class} logit term: {contribution:+.4f}",
-              fill=(72, 80, 91), font=font(18))
-    draw.text((margin, base_y + 77),
-              "Color localizes the OpenTME region. LR values are slide-level; color is normalized within this slide.",
+    draw.text((margin, 17), f"{cohort.upper()}  /  Four measured TME features  /  Held-out fold 0",
+              fill=(27, 36, 50), font=font(27, True))
+    draw.text((margin, 57), "Each column localizes one OpenTME area feature on the same WSI.",
+              fill=(73, 79, 91), font=font(20))
+    for column, (_, display, _, _) in enumerate(FEATURES):
+        x = margin + column * (tile_width + gap)
+        draw.text((x, 109), display, fill=(39, 49, 62), font=font(19, True))
+    y = 145
+    for row, image_height in zip(slide_rows, image_heights):
+        draw.text((margin, y + 6), f"{row['label']}  /  {row['slide_id']}",
+                  fill=(27, 36, 50), font=font(22, True))
+        image_y = y + 52
+        for column, (feature, _, _, _) in enumerate(FEATURES):
+            x = margin + column * (tile_width + gap)
+            entry = row["features"][feature]
+            scaled = entry["overlay"].resize((tile_width, image_height), Image.Resampling.LANCZOS)
+            figure.paste(scaled, (x, image_y))
+            draw.rectangle((x, image_y, x + tile_width - 1, image_y + image_height - 1),
+                           outline=(219, 221, 225), width=1)
+            draw.text((x, image_y + image_height + 7),
+                      f"Area frac {entry['raw']:.4f}  |  LR beta {entry['beta']:+.4f}  (rank {entry['rank']})",
+                      fill=(47, 55, 66), font=font(17))
+            draw.text((x, image_y + image_height + 33),
+                      f"{positive_class} logit term {entry['contribution']:+.4f}",
+                      fill=(79, 86, 96), font=font(16))
+        y = image_y + image_height + 68
+    bar_width, bar_height = 340, 17
+    for offset in range(bar_width):
+        strength = offset / (bar_width - 1)
+        color = (222 + round(33 * strength), round(46 + 168 * strength),
+                 round(38 + 32 * strength))
+        draw.line((margin + offset, y + 2, margin + offset, y + 2 + bar_height), fill=color)
+    draw.text((margin, y + 26), "Low local occupancy", fill=(72, 80, 91), font=font(16))
+    draw.text((margin + 257, y + 26), "High", fill=(72, 80, 91), font=font(16))
+    draw.text((margin + 400, y + 1),
+              "Color is normalized within each panel. LR beta and logit term are slide-level, not pixel attention.",
               fill=(72, 80, 91), font=font(17))
     return figure
 
@@ -203,12 +227,16 @@ def main() -> None:
     report = []
     for cohort, cohort_slides in grouped.items():
         model = model_for_cohort(args.models_root, cohort)
-        feature, display, region_name, tissue_name = FEATURES[cohort]
-        idx = model["feature_names"].index(feature)
-        beta = model["coef"][idx]
-        scale = model["scaler"]["scale"][idx]
-        mean = model["scaler"]["mean"][idx]
-        rank = sorted(range(len(model["coef"])), key=lambda j: abs(model["coef"][j]), reverse=True).index(idx) + 1
+        ranked = sorted(range(len(model["coef"])), key=lambda j: abs(model["coef"][j]), reverse=True)
+        feature_states = {}
+        for feature, _, _, _ in FEATURES:
+            idx = model["feature_names"].index(feature)
+            feature_states[feature] = {
+                "beta": model["coef"][idx],
+                "scale": model["scaler"]["scale"][idx],
+                "mean": model["scaler"]["mean"][idx],
+                "rank": ranked.index(idx) + 1,
+            }
         task = model["task"]
         test = {row["slide_id"]: row for row in task["memberships"]["test"]}
         positive_class = next(name for name, number in task["label_dict"].items() if number == 1)
@@ -216,39 +244,49 @@ def main() -> None:
         if not feature_file.exists():
             raise FileNotFoundError(f"Provide --feature-table {cohort}=CSV for this relocated panel")
         measurements = rows_by_slide(feature_file, {row["slide_id"] for row in cohort_slides})
+        atlas_rows = []
+        figure_name = f"{cohort}_tme_feature_atlas.png"
         for slide in cohort_slides:
             slide_id = slide["slide_id"]
             if slide_id not in test:
                 raise ValueError(f"{slide_id} is not in the saved fold-0 test set")
             label = next(name for name, number in task["label_dict"].items() if number == test[slide_id]["label"])
-            raw = float(measurements[slide_id][feature])
-            if not math.isfinite(raw) or raw <= 0:
-                raise ValueError(f"Missing or nonpositive real feature value: {slide_id} {feature}")
             source_table = args.opentme_root / "data" / COHORTS[cohort] / (
                 f"whole_tumor_region_tissue_features_{COHORTS[cohort]}_RUO.csv")
             with source_table.open(newline="", encoding="utf-8") as handle:
                 source_row = next((row for row in csv.DictReader(handle)
                                    if row["TCGA_FILE_NAME"] == Path(slide["filename"]).stem), None)
-            if source_row is None or not math.isclose(raw, float(source_row[feature]), abs_tol=1e-12):
-                raise ValueError(f"Panel and original OpenTME measurement disagree: {slide_id}")
-            z = (raw - mean) / scale
-            contribution = beta * z
+            if source_row is None:
+                raise ValueError(f"Slide is absent from the original OpenTME table: {slide_id}")
             wsi, region, tissue = source_images(args.opentme_root, cohort, slide["filename"])
-            mask = compartment_mask(region, tissue, region_name, tissue_name)
-            overlay, radius, pixels = heat_overlay(wsi, region, mask)
-            figure = draw_figure(overlay, cohort, label, slide_id, display, beta, rank,
-                                 len(model["feature_names"]), raw, contribution, positive_class)
-            name = f"{cohort}_{label.lower()}_tme_feature.png"
-            figure.save(args.output_dir / name, optimize=True)
-            row = {"cohort": cohort, "slide_id": slide_id, "label": label, "figure": name,
-                   "feature": feature, "model_rank": rank, "model_feature_count": len(model["feature_names"]),
-                   "model_id": task["id"], "thumbnail_sha256": thumbnail_hashes(
-                       args.opentme_root, cohort, slide["filename"]),
-                   "beta": beta, "measured_value": raw, "standardized_value": z,
-                   "positive_class": positive_class, "logit_contribution": contribution,
-                   "mask_pixels": pixels, "blur_radius_pixels": radius}
-            report.append(row)
-            print(f"{name}: {feature}, {pixels} mask pixels, beta={beta:+.4f}, beta*z={contribution:+.4f}")
+            atlas_row = {"label": label, "slide_id": slide_id, "wsi_size": wsi.size, "features": {}}
+            hashes = thumbnail_hashes(args.opentme_root, cohort, slide["filename"])
+            for feature, _, region_name, tissue_name in FEATURES:
+                state = feature_states[feature]
+                raw = float(measurements[slide_id][feature])
+                if not math.isfinite(raw) or raw <= 0 or not math.isclose(
+                        raw, float(source_row[feature]), abs_tol=1e-12):
+                    raise ValueError(f"Panel and original OpenTME measurement disagree: {slide_id} {feature}")
+                z = (raw - state["mean"]) / state["scale"]
+                contribution = state["beta"] * z
+                mask = compartment_mask(region, tissue, region_name, tissue_name)
+                overlay, radius, pixels = heat_overlay(wsi, region, mask)
+                atlas_row["features"][feature] = {
+                    "overlay": overlay, "raw": raw, "beta": state["beta"],
+                    "rank": state["rank"], "contribution": contribution,
+                }
+                report.append({
+                    "cohort": cohort, "slide_id": slide_id, "label": label,
+                    "figure": figure_name, "feature": feature,
+                    "model_rank": state["rank"], "model_feature_count": len(model["feature_names"]),
+                    "model_id": task["id"], "thumbnail_sha256": hashes,
+                    "beta": state["beta"], "measured_value": raw, "standardized_value": z,
+                    "positive_class": positive_class, "logit_contribution": contribution,
+                    "mask_pixels": pixels, "blur_radius_pixels": radius,
+                })
+                print(f"{cohort} {slide_id}: {feature}, {pixels} mask pixels, beta={state['beta']:+.4f}")
+            atlas_rows.append(atlas_row)
+        draw_atlas(cohort, atlas_rows, positive_class).save(args.output_dir / figure_name, optimize=True)
     (args.output_dir / "figure_metadata.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 
 

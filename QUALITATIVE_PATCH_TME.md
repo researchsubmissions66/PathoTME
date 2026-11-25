@@ -74,13 +74,14 @@ scores for patches screened under only one feature; blanks are not zero.
 
 ## Feature-localized WSI heatmaps
 
-The [four-cohort figure set](docs/qualitative-heatmaps/README.md) overlays real
-OpenTME whole-tumor-region annotations on registered WSI thumbnails. A saved
-fold-0 TME-LR model provides the feature coefficient and slide-level logit
-term. The heatmap shows smoothed local occupancy of the annotated feature
-compartment. It does not show MUSE attention, pixel-level LR weights, or a
-cell-density estimate. The figure index gives the exact feature, held-out
-slide, measurement, and reproduction command for BRCA, NSCLC, CRC, and BLCA.
+The [four-cohort atlas set](docs/qualitative-heatmaps/README.md) overlays four
+real OpenTME whole-tumor-region area features on each held-out WSI thumbnail:
+carcinoma in tumor core, inner invasive margin, stroma in that margin, and
+outer invasive margin. A saved fold-0 TME-LR model provides the coefficient
+and slide-level logit term beneath each panel. Color shows smoothed local
+occupancy of the annotated compartment. It does not show MUSE attention,
+pixel-level LR weights, or a cell-density estimate. The atlas index gives
+the exact measurements and reproduction command for all four cohorts.
 
 ## Separate MUSE model-sensitivity maps
 
@@ -120,10 +121,11 @@ attention-screened patches and leaves every unscored location unchanged.
 ## Figure use
 
 Suggested caption for the feature-localization set: “Held-out OpenTME WSI
-thumbnails for BRCA, NSCLC, CRC, and BLCA. Warm color shows local occupancy
-of the annotated region corresponding to the displayed TME-LR area feature.
-The coefficient and standardized logit term are slide-level quantities;
-color is normalized within each slide and is not pixel-level model attention.”
+thumbnails for BRCA, NSCLC, CRC, and BLCA. Four columns localize carcinoma in
+tumor core, inner invasive margin, stroma within that margin, and outer
+invasive margin on the same slides. The TME-LR coefficient and standardized
+logit term are slide-level quantities; warm color is normalized within each
+panel and is not pixel-level model attention.”
 
 A compact supplement panel can show three highest and three lowest
 interactions with their signed percentage-point scores, followed by the
