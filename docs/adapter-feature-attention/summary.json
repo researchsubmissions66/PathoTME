@@ -1,0 +1,331 @@
+{
+  "method": "PathoTME-Adapter / MUSE",
+  "backbone": "CLIP-RN50",
+  "arm": "actual",
+  "feature_score": "100*(p_pred(measured TME)-p_pred(feature set to saved training-fold transformed mean))",
+  "heatmap": "class-query patch attention with measured TME minus attention at one-feature training-fold reference",
+  "attention_mass_redistributed": "0.5*sum(abs(attention_measured-attention_reference))",
+  "interpretation": "Model attention redistribution, not the physical location of the measured TME feature or a causal effect.",
+  "slides": [
+    {
+      "cohort": "blca",
+      "slide_id": "TCGA-2F-A9KQ-01Z-00-DX1",
+      "fold": 0,
+      "shots": 16,
+      "classes": [
+        "NON_PAPILLARY",
+        "PAPILLARY"
+      ],
+      "true_class": "NON_PAPILLARY",
+      "predicted_class": "NON_PAPILLARY",
+      "predicted_probability": 0.6728550791740417,
+      "patch_count": 5633,
+      "top_features": [
+        {
+          "name": "CELL_PERCENTAGE_CARCINOMA_CELL_IN_INNER_INVASIVE_MARGIN",
+          "feature_index": 28,
+          "score_pp": 0.10262727737426758,
+          "reference_probability": 0.6718288064002991,
+          "attention_total_variation": 0.011839739978313446
+        },
+        {
+          "name": "AVG_MIN_DISTANCE_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+          "feature_index": 57,
+          "score_pp": 0.09503960609436035,
+          "reference_probability": 0.6719046831130981,
+          "attention_total_variation": 0.011101228184998035
+        },
+        {
+          "name": "RELATIVE_AREA_VESSEL",
+          "feature_index": 5,
+          "score_pp": 0.05779862403869629,
+          "reference_probability": 0.6722770929336548,
+          "attention_total_variation": 0.006730224005877972
+        }
+      ],
+      "checkpoint_sha256": "82513ed81195328aaa337c692a2c94c1eb4166e52b3be20fd41bc83d64362228",
+      "thumbnail_sha256": "d46f1dd2902a1c53ee6a8475172f7f5682b8c70854cd53618b12134b0eed8db2",
+      "all_tme_score_pp": -0.13641119003295898
+    },
+    {
+      "cohort": "blca",
+      "slide_id": "TCGA-4Z-AA81-01Z-00-DX1",
+      "fold": 0,
+      "shots": 16,
+      "classes": [
+        "NON_PAPILLARY",
+        "PAPILLARY"
+      ],
+      "true_class": "PAPILLARY",
+      "predicted_class": "PAPILLARY",
+      "predicted_probability": 0.5265293121337891,
+      "patch_count": 4305,
+      "top_features": [
+        {
+          "name": "AVG_MIN_DISTANCE_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+          "feature_index": 57,
+          "score_pp": 6.464403867721558,
+          "reference_probability": 0.4618852734565735,
+          "attention_total_variation": 0.14039477705955505
+        },
+        {
+          "name": "CELL_DENSITY_ENDOTHELIAL_CELL_IN_TUMOR_CORE",
+          "feature_index": 27,
+          "score_pp": 4.445883631706238,
+          "reference_probability": 0.4820704758167267,
+          "attention_total_variation": 0.11093182861804962
+        },
+        {
+          "name": "RELATIVE_AREA_VESSEL",
+          "feature_index": 5,
+          "score_pp": 3.390952944755554,
+          "reference_probability": 0.4926197826862335,
+          "attention_total_variation": 0.09286343306303024
+        }
+      ],
+      "checkpoint_sha256": "82513ed81195328aaa337c692a2c94c1eb4166e52b3be20fd41bc83d64362228",
+      "thumbnail_sha256": "1eacaa8f1a88c6719902e9254f2f462c480b22df577b61d0362b4bb2178020db",
+      "all_tme_score_pp": 12.297693252563477
+    },
+    {
+      "cohort": "brca",
+      "slide_id": "TCGA-A1-A0SD-01Z-00-DX1",
+      "fold": 0,
+      "shots": 16,
+      "classes": [
+        "IDC",
+        "ILC"
+      ],
+      "true_class": "IDC",
+      "predicted_class": "IDC",
+      "predicted_probability": 0.8543573021888733,
+      "patch_count": 4337,
+      "top_features": [
+        {
+          "name": "AVG_MIN_DISTANCE_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_20",
+          "feature_index": 53,
+          "score_pp": 4.969412088394165,
+          "reference_probability": 0.8046631813049316,
+          "attention_total_variation": 0.007343541830778122
+        },
+        {
+          "name": "AVG_MIN_DISTANCE_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+          "feature_index": 59,
+          "score_pp": 3.505939245223999,
+          "reference_probability": 0.8192979097366333,
+          "attention_total_variation": 0.005392636638134718
+        },
+        {
+          "name": "AVG_MIN_DISTANCE_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+          "feature_index": 63,
+          "score_pp": 3.2237231731414795,
+          "reference_probability": 0.8221200704574585,
+          "attention_total_variation": 0.005095716565847397
+        }
+      ],
+      "checkpoint_sha256": "ae9e8cd24c3deea83f0d84adf1a4bd4470324fda0db5b8a100c04bd25b780547",
+      "thumbnail_sha256": "c47294332bcdd7d12089d8350a8cf8bca30aeb13e42c1eec377ca108e77d60b1",
+      "all_tme_score_pp": 10.692095756530762
+    },
+    {
+      "cohort": "brca",
+      "slide_id": "TCGA-4H-AAAK-01Z-00-DX1",
+      "fold": 0,
+      "shots": 16,
+      "classes": [
+        "IDC",
+        "ILC"
+      ],
+      "true_class": "ILC",
+      "predicted_class": "ILC",
+      "predicted_probability": 0.8210681080818176,
+      "patch_count": 3489,
+      "top_features": [
+        {
+          "name": "AVG_MIN_DISTANCE_OF_MACROPHAGES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+          "feature_index": 63,
+          "score_pp": 5.687147378921509,
+          "reference_probability": 0.7641966342926025,
+          "attention_total_variation": 0.04553068056702614
+        },
+        {
+          "name": "AVG_MIN_DISTANCE_OF_FIBROBLASTS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+          "feature_index": 55,
+          "score_pp": 3.9992034435272217,
+          "reference_probability": 0.7810760736465454,
+          "attention_total_variation": 0.035754092037677765
+        },
+        {
+          "name": "CELL_DENSITY_ENDOTHELIAL_CELL_IN_INNER_INVASIVE_MARGIN",
+          "feature_index": 51,
+          "score_pp": 3.4376978874206543,
+          "reference_probability": 0.7866911292076111,
+          "attention_total_variation": 0.03342083841562271
+        }
+      ],
+      "checkpoint_sha256": "ae9e8cd24c3deea83f0d84adf1a4bd4470324fda0db5b8a100c04bd25b780547",
+      "thumbnail_sha256": "4475a4f2fa9b97c2f82b3890d9336dac07b666992e3a8376a966f5a91759c7de",
+      "all_tme_score_pp": 15.103215217590332
+    },
+    {
+      "cohort": "crc",
+      "slide_id": "TCGA-5M-AAT6-01Z-00-DX1",
+      "fold": 0,
+      "shots": 16,
+      "classes": [
+        "ADENO_NOS",
+        "MUCINOUS"
+      ],
+      "true_class": "ADENO_NOS",
+      "predicted_class": "ADENO_NOS",
+      "predicted_probability": 0.5936697125434875,
+      "patch_count": 5972,
+      "top_features": [
+        {
+          "name": "RELATIVE_AREA_TUMOR_CORE",
+          "feature_index": 6,
+          "score_pp": 2.435809373855591,
+          "reference_probability": 0.5693116188049316,
+          "attention_total_variation": 0.24747946858406067
+        },
+        {
+          "name": "RELATIVE_AREA_CARCINOMA",
+          "feature_index": 1,
+          "score_pp": 1.0845601558685303,
+          "reference_probability": 0.5828241109848022,
+          "attention_total_variation": 0.26182636618614197
+        },
+        {
+          "name": "CELL_PERCENTAGE_FIBROBLAST_IN_TUMOR_CORE",
+          "feature_index": 24,
+          "score_pp": 0.824517011642456,
+          "reference_probability": 0.585424542427063,
+          "attention_total_variation": 0.2271120548248291
+        }
+      ],
+      "checkpoint_sha256": "800b087cfb4b53d0e121014452b701b1fa78906eb1e513e85c6f226e6395a0c9",
+      "thumbnail_sha256": "92ad8db4a16e7a5babe16a856eaed20945a8c8ebddc8291334606f34538ca21c",
+      "all_tme_score_pp": 7.341975212097168
+    },
+    {
+      "cohort": "crc",
+      "slide_id": "TCGA-AA-3852-01Z-00-DX1",
+      "fold": 0,
+      "shots": 16,
+      "classes": [
+        "ADENO_NOS",
+        "MUCINOUS"
+      ],
+      "true_class": "MUCINOUS",
+      "predicted_class": "MUCINOUS",
+      "predicted_probability": 0.6441371440887451,
+      "patch_count": 746,
+      "top_features": [
+        {
+          "name": "CELL_DENSITY_PLASMA_CELL_IN_INNER_INVASIVE_MARGIN",
+          "feature_index": 37,
+          "score_pp": 7.044196128845215,
+          "reference_probability": 0.573695182800293,
+          "attention_total_variation": 0.2067570984363556
+        },
+        {
+          "name": "RELATIVE_AREA_CARCINOMA_IN_INNER_INVASIVE_MARGIN",
+          "feature_index": 13,
+          "score_pp": 7.0092737674713135,
+          "reference_probability": 0.574044406414032,
+          "attention_total_variation": 0.292456716299057
+        },
+        {
+          "name": "RELATIVE_AREA_INNER_INVASIVE_MARGIN",
+          "feature_index": 7,
+          "score_pp": 6.955313682556152,
+          "reference_probability": 0.5745840072631836,
+          "attention_total_variation": 0.23574574291706085
+        }
+      ],
+      "checkpoint_sha256": "800b087cfb4b53d0e121014452b701b1fa78906eb1e513e85c6f226e6395a0c9",
+      "thumbnail_sha256": "2359c7564ef6996755d985a039485699993ee643c99f2314eceec091e7bec096",
+      "all_tme_score_pp": 10.327917098999023
+    },
+    {
+      "cohort": "nsclc",
+      "slide_id": "TCGA-05-4382-01Z-00-DX1",
+      "fold": 0,
+      "shots": 16,
+      "classes": [
+        "LUAD",
+        "LUSC"
+      ],
+      "true_class": "LUAD",
+      "predicted_class": "LUSC",
+      "predicted_probability": 0.5782405734062195,
+      "patch_count": 1136,
+      "top_features": [
+        {
+          "name": "RELATIVE_AREA_VESSEL",
+          "feature_index": 5,
+          "score_pp": 1.4678597450256348,
+          "reference_probability": 0.5635619759559631,
+          "attention_total_variation": 0.10255567729473114
+        },
+        {
+          "name": "AVG_MIN_DISTANCE_OF_PLASMA_CELLS_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+          "feature_index": 57,
+          "score_pp": 1.427781581878662,
+          "reference_probability": 0.5639627575874329,
+          "attention_total_variation": 0.08220477402210236
+        },
+        {
+          "name": "RELATIVE_AREA_STROMA_IN_INNER_INVASIVE_MARGIN",
+          "feature_index": 12,
+          "score_pp": 1.4030098915100098,
+          "reference_probability": 0.5642104744911194,
+          "attention_total_variation": 0.07871305197477341
+        }
+      ],
+      "checkpoint_sha256": "981622940d9f5deb48732e88f844b1cf25abfe9a63312b16164e1411c5401b5d",
+      "thumbnail_sha256": "d265f5b85ea93ba5059f806bab9c12f11ccc9ab250e48af2a09957a3f07f4736",
+      "all_tme_score_pp": 4.65109920501709
+    },
+    {
+      "cohort": "nsclc",
+      "slide_id": "TCGA-18-3417-01Z-00-DX1",
+      "fold": 0,
+      "shots": 16,
+      "classes": [
+        "LUAD",
+        "LUSC"
+      ],
+      "true_class": "LUSC",
+      "predicted_class": "LUAD",
+      "predicted_probability": 0.5093559622764587,
+      "patch_count": 5988,
+      "top_features": [
+        {
+          "name": "RELATIVE_AREA_EPITHELIAL_TISSUE",
+          "feature_index": 4,
+          "score_pp": 0.7242739200592041,
+          "reference_probability": 0.5021132230758667,
+          "attention_total_variation": 0.164261132478714
+        },
+        {
+          "name": "RELATIVE_AREA_TUMOR_CORE",
+          "feature_index": 6,
+          "score_pp": 0.44536590576171875,
+          "reference_probability": 0.5049023032188416,
+          "attention_total_variation": 0.1161063015460968
+        },
+        {
+          "name": "AVG_MIN_DISTANCE_OF_LYMPHOCYTES_AROUND_CARCINOMA_CELL_IN_WHOLE_TUMOR_REGION_40",
+          "feature_index": 45,
+          "score_pp": 0.3582417964935303,
+          "reference_probability": 0.5057735443115234,
+          "attention_total_variation": 0.07711908221244812
+        }
+      ],
+      "checkpoint_sha256": "981622940d9f5deb48732e88f844b1cf25abfe9a63312b16164e1411c5401b5d",
+      "thumbnail_sha256": "8f2da0cf5399e871f191c59864613a47dc45ab150a65931f495dfa5205e9b451",
+      "all_tme_score_pp": 1.409873366355896
+    }
+  ]
+}

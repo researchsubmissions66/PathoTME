@@ -203,11 +203,13 @@ The [16-shot attribution index](docs/data/attribution-16shot-20261004/README.md)
 organizes the published aggregate scores by cancer, variant, architecture, and encoder.
 The [quantitative TME figure exports](docs/data/interpretability-figures/README.md)
 include feature redundancy, phenotype maps, and held-out prediction overlays.
-The [four-feature WSI atlases](docs/qualitative-heatmaps/README.md) localize
-measured OpenTME tissue compartments on held-out BRCA, NSCLC, CRC, and BLCA
-thumbnails and report the corresponding TME-LR coefficients. The
-[patch–TME analysis guide](QUALITATIVE_PATCH_TME.md)
-describes separate MUSE model-sensitivity exports.
+The [TME-Adapter attention-shift figures](docs/adapter-feature-attention/README.md)
+map each slide's three strongest positive measured-TME feature effects to
+changes in MUSE patch attention on real held-out BRCA, NSCLC, CRC, and BLCA
+WSI thumbnails. The [four-feature OpenTME atlases](docs/qualitative-heatmaps/README.md)
+separately show the physical locations of selected annotated tissue
+compartments. The [patch–TME analysis guide](QUALITATIVE_PATCH_TME.md)
+describes additional model-sensitivity exports.
 
 Machine-specific paths use `/path/to` placeholders. Configure these paths and
 regenerate experiment contracts before launching in your environment.

@@ -43,7 +43,7 @@ python scripts/export_tme_patch_examples.py \
   --completion "$PATHOTME_RESULTS/muse_tcga_16shot_20260912_v1/runs/brca/clip-rn50/fold0/fold_complete.json" \
   --feature-name RELATIVE_AREA_OUTER_INVASIVE_MARGIN \
   --candidate-per-condition 32 \
-  --selection-note 'Exploratory feature choice from existing BRCA MUSE feature ranking' \
+  --selection-note 'Exploratory opposing feature; not a top supporting feature' \
   --output "$PATHOTME_RESULTS/interpretability/qualitative_muse_brca_fold0_margin"
 ```
 
@@ -72,9 +72,23 @@ To compare two prespecified features on the same slide, run
 to their respective `analysis.json` files. The joined CSV preserves blank
 scores for patches screened under only one feature; blanks are not zero.
 
+## Top-feature TME-Adapter attention maps
+
+The [four-cohort TME-Adapter figure set](docs/adapter-feature-attention/README.md)
+uses the saved MUSE/CLIP-RN50 fold-0 models. On each of eight real held-out
+WSIs, it ranks the individual measured TME inputs by their positive effect
+on the **predicted-class** probability. The top three features each get a
+full-thumbnail map of how that feature changes MUSE's class-query patch
+attention relative to the saved training-fold reference. The script is
+[`scripts/render_adapter_feature_attention.py`](scripts/render_adapter_feature_attention.py).
+The maps are model attention shifts at exact consumed patch coordinates;
+they do not locate the named cells or establish patch-level probability
+contributions. The two fixed NSCLC slides are misclassified and are labeled
+accordingly in the figures.
+
 ## Feature-localized WSI heatmaps
 
-The [four-cohort atlas set](docs/qualitative-heatmaps/README.md) overlays four
+The [four-cohort OpenTME atlas set](docs/qualitative-heatmaps/README.md) overlays four
 real OpenTME whole-tumor-region area features on each held-out WSI thumbnail:
 carcinoma in tumor core, inner invasive margin, stroma in that margin, and
 outer invasive margin. A saved fold-0 TME-LR model provides the coefficient
@@ -119,6 +133,11 @@ computed by `export_tme_patch_examples.py`, use
 attention-screened patches and leaves every unscored location unchanged.
 
 ## Figure use
+
+For a model-interpretability caption, use the
+[TME-Adapter figure caption](docs/adapter-feature-attention/README.md) and
+report both the probability change and attention redistribution. These are
+different measurements; neither localizes the slide-level biological input.
 
 Suggested caption for the feature-localization set: “Held-out OpenTME WSI
 thumbnails for BRCA, NSCLC, CRC, and BLCA. Four columns localize carcinoma in

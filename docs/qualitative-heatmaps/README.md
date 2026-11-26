@@ -1,5 +1,10 @@
 # Four-feature OpenTME atlases on held-out WSI thumbnails
 
+These are **OpenTME compartment-location views**, not PathoTME-Adapter
+prediction explanations. For model-specific top-feature contributions and
+their patch-attention shifts, see the
+[TME-Adapter figures](../adapter-feature-attention/README.md).
+
 Each cohort atlas shows **four measured TME features on the same two real TCGA slides**. Columns are features; rows are the first lexicographic held-out fold-0 slide of each class. This slide rule was fixed independently of prediction and segmentation appearance. OpenTME supplies the registered WSI and spatial annotation thumbnails. The saved 16-shot TME-only logistic-regression (TME-LR) checkpoint supplies the coefficient and training-fold standardizer shown under each panel.
 
 | Cohort | Held-out slide classes | Atlas |
