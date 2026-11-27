@@ -1,0 +1,735 @@
+{
+  "input": "docs/data/current-16shot/current_fold_metrics.csv",
+  "input_sha256": "8c6597758aca0841d18cb8466791d3d2a74dfc47352e67610bdb05d1f6f70cfa",
+  "script_sha256": "3a0131ea007a147eaaf698e95a84577be9528fdf7ffa68802153a1a5f7e07384",
+  "python": "3.10.20",
+  "numpy": "1.26.4",
+  "scipy": "1.15.3",
+  "unit_of_analysis": "architecture/encoder group mean over five folds, paired within cohort",
+  "adjustment": "paired SE inflated by design effect 1 + (m-1)*ICC; ICC = mean pairwise correlation of per-fold paired differences across groups; effective n capped at m",
+  "multiplicity": "Holm-Bonferroni within each family",
+  "family_a_adapter_vs_controls": [
+    {
+      "cohort": "nsclc",
+      "a": "actual",
+      "b": "native",
+      "label": "PathoTME-Adapter - Native",
+      "groups": 14,
+      "mean_difference": 0.04838320474458853,
+      "icc": 0.20798003543542715,
+      "design_effect": 3.703740460660553,
+      "effective_n": 3.7799624862221406,
+      "p_wilcoxon": 0.0008544921875,
+      "p_paired_t": 0.0021810957102643695,
+      "p_adjusted": 0.14957931482984937,
+      "ci95_adjusted": [
+        -0.03307429729841177,
+        0.12984070678758883
+      ],
+      "holm_wilcoxon": 0.01025390625,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "a": "actual",
+      "b": "zero",
+      "label": "PathoTME-Adapter - PathoTME-Adapter-Zero",
+      "groups": 14,
+      "mean_difference": 0.04580895927619325,
+      "icc": 0.15297738697467578,
+      "design_effect": 2.988706030670785,
+      "effective_n": 4.684301452310397,
+      "p_wilcoxon": 0.001220703125,
+      "p_paired_t": 0.0024388162464380157,
+      "p_adjusted": 0.10190441342847384,
+      "ci95_adjusted": [
+        -0.01490032667224648,
+        0.10651824522463299
+      ],
+      "holm_wilcoxon": 0.013427734375,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "a": "actual",
+      "b": "shuffled",
+      "label": "PathoTME-Adapter - PathoTME-Adapter-Shuffled",
+      "groups": 14,
+      "mean_difference": 0.07104136528119658,
+      "icc": -0.04249452094013872,
+      "design_effect": 1.0,
+      "effective_n": 14.0,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 0.001301329607806956,
+      "p_adjusted": 0.001301329607806956,
+      "ci95_adjusted": [
+        0.03342362590321964,
+        0.1086591046591735
+      ],
+      "holm_wilcoxon": 0.00244140625,
+      "holm_adjusted": 0.02602659215613912
+    },
+    {
+      "cohort": "nsclc",
+      "a": "actual",
+      "b": "tme_only",
+      "label": "PathoTME-Adapter - PathoTME-LR",
+      "groups": 14,
+      "mean_difference": -0.023114971676216314,
+      "icc": 0.38723074523939227,
+      "design_effect": 6.033999688112099,
+      "effective_n": 2.320185734775913,
+      "p_wilcoxon": 0.3575439453125,
+      "p_paired_t": 0.23447450002795883,
+      "p_adjusted": 0.6834985873533366,
+      "ci95_adjusted": [
+        -0.35601097020752365,
+        0.30978102685509107
+      ],
+      "holm_wilcoxon": 1.0,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "a": "actual",
+      "b": "late_fusion_fixed_half",
+      "label": "PathoTME-Adapter - PathoTME-Fusion50",
+      "groups": 14,
+      "mean_difference": -0.03765531117171793,
+      "icc": 0.44986055052465546,
+      "design_effect": 6.848187156820521,
+      "effective_n": 2.044336651351089,
+      "p_wilcoxon": 0.001708984375,
+      "p_paired_t": 0.0015681959748927385,
+      "p_adjusted": 0.36270209693406236,
+      "ci95_adjusted": [
+        -0.3223291934245196,
+        0.24701857108108372
+      ],
+      "holm_wilcoxon": 0.01708984375,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "brca",
+      "a": "actual",
+      "b": "native",
+      "label": "PathoTME-Adapter - Native",
+      "groups": 14,
+      "mean_difference": 0.10845531261674525,
+      "icc": 0.39734324436638785,
+      "design_effect": 6.165462176763042,
+      "effective_n": 2.270713792189737,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 0.00013191520747227864,
+      "p_adjusted": 0.23218584252448082,
+      "ci95_adjusted": [
+        -0.28410483438345924,
+        0.5010154596169497
+      ],
+      "holm_wilcoxon": 0.00244140625,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "brca",
+      "a": "actual",
+      "b": "zero",
+      "label": "PathoTME-Adapter - PathoTME-Adapter-Zero",
+      "groups": 14,
+      "mean_difference": 0.10567093900139875,
+      "icc": 0.3398181988362865,
+      "design_effect": 5.417636584871724,
+      "effective_n": 2.584152661530265,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 0.00014891709861161774,
+      "p_adjusted": 0.18371857963249985,
+      "ci95_adjusted": [
+        -0.15467099106870502,
+        0.3660128690715025
+      ],
+      "holm_wilcoxon": 0.00244140625,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "brca",
+      "a": "actual",
+      "b": "shuffled",
+      "label": "PathoTME-Adapter - PathoTME-Adapter-Shuffled",
+      "groups": 14,
+      "mean_difference": 0.12773353755614633,
+      "icc": 0.2716124281764665,
+      "design_effect": 4.530961566294065,
+      "effective_n": 3.0898518548791816,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 0.00032168282233502804,
+      "p_adjusted": 0.1452860781358524,
+      "ci95_adjusted": [
+        -0.10418517029626045,
+        0.3596522454085531
+      ],
+      "holm_wilcoxon": 0.00244140625,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "brca",
+      "a": "actual",
+      "b": "tme_only",
+      "label": "PathoTME-Adapter - PathoTME-LR",
+      "groups": 14,
+      "mean_difference": -0.08309987641288956,
+      "icc": 0.2635525385592511,
+      "design_effect": 4.426183001270264,
+      "effective_n": 3.1629961969448983,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 0.0006924384890444382,
+      "p_adjusted": 0.16078724870650873,
+      "ci95_adjusted": [
+        -0.2415900932735781,
+        0.075390340447799
+      ],
+      "holm_wilcoxon": 0.00244140625,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "brca",
+      "a": "actual",
+      "b": "late_fusion_fixed_half",
+      "label": "PathoTME-Adapter - PathoTME-Fusion50",
+      "groups": 14,
+      "mean_difference": -0.021421834410648082,
+      "icc": 0.3649310483594427,
+      "design_effect": 5.744103628672755,
+      "effective_n": 2.437281933793188,
+      "p_wilcoxon": 0.2957763671875,
+      "p_paired_t": 0.28206057639236903,
+      "p_adjusted": 0.7007531536665588,
+      "ci95_adjusted": [
+        -0.31414597381521864,
+        0.27130230499392244
+      ],
+      "holm_wilcoxon": 1.0,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "crc",
+      "a": "actual",
+      "b": "native",
+      "label": "PathoTME-Adapter - Native",
+      "groups": 14,
+      "mean_difference": 0.0022712151714355294,
+      "icc": -0.03216059634627036,
+      "design_effect": 1.0,
+      "effective_n": 14.0,
+      "p_wilcoxon": 1.0,
+      "p_paired_t": 0.7958237850932698,
+      "p_adjusted": 0.7958237850932698,
+      "ci95_adjusted": [
+        -0.01630576842567934,
+        0.0208481987685504
+      ],
+      "holm_wilcoxon": 1.0,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "crc",
+      "a": "actual",
+      "b": "zero",
+      "label": "PathoTME-Adapter - PathoTME-Adapter-Zero",
+      "groups": 14,
+      "mean_difference": -0.000426545559785397,
+      "icc": -0.0074904477503315685,
+      "design_effect": 1.0,
+      "effective_n": 14.0,
+      "p_wilcoxon": 0.9031982421875,
+      "p_paired_t": 0.9587814246971053,
+      "p_adjusted": 0.9587814246971053,
+      "ci95_adjusted": [
+        -0.01791616678419371,
+        0.01706307566462292
+      ],
+      "holm_wilcoxon": 1.0,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "crc",
+      "a": "actual",
+      "b": "shuffled",
+      "label": "PathoTME-Adapter - PathoTME-Adapter-Shuffled",
+      "groups": 14,
+      "mean_difference": 0.005133565815292891,
+      "icc": 0.05079115004070513,
+      "design_effect": 1.6602849505291668,
+      "effective_n": 8.43228747904865,
+      "p_wilcoxon": 0.5830078125,
+      "p_paired_t": 0.5074038854342949,
+      "p_adjusted": 0.6122051742888357,
+      "ci95_adjusted": [
+        -0.017543818194009558,
+        0.02781094982459534
+      ],
+      "holm_wilcoxon": 1.0,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "crc",
+      "a": "actual",
+      "b": "tme_only",
+      "label": "PathoTME-Adapter - PathoTME-LR",
+      "groups": 14,
+      "mean_difference": 0.0035178957043312015,
+      "icc": 0.39608667645731416,
+      "design_effect": 6.149126793945084,
+      "effective_n": 2.276746027384816,
+      "p_wilcoxon": 0.5015869140625,
+      "p_paired_t": 0.8102887176834684,
+      "p_adjusted": 0.9345033360888835,
+      "ci95_adjusted": [
+        -0.27192287560663275,
+        0.27895866701529515
+      ],
+      "holm_wilcoxon": 1.0,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "crc",
+      "a": "actual",
+      "b": "late_fusion_fixed_half",
+      "label": "PathoTME-Adapter - PathoTME-Fusion50",
+      "groups": 14,
+      "mean_difference": -0.032113033619244814,
+      "icc": 0.24529119174360864,
+      "design_effect": 4.188785492666913,
+      "effective_n": 3.3422575647545254,
+      "p_wilcoxon": 0.0003662109375,
+      "p_paired_t": 0.002797478399044032,
+      "p_adjusted": 0.1955683117245589,
+      "ci95_adjusted": [
+        -0.09922064015946688,
+        0.03499457292097725
+      ],
+      "holm_wilcoxon": 0.0047607421875,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "blca",
+      "a": "actual",
+      "b": "native",
+      "label": "PathoTME-Adapter - Native",
+      "groups": 14,
+      "mean_difference": 0.020921622495151917,
+      "icc": -0.011136970249773418,
+      "design_effect": 1.0,
+      "effective_n": 14.0,
+      "p_wilcoxon": 0.013427734375,
+      "p_paired_t": 0.02008241591624968,
+      "p_adjusted": 0.02008241591624968,
+      "ci95_adjusted": [
+        0.0038536813927610054,
+        0.037989563597542825
+      ],
+      "holm_wilcoxon": 0.093994140625,
+      "holm_adjusted": 0.34508722573442446
+    },
+    {
+      "cohort": "blca",
+      "a": "actual",
+      "b": "zero",
+      "label": "PathoTME-Adapter - PathoTME-Adapter-Zero",
+      "groups": 14,
+      "mean_difference": 0.020765244559362208,
+      "icc": -0.03101734932818453,
+      "design_effect": 1.0,
+      "effective_n": 14.0,
+      "p_wilcoxon": 0.008544921875,
+      "p_paired_t": 0.01917151254080136,
+      "p_adjusted": 0.01917151254080136,
+      "ci95_adjusted": [
+        0.003979470857536489,
+        0.037551018261187924
+      ],
+      "holm_wilcoxon": 0.068359375,
+      "holm_adjusted": 0.34508722573442446
+    },
+    {
+      "cohort": "blca",
+      "a": "actual",
+      "b": "shuffled",
+      "label": "PathoTME-Adapter - PathoTME-Adapter-Shuffled",
+      "groups": 14,
+      "mean_difference": 0.032582390648567106,
+      "icc": 0.21037466300468413,
+      "design_effect": 3.7348706190608936,
+      "effective_n": 3.748456486966662,
+      "p_wilcoxon": 0.001708984375,
+      "p_paired_t": 0.014179777679127738,
+      "p_adjusted": 0.24716680176731726,
+      "ci95_adjusted": [
+        -0.04202849369464677,
+        0.10719327499178098
+      ],
+      "holm_wilcoxon": 0.01708984375,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "blca",
+      "a": "actual",
+      "b": "tme_only",
+      "label": "PathoTME-Adapter - PathoTME-LR",
+      "groups": 14,
+      "mean_difference": -0.08059935897435896,
+      "icc": 0.08983780548142777,
+      "design_effect": 2.167891471258561,
+      "effective_n": 6.4578878535244915,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 1.4530148586400588e-06,
+      "p_adjusted": 0.0018108976848188933,
+      "ci95_adjusted": [
+        -0.11636155292106048,
+        -0.044837165027657444
+      ],
+      "holm_wilcoxon": 0.00244140625,
+      "holm_adjusted": 0.034407056011558974
+    },
+    {
+      "cohort": "blca",
+      "a": "actual",
+      "b": "late_fusion_fixed_half",
+      "label": "PathoTME-Adapter - PathoTME-Fusion50",
+      "groups": 14,
+      "mean_difference": -0.036491273432449914,
+      "icc": 0.1821801350760169,
+      "design_effect": 3.3683417559882196,
+      "effective_n": 4.1563478453784795,
+      "p_wilcoxon": 0.000244140625,
+      "p_paired_t": 0.00014314146908304406,
+      "p_adjusted": 0.05930381380750022,
+      "ci95_adjusted": [
+        -0.07558036580796912,
+        0.002597818943069284
+      ],
+      "holm_wilcoxon": 0.00341796875,
+      "holm_adjusted": 0.9488610209200036
+    }
+  ],
+  "family_b_variant_vs_native": [
+    {
+      "cohort": "nsclc",
+      "a": "tme_only",
+      "b": "native",
+      "label": "PathoTME-LR - Native",
+      "groups": 14,
+      "mean_difference": 0.07149817642080485,
+      "icc": 0.5418640419248026,
+      "design_effect": 8.044232545022435,
+      "effective_n": 1.7403773351458918,
+      "p_wilcoxon": 0.0166015625,
+      "p_paired_t": 0.012734107244466481,
+      "p_adjusted": 0.4944108545977369,
+      "ci95_adjusted": [
+        -0.8211590483794726,
+        0.9641554012210822
+      ],
+      "holm_wilcoxon": 0.067138671875,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "a": "late_fusion_validation",
+      "b": "native",
+      "label": "PathoTME-FusionVal - Native",
+      "groups": 12,
+      "mean_difference": 0.09937943095174068,
+      "icc": 0.3706691594395808,
+      "design_effect": 5.077360753835388,
+      "effective_n": 2.3634326142642745,
+      "p_wilcoxon": 0.00048828125,
+      "p_paired_t": 0.0002331863932936699,
+      "p_adjusted": 0.19676041827083451,
+      "ci95_adjusted": [
+        -0.19090912376855046,
+        0.3896679856720318
+      ],
+      "holm_wilcoxon": 0.0048828125,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "a": "late_fusion_fixed_half",
+      "b": "native",
+      "label": "PathoTME-Fusion50 - Native",
+      "groups": 14,
+      "mean_difference": 0.08603851591630647,
+      "icc": 0.5816442446651897,
+      "design_effect": 8.561375180647467,
+      "effective_n": 1.635251312388021,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 1.583623137089572e-05,
+      "p_adjusted": 0.26381831151770785,
+      "ci95_adjusted": [
+        -0.3948464604611787,
+        0.5669234922937917
+      ],
+      "holm_wilcoxon": 0.001953125,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "a": "actual",
+      "b": "native",
+      "label": "PathoTME-Adapter - Native",
+      "groups": 14,
+      "mean_difference": 0.04838320474458853,
+      "icc": 0.20798003543542715,
+      "design_effect": 3.703740460660553,
+      "effective_n": 3.7799624862221406,
+      "p_wilcoxon": 0.0008544921875,
+      "p_paired_t": 0.0021810957102643695,
+      "p_adjusted": 0.14957931482984937,
+      "ci95_adjusted": [
+        -0.03307429729841177,
+        0.12984070678758883
+      ],
+      "holm_wilcoxon": 0.0059814453125,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "brca",
+      "a": "tme_only",
+      "b": "native",
+      "label": "PathoTME-LR - Native",
+      "groups": 14,
+      "mean_difference": 0.1915551890296349,
+      "icc": 0.4125977949836725,
+      "design_effect": 6.363771334787742,
+      "effective_n": 2.199953339534466,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 2.5076818886972696e-08,
+      "p_adjusted": 0.10274809476589844,
+      "ci95_adjusted": [
+        -0.1620898117768498,
+        0.5452001898361196
+      ],
+      "holm_wilcoxon": 0.001953125,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "brca",
+      "a": "late_fusion_validation",
+      "b": "native",
+      "label": "PathoTME-FusionVal - Native",
+      "groups": 12,
+      "mean_difference": 0.1846232809934318,
+      "icc": 0.5358146304356116,
+      "design_effect": 6.8939609347917274,
+      "effective_n": 1.7406539017997105,
+      "p_wilcoxon": 0.00048828125,
+      "p_paired_t": 2.3577960468549506e-07,
+      "p_adjusted": 0.14660537971286947,
+      "ci95_adjusted": [
+        -0.36535524497799565,
+        0.7346018069648593
+      ],
+      "holm_wilcoxon": 0.0048828125,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "brca",
+      "a": "late_fusion_fixed_half",
+      "b": "native",
+      "label": "PathoTME-Fusion50 - Native",
+      "groups": 14,
+      "mean_difference": 0.12987714702739336,
+      "icc": 0.5719794981055768,
+      "design_effect": 8.435733475372498,
+      "effective_n": 1.6596067242844939,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 7.198544804987787e-07,
+      "p_adjusted": 0.20168925804201798,
+      "ci95_adjusted": [
+        -0.4111655341247914,
+        0.6709198281795782
+      ],
+      "holm_wilcoxon": 0.001953125,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "brca",
+      "a": "actual",
+      "b": "native",
+      "label": "PathoTME-Adapter - Native",
+      "groups": 14,
+      "mean_difference": 0.10845531261674525,
+      "icc": 0.39734324436638785,
+      "design_effect": 6.165462176763042,
+      "effective_n": 2.270713792189737,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 0.00013191520747227864,
+      "p_adjusted": 0.23218584252448082,
+      "ci95_adjusted": [
+        -0.28410483438345924,
+        0.5010154596169497
+      ],
+      "holm_wilcoxon": 0.001953125,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "crc",
+      "a": "tme_only",
+      "b": "native",
+      "label": "PathoTME-LR - Native",
+      "groups": 14,
+      "mean_difference": -0.001246680532895672,
+      "icc": 0.45695561840038873,
+      "design_effect": 6.940423039205053,
+      "effective_n": 2.0171681064564533,
+      "p_wilcoxon": 0.9031982421875,
+      "p_paired_t": 0.9443591920827182,
+      "p_adjusted": 0.9827537892251192,
+      "ci95_adjusted": [
+        -0.5648693303529823,
+        0.5623759692871909
+      ],
+      "holm_wilcoxon": 1.0,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "crc",
+      "a": "late_fusion_validation",
+      "b": "native",
+      "label": "PathoTME-FusionVal - Native",
+      "groups": 12,
+      "mean_difference": 0.020157681975704445,
+      "icc": 0.3005465039514244,
+      "design_effect": 4.306011543465669,
+      "effective_n": 2.786801632756857,
+      "p_wilcoxon": 0.17626953125,
+      "p_paired_t": 0.0875289239224015,
+      "p_adjusted": 0.471132017472744,
+      "ci95_adjusted": [
+        -0.08766823659753084,
+        0.12798360054893973
+      ],
+      "holm_wilcoxon": 0.52880859375,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "crc",
+      "a": "late_fusion_fixed_half",
+      "b": "native",
+      "label": "PathoTME-Fusion50 - Native",
+      "groups": 14,
+      "mean_difference": 0.03438424879068035,
+      "icc": 0.39261864558307213,
+      "design_effect": 6.104042392579938,
+      "effective_n": 2.293562052750219,
+      "p_wilcoxon": 0.001220703125,
+      "p_paired_t": 0.00130906429435714,
+      "p_adjusted": 0.302681921798197,
+      "ci95_adjusted": [
+        -0.1232328645356222,
+        0.19200136211698288
+      ],
+      "holm_wilcoxon": 0.00732421875,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "crc",
+      "a": "actual",
+      "b": "native",
+      "label": "PathoTME-Adapter - Native",
+      "groups": 14,
+      "mean_difference": 0.0022712151714355294,
+      "icc": -0.03216059634627036,
+      "design_effect": 1.0,
+      "effective_n": 14.0,
+      "p_wilcoxon": 1.0,
+      "p_paired_t": 0.7958237850932698,
+      "p_adjusted": 0.7958237850932698,
+      "ci95_adjusted": [
+        -0.01630576842567934,
+        0.0208481987685504
+      ],
+      "holm_wilcoxon": 1.0,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "blca",
+      "a": "tme_only",
+      "b": "native",
+      "label": "PathoTME-LR - Native",
+      "groups": 14,
+      "mean_difference": 0.10152098146951086,
+      "icc": 0.09351353276688158,
+      "design_effect": 2.2156759259694603,
+      "effective_n": 6.318613582387666,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 1.3451015071120782e-07,
+      "p_adjusted": 0.0007677021814296034,
+      "ci95_adjusted": [
+        0.06430738751397785,
+        0.13873457542504386
+      ],
+      "holm_wilcoxon": 0.001953125,
+      "holm_adjusted": 0.012283234902873655
+    },
+    {
+      "cohort": "blca",
+      "a": "late_fusion_validation",
+      "b": "native",
+      "label": "PathoTME-FusionVal - Native",
+      "groups": 12,
+      "mean_difference": 0.05023664529914531,
+      "icc": 0.18488813324624329,
+      "design_effect": 3.033769465708676,
+      "effective_n": 3.955475238194096,
+      "p_wilcoxon": 0.00048828125,
+      "p_paired_t": 9.434261798930517e-05,
+      "p_adjusted": 0.0427243003624476,
+      "ci95_adjusted": [
+        0.0031253429770607896,
+        0.09734794762122984
+      ],
+      "holm_wilcoxon": 0.0048828125,
+      "holm_adjusted": 0.5981402050742664
+    },
+    {
+      "cohort": "blca",
+      "a": "late_fusion_fixed_half",
+      "b": "native",
+      "label": "PathoTME-Fusion50 - Native",
+      "groups": 14,
+      "mean_difference": 0.057412895927601834,
+      "icc": 0.529917328385285,
+      "design_effect": 7.8889252690087055,
+      "effective_n": 1.7746397034585157,
+      "p_wilcoxon": 0.0001220703125,
+      "p_paired_t": 6.013317464023585e-07,
+      "p_adjusted": 0.1925573966340552,
+      "ci95_adjusted": [
+        -0.17022245872888764,
+        0.2850482505840913
+      ],
+      "holm_wilcoxon": 0.001953125,
+      "holm_adjusted": 1.0
+    },
+    {
+      "cohort": "blca",
+      "a": "actual",
+      "b": "native",
+      "label": "PathoTME-Adapter - Native",
+      "groups": 14,
+      "mean_difference": 0.020921622495151917,
+      "icc": -0.011136970249773418,
+      "design_effect": 1.0,
+      "effective_n": 14.0,
+      "p_wilcoxon": 0.013427734375,
+      "p_paired_t": 0.02008241591624968,
+      "p_adjusted": 0.02008241591624968,
+      "ci95_adjusted": [
+        0.0038536813927610054,
+        0.037989563597542825
+      ],
+      "holm_wilcoxon": 0.067138671875,
+      "holm_adjusted": 0.30123623874374517
+    }
+  ]
+}
