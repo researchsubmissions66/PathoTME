@@ -1,0 +1,2859 @@
+{
+  "test": "DeLong two-sided, correlated ROC curves on identical patients",
+  "input_cells": 240,
+  "input_manifest_sha256": "9b6ae4ec3bcf3b60ee9ba1c10e3c3914bf6b09c4cc6f49571ab535e9f5e78c5b",
+  "input_cell_sha256": {
+    "blca/dyko/clip-rn50/fold0": "6cc080c474a223221d427e8ecd54515be55c8d1ed592e8c4ab2f19e3f7f5470c",
+    "blca/dyko/clip-rn50/fold1": "deaa952841ce646ee6e1ed452b1ed1544fa9dc03517ccf42d78449efd68bc247",
+    "blca/dyko/clip-rn50/fold2": "b90181aca8398401d66ecbb2889b134561ebf473e1f9ca5ce09f50d5b5c45b86",
+    "blca/dyko/clip-rn50/fold3": "04c469f2773d713062730e6bd8d58c7cad42c01cb8c3673edebdf25730842fd4",
+    "blca/dyko/clip-rn50/fold4": "7be79e6c1f273d76e60b8a329bf30e733b39150db147137a84066dc1d5ecff49",
+    "blca/dyko/plip/fold0": "db5b962fc4bee45ffad94efbe991850d67fe3d4043d2be92463f26fb543edcb6",
+    "blca/dyko/plip/fold1": "c80a99df62121a7938a102eaca35bfa398d7b5241e6acabf51198e08df046588",
+    "blca/dyko/plip/fold2": "2067b0bb2ff45d66df3c1846f31da94ab724354e21062d2f3535f0174b770854",
+    "blca/dyko/plip/fold3": "251e92dc23b5c9594204af48895540c7cd2ad264432475b3c9609db6d54722c8",
+    "blca/dyko/plip/fold4": "40102a945a74e43a3d3f574ccb65e88030f71a5c413e37bfc5deb6f190bad5ff",
+    "blca/focus/clip-rn50/fold0": "97e514bf4a032d66cd087d1bfe48c08deeb3b03748a877e0dd6e57ffd1660e0b",
+    "blca/focus/clip-rn50/fold1": "242542234bdfd4b3eddf8ba010ca35789e0fc56e4d6e256c89d3816a8ae12943",
+    "blca/focus/clip-rn50/fold2": "7661474dc985257c92911be805ec1a9cf48fc98def06a020a83e92f6ed63033f",
+    "blca/focus/clip-rn50/fold3": "2b36d826630b8c971a73efefdf1cb00cd0a6c5927a785cfa41aff2cb6201fa66",
+    "blca/focus/clip-rn50/fold4": "69a54b2d9dc473004592d67910a5006b4eaaea1bbfaf327db340f5d9ed7e74b1",
+    "blca/focus/plip/fold0": "fccc86cd138849e5f8220b419aa57b3c69aa2007ca5548d54f3054acaa25b006",
+    "blca/focus/plip/fold1": "e79e418fc79fae95e0431453f78375392fa56c7f4a9a51c8521b3dbbc2c0baf4",
+    "blca/focus/plip/fold2": "78dfa611bc02ebc081f8033b983f20e459d6e2e6f4c40e097e6272202317f4c8",
+    "blca/focus/plip/fold3": "9163c34ac62e5280dd8469232948f510791a11f7da181427277a8cc6b6945a44",
+    "blca/focus/plip/fold4": "a50fe8c6b893f88b6f71ac8748b1c77b5956be275e64d306f56ba7fb387d50e5",
+    "blca/mgpath/clip-rn50/fold0": "740955763a013425738798bd98311909fe412ded5d6555a8bf0bf488399792cd",
+    "blca/mgpath/clip-rn50/fold1": "30b108bedecea97cec2858d0d5c52eea79d8a6af5b65da012587ee32ba61a5dc",
+    "blca/mgpath/clip-rn50/fold2": "cd93cc7e7923e40240b9aea6b0137680fdb5f0735a27b0db66b87f3edc2c8554",
+    "blca/mgpath/clip-rn50/fold3": "205a859f09140acdc4c14433e8a5c239f2f9e38d30af2597bd8005f4be9a75fe",
+    "blca/mgpath/clip-rn50/fold4": "5d197a8b25e314163f07a26406915340752223edeef6ddafd3076b73e15fe270",
+    "blca/mgpath/plip/fold0": "e60c1394ff1c387179a4677a9008114ca6c9299a0d6f5287b6ea5c660ba6b41b",
+    "blca/mgpath/plip/fold1": "20dfaea966bbaec65e14f9e0240880202428020bb872e0f859d645aabbc75896",
+    "blca/mgpath/plip/fold2": "1390a4ead3be2d38361d57cafabbf5b40a24b4c3be783a6f15ae8e7040ccc8b6",
+    "blca/mgpath/plip/fold3": "dd90e02f776dc8692097797f929603dab7eb0c1d96e313a38da51e1aabc57916",
+    "blca/mgpath/plip/fold4": "a408e1bb458388aa85cd4141f8e7e1fe6bdeecfbaa91bd4077cf76acbb1298f8",
+    "blca/mscpt/clip-rn50/fold0": "0f21be9e5d7a0b6193f02c913119830fa677c1a80ec4fe53cec01c46d7ffb9d9",
+    "blca/mscpt/clip-rn50/fold1": "48ba27461e02d5a5da7781a60b0ddec7fade10d2a7e010f8c55e796512a17f36",
+    "blca/mscpt/clip-rn50/fold2": "fa5e6572f28a35397256717d5aba3efcb2387e4c607eef5d47dc12e4bc066fde",
+    "blca/mscpt/clip-rn50/fold3": "0905c4314d8e24cacecf110f2c072a6f507a37e96ca8dccb9fd585e0902b8f61",
+    "blca/mscpt/clip-rn50/fold4": "02a20f790ea7d6ca9c989f6fb48f3c6089979ad2727677ddb49c2b39f1644b5d",
+    "blca/mscpt/plip/fold0": "6db9fd20151b66c3b243842ab83015bc3559b291f83ee447bc31d4ef92e930b9",
+    "blca/mscpt/plip/fold1": "1db87fd11e78cd41848466fc7c46906a6174972f99d1df3ce8513cf75040b32b",
+    "blca/mscpt/plip/fold2": "fcb0f7ffc652a551e79315129f429e47aaca5bc96f2529d2714e71902bebe09f",
+    "blca/mscpt/plip/fold3": "04c27c19564d72c0cbc77f4d9af1d22d9f973a01a8d1665e18a1f68ffb2ba6b2",
+    "blca/mscpt/plip/fold4": "1a7e5cefe88b62609bc19291b026031d5d58a8f6817245430784ec9bba343c48",
+    "blca/muse/clip-rn50/fold0": "7cc6fcf1e3632586112f72d9733f2f0ebdc05854240734d91a025291f3ff94d5",
+    "blca/muse/clip-rn50/fold1": "f99499866b4e9e743568a9e175b801b5e6257110bc6d4f4a528e5f4157fd976a",
+    "blca/muse/clip-rn50/fold2": "d355152aa88b968b1f54365199584cc1aee1a94311e68bfacdfd89c5d6beaeb5",
+    "blca/muse/clip-rn50/fold3": "050e83e00e8a831ad5f9c5f91a38a5f886c170f991fb28f32becd9d4fe430fd3",
+    "blca/muse/clip-rn50/fold4": "aa26ae9d157e04e13340db2b34a6dd3f4243a4b22d56824aacf46a5b23981948",
+    "blca/muse/plip/fold0": "9000e546dcba5cd2f62c528beeeff044435bf93a81728d01783ce8a027150251",
+    "blca/muse/plip/fold1": "7a54e12930803340b6a7b61efea717a661f5b631874b27a490a75a32dc04ac60",
+    "blca/muse/plip/fold2": "4921a73e1a4b9013ac7676534fbeeb7dac0997967c2078448ae3e160f5239e52",
+    "blca/muse/plip/fold3": "666de889770e03cd7a392f0d361cdc4eda1dfbe3aac02ff7280ecf95b95e78e7",
+    "blca/muse/plip/fold4": "6992abb50959b4f5a572de664cf7e8c7e36ba462148f88744f5f7d292f3e5fd2",
+    "blca/vila_mil/clip-rn50/fold0": "d0bc3542945fb23ebaf8e6ef17559466a58628d90029b0132e6d8429f42cf6a7",
+    "blca/vila_mil/clip-rn50/fold1": "f235be01881654d982e4e167b57fb574a43c2e563ca7d0053110177dddf2c572",
+    "blca/vila_mil/clip-rn50/fold2": "2cc31cd3e08ed19f3770f17c4bf44f7e9b9c346dfa775bed648b0e42f762e9d7",
+    "blca/vila_mil/clip-rn50/fold3": "a816a45a132196005cb7f8a3ed9f5eb0b0c7f2bad3b85e3aaec94828fd51151a",
+    "blca/vila_mil/clip-rn50/fold4": "b70b21ea938d68fd48d2debc07795b2495d660619a204ada2679d0b15373b40f",
+    "blca/vila_mil/plip/fold0": "81ea208332e27af2cb300d1027560a35ad4a68eaaf4fa3985a25697a2b351f0b",
+    "blca/vila_mil/plip/fold1": "1d1bd7337357d110240fa972d52b33cb578b75a69106dd4e5f89225c8b788c12",
+    "blca/vila_mil/plip/fold2": "ac5f76bbac5a208e53dbf09166dfee8880921c33fdedea58039eba4ad711f45d",
+    "blca/vila_mil/plip/fold3": "3649f98767443ce6d6913560645951eb047a12c8114227e007f1713cdcd03790",
+    "blca/vila_mil/plip/fold4": "96e850293a94eef196335909a6068c4997f8124cf5cae831a9bb8dd513132ae5",
+    "brca/dyko/clip-rn50/fold0": "2f2853624bcc0bc43ae78c7b44da9e5c7a648757d5372036a0f55fff8099ba68",
+    "brca/dyko/clip-rn50/fold1": "ad9a9fd64c5a74571f15bab0a8a6ffa2698bcfe247c77b45855ac7e4e8f9465f",
+    "brca/dyko/clip-rn50/fold2": "d333ef5775e360885a762b4913183953d169b0dcad40772096384a2149fe5ff4",
+    "brca/dyko/clip-rn50/fold3": "86856b85040972a59850e26e8c93c36365142495137317108c1cb012e38b789b",
+    "brca/dyko/clip-rn50/fold4": "1155c8aa12b420bf23787092fca48d53106efafb4ca27f905a1d4732c8104315",
+    "brca/dyko/plip/fold0": "947678ac2d044192f8de9e5ddd90f892543d1e6692d80a69754c1a0aa088edaa",
+    "brca/dyko/plip/fold1": "d373eb56b3da20a607cda3d623fbb844642d5cf895091c234ce3580e179eb113",
+    "brca/dyko/plip/fold2": "7feba9e7b7e4fabd0ca43742a51bb1e5dfc7ef29600fda6673e7cf7cf59c95de",
+    "brca/dyko/plip/fold3": "7dc6459894f224b6a308788744bacffd4f0727dbb41be25f12d454ef5cfcaa16",
+    "brca/dyko/plip/fold4": "a4b6a588384d3c85dd48383fedd281806bea042f55f7648a561dfd025d549cc3",
+    "brca/focus/clip-rn50/fold0": "f1ec89356f1e176d9b6c1157b1df220444fdcb2d0ce0c951cc6b9f75336a6246",
+    "brca/focus/clip-rn50/fold1": "6b472266f10d6af8e3629d8e9fb2379542ffe7eb5b7164deda1c45a6f1019206",
+    "brca/focus/clip-rn50/fold2": "bfd9d23401ca3a899b1a4e59f17c497da42746a9daa0a74a2b39da0cc032f1e8",
+    "brca/focus/clip-rn50/fold3": "20283ee9e2abb7d2a3fc7d046753cad67b85d41e090f1fad04acd5e07b10d6ef",
+    "brca/focus/clip-rn50/fold4": "b61f2fa383be63a7b89a8844cc5f2039c535912dc809ff007962131a1205aef2",
+    "brca/focus/plip/fold0": "8f88a84dcd129a0cd4243e05f2e901f68b16426b7e701da660c00fb63de5a572",
+    "brca/focus/plip/fold1": "c9a83604dbb596db3977bdeab2a6c55d7fa8ae83b468387abf0631ed0ebf7032",
+    "brca/focus/plip/fold2": "77e52015827f33b95d88bdd65511c9a7c533b84055fa01fb0b9a4f4c9acb542e",
+    "brca/focus/plip/fold3": "13e4eb2cb6feb80a9e87ee554f78a52236ccbe00ef65cccc88ac157ba436147b",
+    "brca/focus/plip/fold4": "5bb4d6887bfd199e447f870455e3ce981c4d1c3cd038b96391750ff297ef8f0b",
+    "brca/mgpath/clip-rn50/fold0": "de336e07ea4467b9ffac1a2bfeec30a1ea110d38d90730ea64ac3d1aec113aa4",
+    "brca/mgpath/clip-rn50/fold1": "c96ce46550463eefcc1e7816d864bb5b8f6b947e4293f4af56bef6525b085e09",
+    "brca/mgpath/clip-rn50/fold2": "a8f9fe5fb8ad4e9e179a668d6fbf1858d17e58481ed79df076cdf77f580667ec",
+    "brca/mgpath/clip-rn50/fold3": "3fef0d108652afc7d4a32a898bc6254b7c83b27ababb9aa8ed431d5b2827a94e",
+    "brca/mgpath/clip-rn50/fold4": "e37ac66d690d30e1b616a287e679e714a52db7174e51473589184ccb5e106f2f",
+    "brca/mgpath/plip/fold0": "7c7d92f6ef64012ee9340d09128bd83550efd98ebc21aa3cfb796f9b897e10eb",
+    "brca/mgpath/plip/fold1": "bfd4571708fd8329c4c13095862cbea302e42e580109837baf5b73d1ac3eff32",
+    "brca/mgpath/plip/fold2": "3c8b0d151e2e3bc2f5755c30ac8abba498dab34da11b6d14dc1f53be7ad52d83",
+    "brca/mgpath/plip/fold3": "3340f92c6eff651d5195112969f40fcef422bd8ba6d5b766ebf969899e41013e",
+    "brca/mgpath/plip/fold4": "94877fa26df312cf0479a7b4261bf5178aff096f56fabbc1b889abeaf45666c3",
+    "brca/mscpt/clip-rn50/fold0": "9f4762a04c76b40361417383cbb3e5f5b49315be03066b77fe6450a6e5c05217",
+    "brca/mscpt/clip-rn50/fold1": "8deeafff2d9c4144ce5a3e47b724f35f7a62ee803307dc938d5811ddb81848f6",
+    "brca/mscpt/clip-rn50/fold2": "fe6f2a35074fca3503a60ad7a1c4f4ab5015b551148236d24e031acff04cf789",
+    "brca/mscpt/clip-rn50/fold3": "6cce7a8d86f1c10e90599cf2b1092ef99b47ea6744fc754708076de8632c2e8c",
+    "brca/mscpt/clip-rn50/fold4": "3aac5e6e0e4018dcadce13cb4945a2cf23043ef5e4974448772179a8996899f3",
+    "brca/mscpt/plip/fold0": "c6c9c410127f6914b9cf623cc398e2760330da218a9a5ac08bca600c28e2bed0",
+    "brca/mscpt/plip/fold1": "91e02b0bfad04c423ef0ff02bec3a9c25bf0a41535e0077350251d0bf12c9b96",
+    "brca/mscpt/plip/fold2": "c508f266ae7542ebbc3166dbbedd52cfeb65a11d371276d11482f1a406b3cf72",
+    "brca/mscpt/plip/fold3": "2992752152cca850bf43501bc237821ba2b8d07b1653eb4a17484e0f75ce2b99",
+    "brca/mscpt/plip/fold4": "f7eca0d1bbc543661178619766b15113cf350ff113d8ccaa8878e0e18dae83d9",
+    "brca/muse/clip-rn50/fold0": "9e9f0df20dccb412a3b28e2e52758764fd0d472770769219841a54d962d50d32",
+    "brca/muse/clip-rn50/fold1": "8089a03b401ffa29a2d65835c2352c242daab6330a5257289634252ee1052a93",
+    "brca/muse/clip-rn50/fold2": "b3eb718d921fa022db4e1dc1ec081f0d5642b4f5401031c7723358b4fa380e62",
+    "brca/muse/clip-rn50/fold3": "4c96b78fa9e574ca4fa24d45bd32895674c04a5845a688812214fc2e53eda6f3",
+    "brca/muse/clip-rn50/fold4": "d048a0cc11272280fb3244d1e9c008eceacf4aa7c18fe20e485eb4ddc8a4cc62",
+    "brca/muse/plip/fold0": "cd427438b048ef8a309f3ff74599802dfd0b71557ccf431f8083919df94825bd",
+    "brca/muse/plip/fold1": "38c0288c703129293c072dc0042ad603434d56ffe022ed4d425cccf59f4b8d3c",
+    "brca/muse/plip/fold2": "a081dbe27a90be3c32d79b4204040117b8f463b748084c2f436bab1a911ba6b2",
+    "brca/muse/plip/fold3": "6087da9131c4f5d2ee8ad240754182b5d48cb913a2eab1c72f2ec70318c2b57a",
+    "brca/muse/plip/fold4": "ec68673e7342194a400aa1ee6e2d3b6f4e37e07db5cb0ad7b876f837b75f278b",
+    "brca/vila_mil/clip-rn50/fold0": "e8d1decf0e205358f01246808438456c07542e600fd5eca9692381c435907cc9",
+    "brca/vila_mil/clip-rn50/fold1": "584b1029250785f335efc1644f516117a98673ec099febdae66cbf2090f981ad",
+    "brca/vila_mil/clip-rn50/fold2": "97b6043d8eabf5c1238c9afb2499b7c9edf995a5f020694a5728e76e23415d88",
+    "brca/vila_mil/clip-rn50/fold3": "4df635f2da49553e13e67b4bd78da2b241e965a815132b3b10212a799d99ddd2",
+    "brca/vila_mil/clip-rn50/fold4": "361714203202caa16b116118dd221a37e21798154556444d3b962ed4876a74f4",
+    "brca/vila_mil/plip/fold0": "84793cfe9115a9e3218eefe78a8ce7de1ee6bbaa64a9067635fca57deaf5ee1c",
+    "brca/vila_mil/plip/fold1": "d53b48dc18e062932a1f678ffeb9141a8f55e097be8342b0a3e81c916d0bfb5c",
+    "brca/vila_mil/plip/fold2": "7b4df111ecbceca89620695ba7a41db092dcfe50a494443c2a7c9a2b6256fc86",
+    "brca/vila_mil/plip/fold3": "f90b409846ffc451ce344543bec947a9ec91dc64f886dcb9513312e57e460cf4",
+    "brca/vila_mil/plip/fold4": "c6ecb01f20c7dd8d4effb01fc36be109105d78b3e92b9235b04407fc2f102a85",
+    "crc/dyko/clip-rn50/fold0": "7c8e00ac88eac6006fa6d715dbc060aecc73d5559e2c129a259f9aa7d1bb8fb7",
+    "crc/dyko/clip-rn50/fold1": "1a7e60388e91abb3e7712d80a0271b86ecb268d7a9ca1b4d07f6f62e894eff44",
+    "crc/dyko/clip-rn50/fold2": "906d8cb81be33128c51c639bd6f6aa23c3d62603c4af67b752b583b89c7630ec",
+    "crc/dyko/clip-rn50/fold3": "b0dc372e4ad5fa330c2382b6470ff23bc7220e7bbba996964131979854930af0",
+    "crc/dyko/clip-rn50/fold4": "15d6750d676671dc1b426ed41e136c618e28b6852f37045d0e5216d1b52701c5",
+    "crc/dyko/plip/fold0": "1436c980cecb8afdd38683083b3a70622e93e8c952ae18eda4277ba23974d888",
+    "crc/dyko/plip/fold1": "b2d24c197450529b9bbc565cce00dae9d90dde066a178f35a0dcd09461624d8f",
+    "crc/dyko/plip/fold2": "39083bd5741a0db54ccc89a7b3532722c8d4ea63216f7ecb74028fb78d19d40a",
+    "crc/dyko/plip/fold3": "c6858574df5aafdc776afdcbc15d616de373c85790859cf0c99790915ca2f6d5",
+    "crc/dyko/plip/fold4": "61d5c72672de0d3fbcba0852763b9bcbbd70720a3e2716aa072125b293578c9c",
+    "crc/focus/clip-rn50/fold0": "21dbf0807a3d0ec5321cf2408b376887e59ab4138e0f3c3697723a6adab48d37",
+    "crc/focus/clip-rn50/fold1": "4b0001b59d33ce76a5dec4128160171b5ce4d568cd108ce6c064ff33c4cbc4e4",
+    "crc/focus/clip-rn50/fold2": "b0b6f34c2374f9724ddcdf32d489ecdf991307018fc258ca0dde88ea53256620",
+    "crc/focus/clip-rn50/fold3": "52069af9469e2ba5a33e73ec5b8df8efa4f20dc2bea1483c61bc88109d9be4e2",
+    "crc/focus/clip-rn50/fold4": "3dc24a92faa9f0fc04a5ca53a4e84685ac424f88491d13808b07384597827fe7",
+    "crc/focus/plip/fold0": "17eed77e7f56eb295eb91ebc4d1d7dffef6edac095e5691838bc2db732daab3d",
+    "crc/focus/plip/fold1": "be2b92bdf4e774be0348da943c969496b85a63b5fa70fce4d7168fbebcf83230",
+    "crc/focus/plip/fold2": "d0bc4301fbd5f3d51f96230687fcc85f7aa0d2d64b0b6a47d3c7ee6c84189a8e",
+    "crc/focus/plip/fold3": "e59d4c9f2b76b5da5e4306a2297e72bcb06ebfb2b9e9e8b49b861808740bcbf0",
+    "crc/focus/plip/fold4": "c60fdae967c021463a4ee2c2d86394e34c393e4882e58b1536ca381fc29cf835",
+    "crc/mgpath/clip-rn50/fold0": "f24e8ce9da248c745ad0082ed3b92acd0744926cd75943c41b9b1fb11f2f9e87",
+    "crc/mgpath/clip-rn50/fold1": "2677905d5fe13dd3de2bf99d603cdbb8ec53b43bc9ceed77f4389ffb43db4982",
+    "crc/mgpath/clip-rn50/fold2": "8032fc6ac4b421215860eb511e0b9863b8307452c609dcebb9b072b29007cfab",
+    "crc/mgpath/clip-rn50/fold3": "3c1e87fa68a3ae97576692191816878b16ad7e1ec7a8ae7826964111a4349054",
+    "crc/mgpath/clip-rn50/fold4": "a44e8ba1a4deee1b667382e494b8bda6a7c23e781d189f80c537473e4599a54f",
+    "crc/mgpath/plip/fold0": "bcc7110216eff5beadc11208542c61d75085b56a4c8b331e9f760883909855c7",
+    "crc/mgpath/plip/fold1": "d15cd63313fd7128dfc52be4c856ab2bad6dbeacfb593ffa5362c0d537019af9",
+    "crc/mgpath/plip/fold2": "95bd43ef26a842eec5c78ddcaf1c5df6a665aa8232e72bed144a02317d4737b5",
+    "crc/mgpath/plip/fold3": "bcc5c4a5b65c0b00637f8d63f52ea57470e4954d667725962481ca3df50a2fcd",
+    "crc/mgpath/plip/fold4": "7b4142ddd7146d204157d5e55be8f98f49d178f55d1ec1c0c81326d85b82c806",
+    "crc/mscpt/clip-rn50/fold0": "b8b50b56d5a87fffafe3e76f1084fcd992091f61e59512d155a3ad657fdca698",
+    "crc/mscpt/clip-rn50/fold1": "c67d8b3fa7fdd9757fa3ba2a55477257680b5592eecee433250b0604ff1c754c",
+    "crc/mscpt/clip-rn50/fold2": "830f83e0cc60f8674161561eafd0c4db4d256a79e3d81ed3223cced9a782fb6b",
+    "crc/mscpt/clip-rn50/fold3": "ce1303169a1f2b5371001b76febac2019cf7e5d345f794df87efb418e7520d7e",
+    "crc/mscpt/clip-rn50/fold4": "a5e2affa6159a6fbed177b98d5d30adeb0b8bb1832f63ae7930dde8264bed660",
+    "crc/mscpt/plip/fold0": "738c0cdda51c22a0a1dca55601b010555e404ad2441d59b39fe73109c1cfc77d",
+    "crc/mscpt/plip/fold1": "22cd8db835f83e980e44efdcf40c9456dd9e69d53eba0ef99ce7e09b408672c6",
+    "crc/mscpt/plip/fold2": "fa2c7bb0c1895c1fd682329ce143c55f057101b44d7a0515893167758332a8e7",
+    "crc/mscpt/plip/fold3": "12b3d4414c6829918f0d1a3449bd38b395b33e99b1814ab5085076f37d6a99aa",
+    "crc/mscpt/plip/fold4": "b671684b82921d3dfa1f07e8203bf3e5cd19abec15fd5820b262391ed434e768",
+    "crc/muse/clip-rn50/fold0": "ec325c109fc98a45e6c8ce2219c2d74e6c01f2ce1c09c65c957ec3c49e75ec40",
+    "crc/muse/clip-rn50/fold1": "55d02411d7aaa207233f258397191c08eaa5d2bcfae6f7c702683962bcd35866",
+    "crc/muse/clip-rn50/fold2": "28bb824422ea1944df0c1f45d31034d70241ef95a0800d8e8ebf16d35780660a",
+    "crc/muse/clip-rn50/fold3": "c1794557af5ac643983385f0a088be8368aeee13e613ebde34ba88ce2a426a9f",
+    "crc/muse/clip-rn50/fold4": "821f7be293e51a0398510711793163781d4d5dd92870e4740e66107dbfae6a04",
+    "crc/muse/plip/fold0": "28fbafd7cbc25bda8a83e5361c6bda34d9eb34a57f5fa41341b3373f8b966926",
+    "crc/muse/plip/fold1": "2d060f22818a8e039fc039809e2489b7d753ba1c5b20b915fe1e8dbca918a5eb",
+    "crc/muse/plip/fold2": "fdac1f9164aab09a03be6129fbc6a30d9a96aff0e0d7319c362d5ac9009c4259",
+    "crc/muse/plip/fold3": "7548e42ec222531edec5559039ef1ea47677200e93f01ad745dc794a8a84f439",
+    "crc/muse/plip/fold4": "b2dc55c53d4f6c08f61bdf98eb4e41e94178333c5fd11f49f097a11d6ecd1d0f",
+    "crc/vila_mil/clip-rn50/fold0": "64633fe74f04a593ccd48fd712fc2aa3f3be6819f8ca52d6ea011412d01f5a86",
+    "crc/vila_mil/clip-rn50/fold1": "80c42d15670feed23651ebec6067c490ff1b5a4647dea6f3823c8647e0207547",
+    "crc/vila_mil/clip-rn50/fold2": "ede33ce522f797e99faf11bcc5aa1960ea4e51d1b857e66342df7bcb7649674f",
+    "crc/vila_mil/clip-rn50/fold3": "ca577be2a5774a5e060d148f9cb0a0599fa09623e19707eb613f423f988b1b16",
+    "crc/vila_mil/clip-rn50/fold4": "9e9d1d94fc0fde0d72644501aacb05905c3e664acb9c0a4162bd62474cc9cbb0",
+    "crc/vila_mil/plip/fold0": "63cb7749d2b586fd2166082e49e2be786aad216c0d108b8ce020c4bc8c6b2cb4",
+    "crc/vila_mil/plip/fold1": "697b647415cec86667a21fb1bef62a5482e62a72990ad2becbb86c4e787d0562",
+    "crc/vila_mil/plip/fold2": "c513958fe741c22858aede1f1dfa1fb700e3710ebc60c5bb2ae603f63aae7a8f",
+    "crc/vila_mil/plip/fold3": "ad1db84db652a1c68285b084599f2a918a2bf1aca0c897324c0b5291bc698bfc",
+    "crc/vila_mil/plip/fold4": "93eb0873b23658e25968ed7e0b24e7d016a97d9bd1a8743c89b47f508f43e53a",
+    "nsclc/dyko/clip-rn50/fold0": "45170fc38532b2f442c9543d3c10915a2d265af2ce9115904cee164d205c3103",
+    "nsclc/dyko/clip-rn50/fold1": "afdc066b4e5201e9d2f98c6a378a3a8364a91b078938d288bf5f2db4e4e12767",
+    "nsclc/dyko/clip-rn50/fold2": "57f2351a320beed2fe8390f3602220ea82d496e8d9026103f76598caff96060e",
+    "nsclc/dyko/clip-rn50/fold3": "e7ed888b4619650cb8bb77cd86d50e0a7c20f3400c8bf46b4d0d98aab44b9a1e",
+    "nsclc/dyko/clip-rn50/fold4": "f4d3bb9c9376bd980daecd99618a5326791904bddafa4fdd3dfa662e3b0a877e",
+    "nsclc/dyko/plip/fold0": "b5ab5baad11c68b8edcd80dd0619b4d80aa6150dcc02f1a0f3fca00a975d7acf",
+    "nsclc/dyko/plip/fold1": "6e4ba14a8aa4aab8f170872df33df93becc8b5513c837f885af9c652ae06e445",
+    "nsclc/dyko/plip/fold2": "0698ed8ba04f3cbf6691233ffab85224cbcd6ef50134b1218a423ca3ca53858c",
+    "nsclc/dyko/plip/fold3": "f888c7a4705d2581ef1b7fd48e44db9571bec19933b252bacd06e7c1559ed398",
+    "nsclc/dyko/plip/fold4": "4c33d174195c88dc626f038d1a1ea45a3cfa85c28dc625bf1eb927869ddc35b4",
+    "nsclc/focus/clip-rn50/fold0": "e30eb6bea4b8aef8c481c3647f0f932212f8bb63ae1b2a8a5cbd92e53050601e",
+    "nsclc/focus/clip-rn50/fold1": "df7bca616cfd599b141d1252ea9475d1f948c17cc4324d4322860690963b9511",
+    "nsclc/focus/clip-rn50/fold2": "e6b9ff8e40e290af59313b8bdf3b0bbbee1051b3503c669a9072f04ad459e66a",
+    "nsclc/focus/clip-rn50/fold3": "e830fa7c9f10c142b40b82223f77e26253d47803c1155326706d33576cdb8bfa",
+    "nsclc/focus/clip-rn50/fold4": "bb95c9b8829dfad534b2544377ac4b814a2377dd8dcaaed5fe0c193a781467f1",
+    "nsclc/focus/plip/fold0": "7bd305a0389518f7bf4e441865ac66fcc75e8c1ee05716414042c5361b3bb580",
+    "nsclc/focus/plip/fold1": "7c9a6120953f73865f68d96840693a9de68be893a23e0dab52d460f6d1497314",
+    "nsclc/focus/plip/fold2": "cb95747a66270eac0cbf4e97b362457c5af5c4b9fe7b3e55b4bcdf2e845b0c3c",
+    "nsclc/focus/plip/fold3": "ddacc508eede18d9db5d8e5066fcf1445170ae64a489cf983b6f81abf111c506",
+    "nsclc/focus/plip/fold4": "8d6b1acdc7fb6b7009a58bcf7ba438e0791017965e1a156b1b939e6bcc4d10ac",
+    "nsclc/mgpath/clip-rn50/fold0": "e866c32c48a5788cbe22a85fe96ed05a18bd7059368993dedf05944274704339",
+    "nsclc/mgpath/clip-rn50/fold1": "ac586ab707309bb34deea7b7afb825cb7fb94375e43678297879b3b2b9cc9237",
+    "nsclc/mgpath/clip-rn50/fold2": "5b0d0ead5698e709a7ac7141153aeb2eb0faf06d1ad298d049e4d3ef2877d08d",
+    "nsclc/mgpath/clip-rn50/fold3": "276fbc58414fa655e3f6eb937962d01c7c10ea967aae376e10d2ebe7ff765a59",
+    "nsclc/mgpath/clip-rn50/fold4": "432023b8588024663237590fe6e5223f0df9b03280c291d1658b29cd204d7a0f",
+    "nsclc/mgpath/plip/fold0": "e3b102ae9d06d842f78353ca5ce3ec245f33170ac59d5b43f102d9184f090f82",
+    "nsclc/mgpath/plip/fold1": "3d3c57683d565637109f83ceee7afc57f1a048129a1b3770fa77635b0909f164",
+    "nsclc/mgpath/plip/fold2": "ed9be36cd712f4962dfc973cd56278938b2ae14e41d36dda220534b3f862d21e",
+    "nsclc/mgpath/plip/fold3": "f6d9911fd73ae3688cac6dfc2bddd661bc1b2974ab840b399766a125b224c2eb",
+    "nsclc/mgpath/plip/fold4": "fcb4a5eae861182d28bb3222b5e297f53d32b13863847c160d85143fc35c9d8f",
+    "nsclc/mscpt/clip-rn50/fold0": "3cea3385a921a987ba92716660cbe501e34eae9a78343e9eb5a6fc8ae52a559a",
+    "nsclc/mscpt/clip-rn50/fold1": "233482a13c22cd123ff8123f2c06f3145eba11f28600cf02b97d0879279598ee",
+    "nsclc/mscpt/clip-rn50/fold2": "984a8d621dc92992ba4ff16c78aa33e7cfeaea1a23a68a65b124f5824fae6241",
+    "nsclc/mscpt/clip-rn50/fold3": "687bc11ca5d24a376333faa750c8208360468b0615fa1cd0ac915292d756e6f5",
+    "nsclc/mscpt/clip-rn50/fold4": "aa36776fc9b560fa0b398457d5996e3c5f2e19f20cf64289c332d09716e1fa2d",
+    "nsclc/mscpt/plip/fold0": "1addf6db7e3b4070667ac0782e9c5b300fda4736944aae01c88310bbe01bb42d",
+    "nsclc/mscpt/plip/fold1": "a0f480906d9156888f602841d9de616fc3f5554c9ca25c015a6ed352b26edfa9",
+    "nsclc/mscpt/plip/fold2": "bd267a5411c172591729cfe37e99489ae8658b02d4123ebdb62a631a82b4856c",
+    "nsclc/mscpt/plip/fold3": "373eb45d7318f5abc7a779efffce5eaa127b60710d5cdf1ca332aa71d12bc81f",
+    "nsclc/mscpt/plip/fold4": "1264814f25865a328e9ea5cd30f26ee7f1f1762c703838f913965ba04ccabbd8",
+    "nsclc/muse/clip-rn50/fold0": "3dc311e13d732249cb717874b7e877482850a68fdf64ee63b2e3577962ee2638",
+    "nsclc/muse/clip-rn50/fold1": "5b76eac3a3de6ef1f6507bd43d667e3855f14fa6364e11c682c167d1d4a83fb2",
+    "nsclc/muse/clip-rn50/fold2": "4edc9e6564faa959c9b09e20c7db012464bb16cdf199d39703419335a32d03ba",
+    "nsclc/muse/clip-rn50/fold3": "e3c4c46cb45b23426736e9a357ddf3e2aa8cdd5cbb1a9b1db66800866dfa74bd",
+    "nsclc/muse/clip-rn50/fold4": "f3854cc7840305cc7810bf9f98d2414de258b10da7e539866b006c4aa99e649c",
+    "nsclc/muse/plip/fold0": "911cad487370b5d0c0e4fb71e44cd14fc2a8917900e1be52f42aa6cbcd31f78f",
+    "nsclc/muse/plip/fold1": "201c03bd4e64c1a8700dd597c0c5f85eb8e5607d0342329973dbdbe872b5c19c",
+    "nsclc/muse/plip/fold2": "0c3ff2eae56dc1d57296811e732de80c1caf25643f2c3bfc3cd90e7e199b12c8",
+    "nsclc/muse/plip/fold3": "cc2d16178765c119b6bd4805180258154a8222809fb4d572d9be7ff576b15426",
+    "nsclc/muse/plip/fold4": "d0d0e67f7548c4f3938148039649f8dea2d5ca915dfe82f06376a2dab3d21186",
+    "nsclc/vila_mil/clip-rn50/fold0": "fc2e66e5fa347771f93231d451093b58ffaa2386fddff2a906f8a0cf56f81fc5",
+    "nsclc/vila_mil/clip-rn50/fold1": "b5e71846381af9cbae17515a7149aa335db22513a8f761c1ec75b08a74c9cfd2",
+    "nsclc/vila_mil/clip-rn50/fold2": "451f7789431f6e0fde823720547ad328109cae0935f893153fb731b43742dfff",
+    "nsclc/vila_mil/clip-rn50/fold3": "bc0f1a68ca65be07422b1413bdeab9d0f5371d85f5274895f37d9d9d60941975",
+    "nsclc/vila_mil/clip-rn50/fold4": "833303a847b7fb94c51373c0b48591d5bceaed895d3e114c2f90a0e97c6c60f2",
+    "nsclc/vila_mil/plip/fold0": "fc66f9c37a5970612cd6cc8aa980d5fb06426c2d583775c7b1dfae97002e6ba9",
+    "nsclc/vila_mil/plip/fold1": "f52dacaaa229f73913d716a57772eaf6ef5298bd7dfc560424354dc177c6b585",
+    "nsclc/vila_mil/plip/fold2": "f351cbf031663305511f4d9712a66dd977e3cf70be5be7fce7effb249b1dfa1a",
+    "nsclc/vila_mil/plip/fold3": "c27fc08285d6181430fdef75e2c758f5b599642b03eec692757653a19998f371",
+    "nsclc/vila_mil/plip/fold4": "2faf361d9e3e01aab0a5c5a48643773ee1808b5f8f1b250eacb19f2be02b51a4"
+  },
+  "pooling": "five disjoint fold test partitions pooled; each patient scored once",
+  "patient_aggregation": "arithmetic mean of held-out slide probabilities",
+  "excluded": {
+    "method": "hive_mil",
+    "reason": "September 14 baseline predictions predate the October 3 HiVE refresh required by AGENTS.md",
+    "groups": [
+      "blca/hive_mil/clip-rn50",
+      "blca/hive_mil/plip",
+      "brca/hive_mil/clip-rn50",
+      "brca/hive_mil/plip",
+      "crc/hive_mil/clip-rn50",
+      "crc/hive_mil/plip",
+      "nsclc/hive_mil/clip-rn50",
+      "nsclc/hive_mil/plip"
+    ]
+  },
+  "multiplicity": "Holm-Bonferroni across all reported comparisons",
+  "script_sha256": "21f5cd58755651d5a5975cc6109c93cc246ca6891e3b1a961f812dda7e065ae4",
+  "comparisons": [
+    {
+      "cohort": "blca",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.5798930751953434,
+      "difference": 0.059567871943310924,
+      "se": 0.040592604128041276,
+      "z": 1.4674562823172406,
+      "p": 0.14225197352796884,
+      "ci95": [
+        -0.019993632147649973,
+        0.13912937603427183
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.6065610072443137,
+      "auc_b": 0.5798930751953434,
+      "difference": 0.026667932048970333,
+      "se": 0.02625208039677743,
+      "z": 1.0158407122752813,
+      "p": 0.30970524534942634,
+      "ci95": [
+        -0.02478614552871343,
+        0.0781220096266541
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.5993166935560407,
+      "auc_b": 0.5798930751953434,
+      "difference": 0.01942361836069728,
+      "se": 0.01329335906441639,
+      "z": 1.4611520133154565,
+      "p": 0.1439737287470526,
+      "ci95": [
+        -0.006631365405558844,
+        0.045478602126953406
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.49691563063490557,
+      "difference": 0.14254531650374874,
+      "se": 0.040202051143958736,
+      "z": 3.545722480510037,
+      "p": 0.00039153831667899437,
+      "ci95": [
+        0.06374929626158962,
+        0.22134133674590786
+      ],
+      "holm": 0.030931527017640556
+    },
+    {
+      "cohort": "blca",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.5971655436398722,
+      "auc_b": 0.49691563063490557,
+      "difference": 0.1002499130049666,
+      "se": 0.03064069891810379,
+      "z": 3.2717893698480496,
+      "p": 0.001068691618215657,
+      "ci95": [
+        0.04019414312548318,
+        0.16030568288445002
+      ],
+      "holm": 0.08228925460260558
+    },
+    {
+      "cohort": "blca",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.5725854923918889,
+      "auc_b": 0.49691563063490557,
+      "difference": 0.07566986175698337,
+      "se": 0.025469698318458623,
+      "z": 2.970975973521573,
+      "p": 0.002968550039428038,
+      "ci95": [
+        0.02574925305280447,
+        0.12559047046116228
+      ],
+      "holm": 0.2048299527205346
+    },
+    {
+      "cohort": "blca",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.5427541045838474,
+      "difference": 0.09670684255480688,
+      "se": 0.0404226580427579,
+      "z": 2.3923919711690713,
+      "p": 0.016738954984374697,
+      "ci95": [
+        0.01747843279100139,
+        0.17593525231861237
+      ],
+      "holm": 0.9206425241406083
+    },
+    {
+      "cohort": "blca",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.6155768561576667,
+      "auc_b": 0.5427541045838474,
+      "difference": 0.07282275157381923,
+      "se": 0.023957156183870676,
+      "z": 3.039707677109342,
+      "p": 0.002368078734423085,
+      "ci95": [
+        0.025866725453432708,
+        0.11977877769420575
+      ],
+      "holm": 0.1705016688784621
+    },
+    {
+      "cohort": "blca",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.6142482047388568,
+      "auc_b": 0.5427541045838474,
+      "difference": 0.07149410015500934,
+      "se": 0.02568217078518313,
+      "z": 2.7838028472365965,
+      "p": 0.005372568006208108,
+      "ci95": [
+        0.02115704541605041,
+        0.12183115489396829
+      ],
+      "holm": 0.3438443523973189
+    },
+    {
+      "cohort": "blca",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.5054885957419886,
+      "difference": 0.13397235139666575,
+      "se": 0.041000954276782145,
+      "z": 3.2675422745594744,
+      "p": 0.0010848566310145162,
+      "ci95": [
+        0.05361048101417275,
+        0.21433422177915873
+      ],
+      "holm": 0.08244910395710323
+    },
+    {
+      "cohort": "blca",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.5660687735282022,
+      "auc_b": 0.5054885957419886,
+      "difference": 0.06058017778621361,
+      "se": 0.021407960283893825,
+      "z": 2.829796813094371,
+      "p": 0.004657757405170739,
+      "ci95": [
+        0.018620575629781713,
+        0.1025397799426455
+      ],
+      "holm": 0.3120697461464395
+    },
+    {
+      "cohort": "blca",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.596532852488058,
+      "auc_b": 0.5054885957419886,
+      "difference": 0.09104425674606942,
+      "se": 0.02870687936891093,
+      "z": 3.171513544752232,
+      "p": 0.0015164679603265187,
+      "ci95": [
+        0.03477877318300399,
+        0.14730974030913485
+      ],
+      "holm": 0.1137350970244889
+    },
+    {
+      "cohort": "blca",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.5116256999145867,
+      "difference": 0.12783524722406758,
+      "se": 0.04237267800495987,
+      "z": 3.016926312967616,
+      "p": 0.0025535187626479243,
+      "ci95": [
+        0.044784798334346246,
+        0.21088569611378893
+      ],
+      "holm": 0.18129983214800263
+    },
+    {
+      "cohort": "blca",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.5915029578311347,
+      "auc_b": 0.5116256999145867,
+      "difference": 0.07987725791654798,
+      "se": 0.029535864714992345,
+      "z": 2.704415756482066,
+      "p": 0.006842461739136139,
+      "ci95": [
+        0.021986963075162985,
+        0.13776755275793298
+      ],
+      "holm": 0.4242326278264406
+    },
+    {
+      "cohort": "blca",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.614216570181266,
+      "auc_b": 0.5116256999145867,
+      "difference": 0.10259087026667923,
+      "se": 0.03794791152506396,
+      "z": 2.7034655174348576,
+      "p": 0.006862056749925899,
+      "ci95": [
+        0.02821296367755388,
+        0.1769687768558046
+      ],
+      "holm": 0.4242326278264406
+    },
+    {
+      "cohort": "blca",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.5319983550030053,
+      "difference": 0.10746259213564902,
+      "se": 0.03717837607424963,
+      "z": 2.8904595488795275,
+      "p": 0.00384679034423712,
+      "ci95": [
+        0.03459297503011974,
+        0.1803322092411783
+      ],
+      "holm": 0.2615817434081241
+    },
+    {
+      "cohort": "blca",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.5793236531587106,
+      "auc_b": 0.5319983550030053,
+      "difference": 0.0473252981557053,
+      "se": 0.015061443312014179,
+      "z": 3.142148941194431,
+      "p": 0.0016771269833094934,
+      "ci95": [
+        0.017804869264157506,
+        0.07684572704725309
+      ],
+      "holm": 0.12410739676490251
+    },
+    {
+      "cohort": "blca",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.5674606940621936,
+      "auc_b": 0.5319983550030053,
+      "difference": 0.035462339059188275,
+      "se": 0.018248073204081762,
+      "z": 1.943347040675834,
+      "p": 0.05197424142029292,
+      "ci95": [
+        -0.0003038844208119798,
+        0.07122856253918852
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.6020056309512511,
+      "difference": 0.037455316187403165,
+      "se": 0.04094055117960348,
+      "z": 0.9148708336409342,
+      "p": 0.36025944329651927,
+      "ci95": [
+        -0.04278816412461965,
+        0.11769879649942598
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.6531270760178419,
+      "auc_b": 0.6020056309512511,
+      "difference": 0.051121445066590776,
+      "se": 0.02365871753570822,
+      "z": 2.160786821577836,
+      "p": 0.03071181052555223,
+      "ci95": [
+        0.004750358696602668,
+        0.09749253143657888
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.6026699566606561,
+      "auc_b": 0.6020056309512511,
+      "difference": 0.0006643257094050004,
+      "se": 0.019632327293345013,
+      "z": 0.033838357494691634,
+      "p": 0.9730060485910021,
+      "ci95": [
+        -0.037815035785551225,
+        0.039143687204361226
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.556863117269305,
+      "difference": 0.08259782986934927,
+      "se": 0.03966315822261606,
+      "z": 2.082482423758472,
+      "p": 0.03729842668210535,
+      "ci95": [
+        0.004858039753021792,
+        0.16033761998567675
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.6012780361266647,
+      "auc_b": 0.556863117269305,
+      "difference": 0.04441491885735971,
+      "se": 0.01730123613246399,
+      "z": 2.5671529200170666,
+      "p": 0.010253738208403928,
+      "ci95": [
+        0.010504496037730293,
+        0.07832534167698912
+      ],
+      "holm": 0.5947168160874278
+    },
+    {
+      "cohort": "blca",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.5859352756951695,
+      "auc_b": 0.556863117269305,
+      "difference": 0.029072158425864414,
+      "se": 0.02547216599379144,
+      "z": 1.1413304401734203,
+      "p": 0.2537324393122027,
+      "ci95": [
+        -0.020853286921966807,
+        0.07899760377369563
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.5540160070861408,
+      "difference": 0.08544494005251346,
+      "se": 0.04089454530666402,
+      "z": 2.089396994434602,
+      "p": 0.036672001563032235,
+      "ci95": [
+        0.005291631251451989,
+        0.16559824885357494
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.5994432317864035,
+      "auc_b": 0.5540160070861408,
+      "difference": 0.045427224700262614,
+      "se": 0.015227372718652186,
+      "z": 2.983260838202133,
+      "p": 0.0028519482802563303,
+      "ci95": [
+        0.015581574171704329,
+        0.0752728752288209
+      ],
+      "holm": 0.19963637961794312
+    },
+    {
+      "cohort": "blca",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.5829299927240518,
+      "auc_b": 0.5540160070861408,
+      "difference": 0.02891398563791092,
+      "se": 0.010348371019459172,
+      "z": 2.794061556503994,
+      "p": 0.005205056965363897,
+      "ci95": [
+        0.008631178439770945,
+        0.0491967928360509
+      ],
+      "holm": 0.3383287027486533
+    },
+    {
+      "cohort": "blca",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.5694536711904084,
+      "difference": 0.07000727594824596,
+      "se": 0.03696934215007962,
+      "z": 1.8936576059169934,
+      "p": 0.05827047188988348,
+      "ci95": [
+        -0.002452634665910086,
+        0.142467186562402
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.600044288380627,
+      "auc_b": 0.5694536711904084,
+      "difference": 0.030590617190218605,
+      "se": 0.015970536147977783,
+      "z": 1.9154408409821633,
+      "p": 0.05543630689775407,
+      "ci95": [
+        -0.0007116336598178494,
+        0.06189286804025506
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.5921989180981304,
+      "auc_b": 0.5694536711904084,
+      "difference": 0.02274524690772206,
+      "se": 0.019625729435184057,
+      "z": 1.158950396358032,
+      "p": 0.246476404821797,
+      "ci95": [
+        -0.015721182785238687,
+        0.06121167660068281
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.577741925279175,
+      "difference": 0.061719021859479306,
+      "se": 0.03796420163888222,
+      "z": 1.6257163115546158,
+      "p": 0.10401001845474687,
+      "ci95": [
+        -0.01269081335272984,
+        0.13612885707168845
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.6173800259403373,
+      "auc_b": 0.577741925279175,
+      "difference": 0.039638100661162246,
+      "se": 0.015121492485793829,
+      "z": 2.6213087562885082,
+      "p": 0.008759289192881731,
+      "ci95": [
+        0.009999975389006342,
+        0.06927622593331814
+      ],
+      "holm": 0.5255573515729038
+    },
+    {
+      "cohort": "blca",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.6211445382936319,
+      "auc_b": 0.577741925279175,
+      "difference": 0.043402613014456914,
+      "se": 0.019141552344207793,
+      "z": 2.267455232155739,
+      "p": 0.023362430731365322,
+      "ci95": [
+        0.0058851704198096405,
+        0.08092005560910419
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "blca",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 380,
+      "auc_a": 0.6394609471386543,
+      "auc_b": 0.5179209768751384,
+      "difference": 0.12153997026351593,
+      "se": 0.03667474718961312,
+      "z": 3.3139961302293046,
+      "p": 0.0009197278011349139,
+      "ci95": [
+        0.049657465771874215,
+        0.19342247475515764
+      ],
+      "holm": 0.07173876848852329
+    },
+    {
+      "cohort": "blca",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 380,
+      "auc_a": 0.5711619373003068,
+      "auc_b": 0.5179209768751384,
+      "difference": 0.05324096042516846,
+      "se": 0.014612001739415577,
+      "z": 3.6436459134515466,
+      "p": 0.0002688031521148428,
+      "ci95": [
+        0.02460143701591393,
+        0.08188048383442299
+      ],
+      "holm": 0.021504252169187426
+    },
+    {
+      "cohort": "blca",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 380,
+      "auc_a": 0.5436082376387966,
+      "auc_b": 0.5179209768751384,
+      "difference": 0.025687260763658237,
+      "se": 0.012598587295956965,
+      "z": 2.0389000893696694,
+      "p": 0.04146000000033728,
+      "ci95": [
+        0.0009940296635825852,
+        0.05038049186373389
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "brca",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.5840030135610246,
+      "difference": 0.22308199397287798,
+      "se": 0.028298562029885396,
+      "z": 7.883156527080306,
+      "p": 3.1921278767865775e-15,
+      "ci95": [
+        0.1676168123943026,
+        0.27854717555145336
+      ],
+      "holm": 3.6390257795366983e-13
+    },
+    {
+      "cohort": "brca",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.7738024234053239,
+      "auc_b": 0.5840030135610246,
+      "difference": 0.18979940984429933,
+      "se": 0.022770661745304555,
+      "z": 8.335261046308286,
+      "p": 7.732739474146435e-17,
+      "ci95": [
+        0.14516891282350242,
+        0.23442990686509624
+      ],
+      "holm": 9.665924342683044e-15
+    },
+    {
+      "cohort": "brca",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.8085054620793571,
+      "auc_b": 0.5840030135610246,
+      "difference": 0.22450244851833256,
+      "se": 0.02819500581488925,
+      "z": 7.96248988179946,
+      "p": 1.6861140381523613e-15,
+      "ci95": [
+        0.16924023712114963,
+        0.27976465991551547
+      ],
+      "holm": 1.955892284256739e-13
+    },
+    {
+      "cohort": "brca",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.6381686338523355,
+      "difference": 0.1689163736815671,
+      "se": 0.026238521558355998,
+      "z": 6.437724522926616,
+      "p": 1.2127785012857885e-10,
+      "ci95": [
+        0.11748887142718933,
+        0.22034387593594484
+      ],
+      "holm": 1.2249062862986463e-08
+    },
+    {
+      "cohort": "brca",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.7643850452034153,
+      "auc_b": 0.6381686338523355,
+      "difference": 0.12621641135107986,
+      "se": 0.015397723449833084,
+      "z": 8.197082624733598,
+      "p": 2.462911663077445e-16,
+      "ci95": [
+        0.09603687338940702,
+        0.1563959493127527
+      ],
+      "holm": 3.0293813455852574e-14
+    },
+    {
+      "cohort": "brca",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.7970790431943747,
+      "auc_b": 0.6381686338523355,
+      "difference": 0.15891040934203926,
+      "se": 0.023694507965811063,
+      "z": 6.706634700806278,
+      "p": 1.9916400263011692e-11,
+      "ci95": [
+        0.11246917372904958,
+        0.20535164495502894
+      ],
+      "holm": 2.0912220276162275e-09
+    },
+    {
+      "cohort": "brca",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.5868674660974385,
+      "difference": 0.2202175414364641,
+      "se": 0.026618301420562925,
+      "z": 8.273162812197464,
+      "p": 1.304513675860137e-16,
+      "ci95": [
+        0.16804567065216078,
+        0.27238941222076746
+      ],
+      "holm": 1.6175969580665698e-14
+    },
+    {
+      "cohort": "brca",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.7021361752887996,
+      "auc_b": 0.5868674660974385,
+      "difference": 0.11526870919136112,
+      "se": 0.012252545282569438,
+      "z": 9.407735824110215,
+      "p": 5.069390309924963e-21,
+      "ci95": [
+        0.09125372043752503,
+        0.1392836979451972
+      ],
+      "holm": 6.8436769183987e-19
+    },
+    {
+      "cohort": "brca",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.8010186464088398,
+      "auc_b": 0.5868674660974385,
+      "difference": 0.21415118031140135,
+      "se": 0.026377367491803885,
+      "z": 8.118747269906427,
+      "p": 4.71020224983285e-16,
+      "ci95": [
+        0.16245154002746573,
+        0.26585082059533693
+      ],
+      "holm": 5.699344722297749e-14
+    },
+    {
+      "cohort": "brca",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.6415353465595178,
+      "difference": 0.16554966097438473,
+      "se": 0.026304509649063678,
+      "z": 6.293584757253878,
+      "p": 3.102169950113022e-10,
+      "ci95": [
+        0.11399282206221992,
+        0.21710649988654954
+      ],
+      "holm": 3.040126551110761e-08
+    },
+    {
+      "cohort": "brca",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.742034467604219,
+      "auc_b": 0.6415353465595178,
+      "difference": 0.10049912104470116,
+      "se": 0.011832956483751086,
+      "z": 8.493153945314146,
+      "p": 2.0110363575283334e-17,
+      "ci95": [
+        0.07730652633654903,
+        0.12369171575285329
+      ],
+      "holm": 2.5540161740609833e-15
+    },
+    {
+      "cohort": "brca",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.7920642893018583,
+      "auc_b": 0.6415353465595178,
+      "difference": 0.15052894274234052,
+      "se": 0.02310992412443043,
+      "z": 6.513606099779891,
+      "p": 7.336773928428327e-11,
+      "ci95": [
+        0.10523349145845687,
+        0.19582439402622417
+      ],
+      "holm": 7.483509406996893e-09
+    },
+    {
+      "cohort": "brca",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.5832810145655449,
+      "difference": 0.22380399296835762,
+      "se": 0.027919837681467365,
+      "z": 8.015948929277418,
+      "p": 1.0928991384680712e-15,
+      "ci95": [
+        0.1690811111126816,
+        0.27852687482403365
+      ],
+      "holm": 1.3005499747770048e-13
+    },
+    {
+      "cohort": "brca",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.7382832119537921,
+      "auc_b": 0.5832810145655449,
+      "difference": 0.15500219738824716,
+      "se": 0.016906656534376535,
+      "z": 9.168116538777438,
+      "p": 4.813554617589265e-20,
+      "ci95": [
+        0.12186515058086916,
+        0.18813924419562517
+      ],
+      "holm": 6.402027641393722e-18
+    },
+    {
+      "cohort": "brca",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.8076735936715218,
+      "auc_b": 0.5832810145655449,
+      "difference": 0.22439257910597687,
+      "se": 0.02652488705183368,
+      "z": 8.459699702678451,
+      "p": 2.6806691873466022e-17,
+      "ci95": [
+        0.17240380048438286,
+        0.2763813577275709
+      ],
+      "holm": 3.3776431760567186e-15
+    },
+    {
+      "cohort": "brca",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.6832935710698141,
+      "difference": 0.12379143646408841,
+      "se": 0.025604001588815022,
+      "z": 4.8348472419313575,
+      "p": 1.3324791849876847e-06,
+      "ci95": [
+        0.07360759335001096,
+        0.17397527957816586
+      ],
+      "holm": 0.00011592568909392856
+    },
+    {
+      "cohort": "brca",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.76098694123556,
+      "auc_b": 0.6832935710698141,
+      "difference": 0.07769337016574585,
+      "se": 0.011064363407502715,
+      "z": 7.021946704413395,
+      "p": 2.1879800239635764e-12,
+      "ci95": [
+        0.05600721788704052,
+        0.09937952244445117
+      ],
+      "holm": 2.341138625641027e-10
+    },
+    {
+      "cohort": "brca",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.8214543571069814,
+      "auc_b": 0.6832935710698141,
+      "difference": 0.1381607860371673,
+      "se": 0.02234241109752966,
+      "z": 6.1837903453689185,
+      "p": 6.258046954709889e-10,
+      "ci95": [
+        0.09436966028600917,
+        0.18195191178832543
+      ],
+      "holm": 6.007725076521493e-08
+    },
+    {
+      "cohort": "brca",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.5802988448016072,
+      "difference": 0.22678616273229535,
+      "se": 0.028313357848332103,
+      "z": 8.009864599851937,
+      "p": 1.1483480256280646e-15,
+      "ci95": [
+        0.17129198134956442,
+        0.2822803441150263
+      ],
+      "holm": 1.3550506702411163e-13
+    },
+    {
+      "cohort": "brca",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.7126836388749372,
+      "auc_b": 0.5802988448016072,
+      "difference": 0.13238479407333004,
+      "se": 0.012652266947530195,
+      "z": 10.463326028634924,
+      "p": 1.2730677658518364e-25,
+      "ci95": [
+        0.10758635085617085,
+        0.15718323729048922
+      ],
+      "holm": 1.7695641945340526e-23
+    },
+    {
+      "cohort": "brca",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.5802988448016072,
+      "difference": 0.22678616273229535,
+      "se": 0.028313357848332103,
+      "z": 8.009864599851937,
+      "p": 1.1483480256280646e-15,
+      "ci95": [
+        0.17129198134956442,
+        0.2822803441150263
+      ],
+      "holm": 1.3550506702411163e-13
+    },
+    {
+      "cohort": "brca",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.6846276996484179,
+      "difference": 0.1224573078854847,
+      "se": 0.025948492829314822,
+      "z": 4.719245494949936,
+      "p": 2.3672100346430646e-06,
+      "ci95": [
+        0.07159826194002765,
+        0.17331635383094174
+      ],
+      "holm": 0.00020358006297930355
+    },
+    {
+      "cohort": "brca",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.7641103716725264,
+      "auc_b": 0.6846276996484179,
+      "difference": 0.07948267202410852,
+      "se": 0.010969547928087995,
+      "z": 7.245756392621227,
+      "p": 4.300324402840416e-13,
+      "ci95": [
+        0.05798235808505606,
+        0.10098298596316099
+      ],
+      "holm": 4.687353599096053e-11
+    },
+    {
+      "cohort": "brca",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.8005477774987444,
+      "auc_b": 0.6846276996484179,
+      "difference": 0.11592007785032654,
+      "se": 0.019649353764859115,
+      "z": 5.89943461945491,
+      "p": 3.6474927208882744e-09,
+      "ci95": [
+        0.07740734447120268,
+        0.1544328112294504
+      ],
+      "holm": 3.392168230426095e-07
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.5421270718232044,
+      "difference": 0.26495793571069814,
+      "se": 0.028901661736146778,
+      "z": 9.167567530531302,
+      "p": 4.8381265773757484e-20,
+      "ci95": [
+        0.20831067870785047,
+        0.3216051927135458
+      ],
+      "holm": 6.402027641393722e-18
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.6799268583626319,
+      "auc_b": 0.5421270718232044,
+      "difference": 0.13779978653942748,
+      "se": 0.012020561460986595,
+      "z": 11.46367305609346,
+      "p": 2.0081390829745527e-30,
+      "ci95": [
+        0.11423948607589376,
+        0.1613600870029612
+      ],
+      "holm": 2.8716388886536105e-28
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.7552423405323958,
+      "auc_b": 0.5421270718232044,
+      "difference": 0.2131152687091914,
+      "se": 0.024497422336749806,
+      "z": 8.699497676924423,
+      "p": 3.3335647913713815e-18,
+      "ci95": [
+        0.16510032092916177,
+        0.261130216489221
+      ],
+      "holm": 4.2669629329553683e-16
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.5426136363636364,
+      "difference": 0.2644713711702662,
+      "se": 0.03290739827416601,
+      "z": 8.036836244750766,
+      "p": 9.218773862722695e-16,
+      "ci95": [
+        0.19997287055290083,
+        0.3289698717876316
+      ],
+      "holm": 1.1062528635267234e-13
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.7222030386740331,
+      "auc_b": 0.5426136363636364,
+      "difference": 0.17958940231039677,
+      "se": 0.01802313872858087,
+      "z": 9.96437995706076,
+      "p": 2.1823129385768306e-23,
+      "ci95": [
+        0.14426405040237827,
+        0.21491475421841527
+      ],
+      "holm": 2.9679455964644894e-21
+    },
+    {
+      "cohort": "brca",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.7807634354595681,
+      "auc_b": 0.5426136363636364,
+      "difference": 0.2381497990959317,
+      "se": 0.029912780821191382,
+      "z": 7.9614730746536635,
+      "p": 1.700030614448096e-15,
+      "ci95": [
+        0.1795207486863966,
+        0.2967788495054668
+      ],
+      "holm": 1.955892284256739e-13
+    },
+    {
+      "cohort": "brca",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.6301206993972878,
+      "difference": 0.1769643081366148,
+      "se": 0.0248700171274293,
+      "z": 7.115568406321672,
+      "p": 1.1145255047829014e-12,
+      "ci95": [
+        0.12821907456685336,
+        0.22570954170637622
+      ],
+      "holm": 1.2036875451655334e-10
+    },
+    {
+      "cohort": "brca",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.7194249121044701,
+      "auc_b": 0.6301206993972878,
+      "difference": 0.08930421270718236,
+      "se": 0.010110732734302349,
+      "z": 8.832615306327197,
+      "p": 1.022562236878881e-18,
+      "ci95": [
+        0.06948717654794975,
+        0.10912124886641497
+      ],
+      "holm": 1.3293309079425453e-16
+    },
+    {
+      "cohort": "brca",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.8062374434957308,
+      "auc_b": 0.6301206993972878,
+      "difference": 0.17611674409844302,
+      "se": 0.02326952438677163,
+      "z": 7.568557963245812,
+      "p": 3.7738992816793514e-14,
+      "ci95": [
+        0.13050847630037063,
+        0.22172501189651542
+      ],
+      "holm": 4.264506188297667e-12
+    },
+    {
+      "cohort": "brca",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 900,
+      "auc_a": 0.8070850075339026,
+      "auc_b": 0.749207370668006,
+      "difference": 0.05787763686589653,
+      "se": 0.022775426379526145,
+      "z": 2.5412317601186754,
+      "p": 0.011046267073682873,
+      "ci95": [
+        0.01323780116202529,
+        0.10251747256976777
+      ],
+      "holm": 0.6296372231999238
+    },
+    {
+      "cohort": "brca",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 900,
+      "auc_a": 0.800689038171773,
+      "auc_b": 0.749207370668006,
+      "difference": 0.051481667503766926,
+      "se": 0.009704830060479067,
+      "z": 5.304746933531116,
+      "p": 1.1282941391308327e-07,
+      "ci95": [
+        0.03246020058522796,
+        0.0705031344223059
+      ],
+      "holm": 1.0154647252177493e-05
+    },
+    {
+      "cohort": "brca",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 900,
+      "auc_a": 0.8167927548970366,
+      "auc_b": 0.749207370668006,
+      "difference": 0.0675853842290306,
+      "se": 0.01687653608445312,
+      "z": 4.004695269859975,
+      "p": 6.20974780813381e-05,
+      "ci95": [
+        0.034507373503502484,
+        0.10066339495455871
+      ],
+      "holm": 0.005029895724588385
+    },
+    {
+      "cohort": "crc",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.5551791473120506,
+      "difference": 0.0706085978875115,
+      "se": 0.049668258725137145,
+      "z": 1.4216040525651936,
+      "p": 0.1551412276557285,
+      "ci95": [
+        -0.026741189213757302,
+        0.1679583849887803
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.6207875972661913,
+      "auc_b": 0.5551791473120506,
+      "difference": 0.06560844995414061,
+      "se": 0.04076297990304369,
+      "z": 1.6095106420137297,
+      "p": 0.10750472990036693,
+      "ci95": [
+        -0.014286990655825019,
+        0.14550389056410623
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.6368827480102962,
+      "auc_b": 0.5551791473120506,
+      "difference": 0.08170360069824556,
+      "se": 0.04453689375147286,
+      "z": 1.8345150237502494,
+      "p": 0.06657757973391586,
+      "ci95": [
+        -0.005588711054641232,
+        0.16899591245113235
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.6637474481493535,
+      "difference": -0.03795970294979134,
+      "se": 0.045091330753207044,
+      "z": -0.841840378531998,
+      "p": 0.3998773068287276,
+      "ci95": [
+        -0.12633871122607715,
+        0.05041930532649447
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.670374863161632,
+      "auc_b": 0.6637474481493535,
+      "difference": 0.006627415012278481,
+      "se": 0.03126372808319172,
+      "z": 0.21198415603677062,
+      "p": 0.8321193950817852,
+      "ci95": [
+        -0.05464949203077729,
+        0.06790432205533425
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.6676824758128939,
+      "auc_b": 0.6637474481493535,
+      "difference": 0.003935027663540369,
+      "se": 0.024709686046257413,
+      "z": 0.1592504112020629,
+      "p": 0.8734715881959285,
+      "ci95": [
+        -0.044495956987124156,
+        0.052366012314204895
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.5206367052279653,
+      "difference": 0.1051510399715968,
+      "se": 0.04951808157582912,
+      "z": 2.123487756902993,
+      "p": 0.033713000358009976,
+      "ci95": [
+        0.008095600082971735,
+        0.2022064798602219
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.5865262285866446,
+      "auc_b": 0.5206367052279653,
+      "difference": 0.06588952335867926,
+      "se": 0.02384388411678757,
+      "z": 2.763372067904363,
+      "p": 0.005720751348456715,
+      "ci95": [
+        0.019155510489775623,
+        0.1126235362275829
+      ],
+      "holm": 0.36040733495277305
+    },
+    {
+      "cohort": "crc",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.5946329773070209,
+      "auc_b": 0.5206367052279653,
+      "difference": 0.07399627207905557,
+      "se": 0.039516471863337954,
+      "z": 1.872542476336477,
+      "p": 0.06113159111805241,
+      "ci95": [
+        -0.003456012773086825,
+        0.15144855693119796
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.6341016006390722,
+      "difference": -0.00831385543951002,
+      "se": 0.043048527418279275,
+      "z": -0.19312752231287217,
+      "p": 0.8468590987031162,
+      "ci95": [
+        -0.0926889691793374,
+        0.07606125830031736
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.6632444746886003,
+      "auc_b": 0.6341016006390722,
+      "difference": 0.02914287404952809,
+      "se": 0.020646841400705468,
+      "z": 1.4114930939767052,
+      "p": 0.15809927050274242,
+      "ci95": [
+        -0.011324935095854624,
+        0.0696106831949108
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.6382437350217463,
+      "auc_b": 0.6341016006390722,
+      "difference": 0.004142134382674079,
+      "se": 0.01987390341993651,
+      "z": 0.20842077649018337,
+      "p": 0.8349004352213371,
+      "ci95": [
+        -0.03481071632040148,
+        0.04309498508574964
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.6011716322968135,
+      "difference": 0.024616112902748677,
+      "se": 0.04812571802663492,
+      "z": 0.5114960131945464,
+      "p": 0.6090037793655245,
+      "ci95": [
+        -0.06971029442945577,
+        0.11894252023495312
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.6538654989792597,
+      "auc_b": 0.6011716322968135,
+      "difference": 0.052693866682446244,
+      "se": 0.0371309308487116,
+      "z": 1.4191367002660171,
+      "p": 0.1558591660857904,
+      "ci95": [
+        -0.020082757781028485,
+        0.12547049114592096
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.6088345809047605,
+      "auc_b": 0.6011716322968135,
+      "difference": 0.007662948607947029,
+      "se": 0.045127616220129355,
+      "z": 0.16980619074953354,
+      "p": 0.8651625581249034,
+      "ci95": [
+        -0.0807871791835065,
+        0.09611307639940056
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.6729193171395603,
+      "difference": -0.047131571939998174,
+      "se": 0.043324877714207795,
+      "z": -1.0878639346866992,
+      "p": 0.27665517964440955,
+      "ci95": [
+        -0.13204833225984547,
+        0.03778518837984911
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.6876830675463771,
+      "auc_b": 0.6729193171395603,
+      "difference": 0.014763750406816767,
+      "se": 0.022828257092897642,
+      "z": 0.6467313885040346,
+      "p": 0.5178058046471268,
+      "ci95": [
+        -0.029979633495262614,
+        0.05950713430889615
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.6738956773869049,
+      "auc_b": 0.6729193171395603,
+      "difference": 0.0009763602473445987,
+      "se": 0.03075487830690626,
+      "z": 0.031746516360799545,
+      "p": 0.974674198872607,
+      "ci95": [
+        -0.05930320123419167,
+        0.06125592172888087
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.5933607503180568,
+      "difference": 0.032426994881505355,
+      "se": 0.05175196768052259,
+      "z": 0.6265847722290491,
+      "p": 0.5309314526939843,
+      "ci95": [
+        -0.06900686177231892,
+        0.13386085153532962
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.6442794165507856,
+      "auc_b": 0.5933607503180568,
+      "difference": 0.05091866623272878,
+      "se": 0.029331096326288764,
+      "z": 1.7359960114103063,
+      "p": 0.08256453981619638,
+      "ci95": [
+        -0.006570282566797196,
+        0.10840761503225477
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.6340720139649102,
+      "auc_b": 0.5933607503180568,
+      "difference": 0.0407112636468534,
+      "se": 0.04739512029367115,
+      "z": 0.8589758480323919,
+      "p": 0.3903538410376509,
+      "ci95": [
+        -0.052183172128742045,
+        0.13360569942244885
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.6942808958844936,
+      "difference": -0.06849315068493145,
+      "se": 0.04297591324161184,
+      "z": -1.59375672367591,
+      "p": 0.1109905339117566,
+      "ci95": [
+        -0.15272594063849065,
+        0.01573963926862776
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.7040740850321016,
+      "auc_b": 0.6942808958844936,
+      "difference": 0.009793189147607961,
+      "se": 0.02351970342217229,
+      "z": 0.416382340024569,
+      "p": 0.6771302489971747,
+      "ci95": [
+        -0.03630542955984972,
+        0.055891807855065645
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.6763217846681855,
+      "auc_b": 0.6942808958844936,
+      "difference": -0.01795911121630811,
+      "se": 0.02794804982817708,
+      "z": -0.6425890653093735,
+      "p": 0.5204907801763283,
+      "ci95": [
+        -0.07273728887953519,
+        0.03681906644691897
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.5106807893724666,
+      "difference": 0.11510695582709551,
+      "se": 0.05067336115270128,
+      "z": 2.271547677293939,
+      "p": 0.023113844194691247,
+      "ci95": [
+        0.015787167967800997,
+        0.21442674368639003
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.5892777892837067,
+      "auc_b": 0.5106807893724666,
+      "difference": 0.07859699991124003,
+      "se": 0.027794665264101414,
+      "z": 2.827772853690491,
+      "p": 0.0046873051965283,
+      "ci95": [
+        0.024119455993601255,
+        0.1330745438288788
+      ],
+      "holm": 0.3120697461464395
+    },
+    {
+      "cohort": "crc",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.5985680049705613,
+      "auc_b": 0.5106807893724666,
+      "difference": 0.08788721559809465,
+      "se": 0.03381556522528982,
+      "z": 2.5990166070731826,
+      "p": 0.00934912501646688,
+      "ci95": [
+        0.021608707756526596,
+        0.1541657234396627
+      ],
+      "holm": 0.5515983759715459
+    },
+    {
+      "cohort": "crc",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.6420900026628007,
+      "difference": -0.016302257463238545,
+      "se": 0.04384127269511575,
+      "z": -0.37184726767876747,
+      "p": 0.7100065685106816,
+      "ci95": [
+        -0.10223115194566541,
+        0.06962663701918832
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.6712920500606527,
+      "auc_b": 0.6420900026628007,
+      "difference": 0.029202047397852038,
+      "se": 0.02506884797817974,
+      "z": 1.1648739273248572,
+      "p": 0.2440700286772497,
+      "ci95": [
+        -0.01993289463938025,
+        0.07833698943508433
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.6428296695168496,
+      "auc_b": 0.6420900026628007,
+      "difference": 0.0007396668540489149,
+      "se": 0.026222454650500927,
+      "z": 0.028207384240238737,
+      "p": 0.9774967477968878,
+      "ci95": [
+        -0.0506563442609329,
+        0.05213567796903073
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.6412911624604278,
+      "difference": -0.015503417260865682,
+      "se": 0.04522726143469746,
+      "z": -0.34278921095522635,
+      "p": 0.7317570431584963,
+      "ci95": [
+        -0.1041488496728727,
+        0.07314201515114134
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.6593686203733838,
+      "auc_b": 0.6412911624604278,
+      "difference": 0.018077457912956008,
+      "se": 0.01997129417996042,
+      "z": 0.9051720809908893,
+      "p": 0.3653742301713201,
+      "ci95": [
+        -0.02106627867976641,
+        0.057221194505678426
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.62726707890766,
+      "auc_b": 0.6412911624604278,
+      "difference": -0.014024083552767852,
+      "se": 0.044153592533794556,
+      "z": -0.3176204414631496,
+      "p": 0.7507728664517972,
+      "ci95": [
+        -0.10056512491900518,
+        0.07251695781346948
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 536,
+      "auc_a": 0.6257877451995622,
+      "auc_b": 0.6650196751383177,
+      "difference": -0.03923192993875557,
+      "se": 0.04559530958149752,
+      "z": -0.8604378454461862,
+      "p": 0.3895477315578415,
+      "ci95": [
+        -0.1285987367184907,
+        0.05013487684097956
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 536,
+      "auc_a": 0.6802568123317257,
+      "auc_b": 0.6650196751383177,
+      "difference": 0.015237137193408024,
+      "se": 0.023766611288671906,
+      "z": 0.6411152607469386,
+      "p": 0.5214477998688295,
+      "ci95": [
+        -0.03134542093238891,
+        0.061819695319204955
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "crc",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 536,
+      "auc_a": 0.6559661528447587,
+      "auc_b": 0.6650196751383177,
+      "difference": -0.009053522293559046,
+      "se": 0.036618538436070235,
+      "z": -0.24723876703503508,
+      "p": 0.8047234446189494,
+      "ci95": [
+        -0.08082585762825671,
+        0.06271881304113862
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.6532583906477275,
+      "difference": 0.12744895577064663,
+      "se": 0.022112333112951233,
+      "z": 5.763704586016731,
+      "p": 8.228739638873279e-09,
+      "ci95": [
+        0.08410878286926221,
+        0.17078912867203105
+      ],
+      "holm": 7.570440467763416e-07
+    },
+    {
+      "cohort": "nsclc",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.7828891841902059,
+      "auc_b": 0.6532583906477275,
+      "difference": 0.12963079354247842,
+      "se": 0.014325198104364379,
+      "z": 9.049144912207847,
+      "p": 1.4409224702797778e-19,
+      "ci95": [
+        0.10155340525792424,
+        0.1577081818270326
+      ],
+      "holm": 1.8876084360665088e-17
+    },
+    {
+      "cohort": "nsclc",
+      "method": "dyko",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.7718587821215005,
+      "auc_b": 0.6532583906477275,
+      "difference": 0.11860039147377299,
+      "se": 0.01980665866889414,
+      "z": 5.987905050337033,
+      "p": 2.125610844560945e-09,
+      "ci95": [
+        0.07977934048274049,
+        0.1574214424648055
+      ],
+      "holm": 1.9980741938872883e-07
+    },
+    {
+      "cohort": "nsclc",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.6574559592005316,
+      "difference": 0.12325138721784257,
+      "se": 0.021777914965527025,
+      "z": 5.659466822831351,
+      "p": 1.51843999371115e-08,
+      "ci95": [
+        0.0805666738854096,
+        0.16593610055027552
+      ],
+      "holm": 1.3817803942771465e-06
+    },
+    {
+      "cohort": "nsclc",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.7948174618851797,
+      "auc_b": 0.6574559592005316,
+      "difference": 0.13736150268464808,
+      "se": 0.014928774623575855,
+      "z": 9.201123745797846,
+      "p": 3.5422565204000467e-20,
+      "ci95": [
+        0.1081011044224394,
+        0.16662190094685675
+      ],
+      "holm": 4.7466237373360625e-18
+    },
+    {
+      "cohort": "nsclc",
+      "method": "dyko",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.7974302799576203,
+      "auc_b": 0.6574559592005316,
+      "difference": 0.1399743207570887,
+      "se": 0.020301392414064746,
+      "z": 6.8948138089343525,
+      "p": 5.39353983981027e-12,
+      "ci95": [
+        0.10018359162552182,
+        0.1797650498886556
+      ],
+      "holm": 5.717152230198886e-10
+    },
+    {
+      "cohort": "nsclc",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.6434221631619588,
+      "difference": 0.13728518325641537,
+      "se": 0.021454354089583946,
+      "z": 6.398942735967386,
+      "p": 1.5645650123768361e-10,
+      "ci95": [
+        0.09523464924083083,
+        0.1793357172719999
+      ],
+      "holm": 1.5645650123768362e-08
+    },
+    {
+      "cohort": "nsclc",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.7504668953256595,
+      "auc_b": 0.6434221631619588,
+      "difference": 0.1070447321637007,
+      "se": 0.010095471356104705,
+      "z": 10.60324262115518,
+      "p": 2.878240740785625e-26,
+      "ci95": [
+        0.08725760830573548,
+        0.1268318560216659
+      ],
+      "holm": 4.029537037099875e-24
+    },
+    {
+      "cohort": "nsclc",
+      "method": "focus",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.775876775549051,
+      "auc_b": 0.6434221631619588,
+      "difference": 0.13245461238709222,
+      "se": 0.02085862166041499,
+      "z": 6.350113374867023,
+      "p": 2.151562993160597e-10,
+      "ci95": [
+        0.09157171393267884,
+        0.17333751084150562
+      ],
+      "holm": 2.130047363228991e-08
+    },
+    {
+      "cohort": "nsclc",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.7447519169644621,
+      "difference": 0.03595542945391206,
+      "se": 0.019246205715214345,
+      "z": 1.8681827465602159,
+      "p": 0.061736602840168214,
+      "ci95": [
+        -0.001767133747908059,
+        0.07367799265573217
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.8042002621796829,
+      "auc_b": 0.7447519169644621,
+      "difference": 0.0594483452152208,
+      "se": 0.007928029134353918,
+      "z": 7.4985023651865585,
+      "p": 6.455108816535425e-14,
+      "ci95": [
+        0.04390940811188712,
+        0.07498728231855448
+      ],
+      "holm": 7.165170786354322e-12
+    },
+    {
+      "cohort": "nsclc",
+      "method": "focus",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.8137850844900965,
+      "auc_b": 0.7447519169644621,
+      "difference": 0.06903316752563438,
+      "se": 0.01579434481644782,
+      "z": 4.370752210863792,
+      "p": 1.2381924246012473e-05,
+      "ci95": [
+        0.03807625168539665,
+        0.0999900833658721
+      ],
+      "holm": 0.0010400816366650477
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.6796043062115036,
+      "difference": 0.10110304020687055,
+      "se": 0.02179312492224302,
+      "z": 4.639217210363455,
+      "p": 3.4973132826699404e-06,
+      "ci95": [
+        0.05838851535927424,
+        0.14381756505446686
+      ],
+      "holm": 0.00029727162902694495
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.8059556090290373,
+      "auc_b": 0.6796043062115036,
+      "difference": 0.1263513028175337,
+      "se": 0.015467054839381768,
+      "z": 8.169060246416251,
+      "p": 3.108009313758028e-16,
+      "ci95": [
+        0.09603587533234545,
+        0.15666673030272196
+      ],
+      "holm": 3.791771362784794e-14
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mgpath",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.7964964893063012,
+      "auc_b": 0.6796043062115036,
+      "difference": 0.11689218309479765,
+      "se": 0.019142463906211337,
+      "z": 6.106433511773191,
+      "p": 1.0188204898118705e-09,
+      "ci95": [
+        0.07937295383862343,
+        0.1544114123509719
+      ],
+      "holm": 9.678794653212769e-08
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.7553378705981647,
+      "difference": 0.02536947582020943,
+      "se": 0.019988718684832877,
+      "z": 1.269189697459667,
+      "p": 0.2043734146708437,
+      "ci95": [
+        -0.013808412802063005,
+        0.06454736444248187
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.8118322050029629,
+      "auc_b": 0.7553378705981647,
+      "difference": 0.05649433440479823,
+      "se": 0.007793351524692097,
+      "z": 7.249042241429016,
+      "p": 4.197289827709932e-13,
+      "ci95": [
+        0.04121936541640172,
+        0.07176930339319473
+      ],
+      "holm": 4.617018810480925e-11
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mgpath",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.8157065383303105,
+      "auc_b": 0.7553378705981647,
+      "difference": 0.060368667732145775,
+      "se": 0.014754325082840117,
+      "z": 4.091591271928595,
+      "p": 4.284232636183342e-05,
+      "ci95": [
+        0.03145019056977914,
+        0.08928714489451241
+      ],
+      "holm": 0.0035130707616703406
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.6290381956291414,
+      "difference": 0.1516691507892327,
+      "se": 0.023074086949499,
+      "z": 6.573137698630621,
+      "p": 4.926585751045487e-11,
+      "ci95": [
+        0.10644394036821467,
+        0.19689436121025075
+      ],
+      "holm": 5.123649181087307e-09
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.7602537396519834,
+      "auc_b": 0.6290381956291414,
+      "difference": 0.13121554402284197,
+      "se": 0.01213256584564335,
+      "z": 10.815152020787078,
+      "p": 2.9180847802734423e-27,
+      "ci95": [
+        0.107435714965381,
+        0.15499537308030292
+      ],
+      "holm": 4.1144995401855535e-25
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mscpt",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.7913965557490976,
+      "auc_b": 0.6290381956291414,
+      "difference": 0.1623583601199562,
+      "se": 0.02148693124967997,
+      "z": 7.556144627324313,
+      "p": 4.1519216978727866e-14,
+      "ci95": [
+        0.12024397487058346,
+        0.2044727453693289
+      ],
+      "holm": 4.650152301617521e-12
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.8165011582595579,
+      "difference": -0.0357938118411838,
+      "se": 0.018883414031332573,
+      "z": -1.8955159158080424,
+      "p": 0.05802408519907406,
+      "ci95": [
+        -0.07280530334259563,
+        0.0012176796602280451
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.8632221164724262,
+      "auc_b": 0.8165011582595579,
+      "difference": 0.04672095821286826,
+      "se": 0.007516485170201651,
+      "z": 6.215798628604869,
+      "p": 5.106425691975856e-10,
+      "ci95": [
+        0.03198864727927302,
+        0.06145326914646349
+      ],
+      "holm": 4.95323292121658e-08
+    },
+    {
+      "cohort": "nsclc",
+      "method": "mscpt",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.8362095282561459,
+      "auc_b": 0.8165011582595579,
+      "difference": 0.019708369996587982,
+      "se": 0.008727797804152271,
+      "z": 2.258114869161116,
+      "p": 0.02393849885667298,
+      "ci95": [
+        0.002601886300449531,
+        0.03681485369272643
+      ],
+      "holm": 1.0
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.5375132436654875,
+      "difference": 0.24319410275288667,
+      "se": 0.023333416219760494,
+      "z": 10.422567379864915,
+      "p": 1.9560056001957588e-25,
+      "ci95": [
+        0.1974606069621561,
+        0.2889275985436172
+      ],
+      "holm": 2.699287728270147e-23
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.6777703952448507,
+      "auc_b": 0.5375132436654875,
+      "difference": 0.14025715157936325,
+      "se": 0.010646899973986533,
+      "z": 13.173520172261615,
+      "p": 1.2464756380049808e-39,
+      "ci95": [
+        0.11938922763034965,
+        0.16112507552837685
+      ],
+      "holm": 1.7949249187271723e-37
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.7649675866898917,
+      "auc_b": 0.5375132436654875,
+      "difference": 0.22745434302440426,
+      "se": 0.020312047424049975,
+      "z": 11.19800177086494,
+      "p": 4.1703395168071295e-29,
+      "ci95": [
+        0.18764273007326632,
+        0.2672659559755422
+      ],
+      "holm": 5.921882113866124e-27
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.7298426921902778,
+      "difference": 0.050864654228096384,
+      "se": 0.020984923490948434,
+      "z": 2.423866555912685,
+      "p": 0.015356247070988097,
+      "ci95": [
+        0.009734204185837453,
+        0.09199510427035532
+      ],
+      "holm": 0.8599498359753335
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.8013495070662812,
+      "auc_b": 0.7298426921902778,
+      "difference": 0.07150681487600341,
+      "se": 0.00818428122859284,
+      "z": 8.737091612417366,
+      "p": 2.391885097577268e-18,
+      "ci95": [
+        0.05546562366796144,
+        0.08754800608404538
+      ],
+      "holm": 3.0855317758746754e-16
+    },
+    {
+      "cohort": "nsclc",
+      "method": "muse",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.8141981072781799,
+      "auc_b": 0.7298426921902778,
+      "difference": 0.08435541508790212,
+      "se": 0.016993594041050705,
+      "z": 4.963953763054968,
+      "p": 6.907239396301555e-07,
+      "ci95": [
+        0.05104797076744274,
+        0.11766285940836149
+      ],
+      "holm": 6.0783706687453683e-05
+    },
+    {
+      "cohort": "nsclc",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.6680688491030222,
+      "difference": 0.11263849731535192,
+      "se": 0.021387089653503,
+      "z": 5.266658490717217,
+      "p": 1.389293074425604e-07,
+      "ci95": [
+        0.07071980159448604,
+        0.1545571930362178
+      ],
+      "holm": 1.2364708362387877e-05
+    },
+    {
+      "cohort": "nsclc",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.7601729308456192,
+      "auc_b": 0.6680688491030222,
+      "difference": 0.09210408174259699,
+      "se": 0.009002281005530716,
+      "z": 10.231193814768853,
+      "p": 1.437364293596778e-24,
+      "ci95": [
+        0.07445961097175678,
+        0.1097485525134372
+      ],
+      "holm": 1.9691890822275859e-22
+    },
+    {
+      "cohort": "nsclc",
+      "method": "vila_mil",
+      "encoder": "clip-rn50",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.7880429902849857,
+      "auc_b": 0.6680688491030222,
+      "difference": 0.11997414118196348,
+      "se": 0.018380766498763544,
+      "z": 6.5271565900167445,
+      "p": 6.70299604456895e-11,
+      "ci95": [
+        0.08394783884438693,
+        0.15600044351954
+      ],
+      "holm": 6.904085925906019e-09
+    },
+    {
+      "cohort": "nsclc",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-LR",
+      "patients": 944,
+      "auc_a": 0.7807073464183741,
+      "auc_b": 0.8348627148167436,
+      "difference": -0.05415536839836943,
+      "se": 0.01756157718627545,
+      "z": -3.083741729113738,
+      "p": 0.0020441496904532114,
+      "ci95": [
+        -0.08857605968346931,
+        -0.019734677113269553
+      ],
+      "holm": 0.14922292740308443
+    },
+    {
+      "cohort": "nsclc",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-Fusion50",
+      "patients": 944,
+      "auc_a": 0.8634331172445993,
+      "auc_b": 0.8348627148167436,
+      "difference": 0.02857040242785569,
+      "se": 0.006617017715024623,
+      "z": 4.3177158741745,
+      "p": 1.5765218941415408e-05,
+      "ci95": [
+        0.015601047706407429,
+        0.041539757149303955
+      ],
+      "holm": 0.0013085131721374788
+    },
+    {
+      "cohort": "nsclc",
+      "method": "vila_mil",
+      "encoder": "plip",
+      "variant": "PathoTME-FusionVal",
+      "patients": 944,
+      "auc_a": 0.8310018496237901,
+      "auc_b": 0.8348627148167436,
+      "difference": -0.0038608651929534776,
+      "se": 0.009389271478117961,
+      "z": -0.41119965504793043,
+      "p": 0.6809261411979237,
+      "ci95": [
+        -0.022263837290064682,
+        0.014542106904157727
+      ],
+      "holm": 1.0
+    }
+  ]
+}
